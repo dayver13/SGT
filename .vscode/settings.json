@@ -1,5 +1,6 @@
 {
     "dataworkspace.excludedProjects": [
         "SGT/SGT.sqlproj"
-    ]
+    ],
+    "dotnet.defaultSolution": "SGT.sln"
 }
