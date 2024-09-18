@@ -5,6 +5,930 @@
       "PackagePath": "staticwebassets/SGT.bundle.scp.css"
     },
     {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/gijgo-material.eot",
+      "PackagePath": "staticwebassets/Content/Fonts/gijgo-material.eot"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/gijgo-material.svg",
+      "PackagePath": "staticwebassets/Content/Fonts/gijgo-material.svg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/gijgo-material.ttf",
+      "PackagePath": "staticwebassets/Content/Fonts/gijgo-material.ttf"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/gijgo-material.woff",
+      "PackagePath": "staticwebassets/Content/Fonts/gijgo-material.woff"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets/Content/Fonts/glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets/Content/Fonts/glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets/Content/Fonts/glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets/Content/Fonts/glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Fonts/glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets/Content/Fonts/glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/0cdb1c26a4b1de81b53bb11c034f9ffb.png",
+      "PackagePath": "staticwebassets/Content/Images/0cdb1c26a4b1de81b53bb11c034f9ffb.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/Actions-view-refresh-icon.png",
+      "PackagePath": "staticwebassets/Content/Images/Actions-view-refresh-icon.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/Circle_file.487.png",
+      "PackagePath": "staticwebassets/Content/Images/Circle_file.487.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/EncabezadoCauciones.png",
+      "PackagePath": "staticwebassets/Content/Images/EncabezadoCauciones.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/EncabezadoReportes_nuevo.png",
+      "PackagePath": "staticwebassets/Content/Images/EncabezadoReportes_nuevo.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/EncabezadoUsuarios_nuevo.png",
+      "PackagePath": "staticwebassets/Content/Images/EncabezadoUsuarios_nuevo.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/Info.png",
+      "PackagePath": "staticwebassets/Content/Images/Info.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ManualInicio.mp4",
+      "PackagePath": "staticwebassets/Content/Images/ManualInicio.mp4"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/actividad_exprimidor_jugo_unidad_4.png",
+      "PackagePath": "staticwebassets/Content/Images/actividad_exprimidor_jugo_unidad_4.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/add.png",
+      "PackagePath": "staticwebassets/Content/Images/add.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/aprobacion.png",
+      "PackagePath": "staticwebassets/Content/Images/aprobacion.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/aprobacion_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/aprobacion_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/back.png",
+      "PackagePath": "staticwebassets/Content/Images/back.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/banner.png",
+      "PackagePath": "staticwebassets/Content/Images/banner.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/calendar.gif",
+      "PackagePath": "staticwebassets/Content/Images/calendar.gif"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/candado.jpeg",
+      "PackagePath": "staticwebassets/Content/Images/candado.jpeg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/carpres_add.png",
+      "PackagePath": "staticwebassets/Content/Images/carpres_add.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/carta_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/carta_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/cf.ico",
+      "PackagePath": "staticwebassets/Content/Images/cf.ico"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/checkMark.png",
+      "PackagePath": "staticwebassets/Content/Images/checkMark.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/check_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/check_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/circunvalacion_norte.jpg",
+      "PackagePath": "staticwebassets/Content/Images/circunvalacion_norte.jpg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/dependencia_review.png",
+      "PackagePath": "staticwebassets/Content/Images/dependencia_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/edit.png",
+      "PackagePath": "staticwebassets/Content/Images/edit.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/edit_page.png",
+      "PackagePath": "staticwebassets/Content/Images/edit_page.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/email.png",
+      "PackagePath": "staticwebassets/Content/Images/email.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/email2.png",
+      "PackagePath": "staticwebassets/Content/Images/email2.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-carrera.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-carrera.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-cauciones.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-cauciones.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-desarraigo.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-desarraigo.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-extras.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-extras.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-general.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-general.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-pago-feriados.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-pago-feriados.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado-planilla.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado-planilla.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_cauciones.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_cauciones.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_error.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_error.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_jornadas.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_jornadas.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_usuarios.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_usuarios.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_vacaciones.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_vacaciones.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_vacantes.jpg",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_vacantes.jpg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezado_vacantes.png",
+      "PackagePath": "staticwebassets/Content/Images/encabezado_vacantes.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/encabezadodiseno.jpg",
+      "PackagePath": "staticwebassets/Content/Images/encabezadodiseno.jpg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/equipo-mucr.png",
+      "PackagePath": "staticwebassets/Content/Images/equipo-mucr.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/error emulacion.png",
+      "PackagePath": "staticwebassets/Content/Images/error emulacion.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/error.png",
+      "PackagePath": "staticwebassets/Content/Images/error.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/error_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/error_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/estudio_puesto.png",
+      "PackagePath": "staticwebassets/Content/Images/estudio_puesto.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/estudio_puesto_review.png",
+      "PackagePath": "staticwebassets/Content/Images/estudio_puesto_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/estudio_puestoico.png",
+      "PackagePath": "staticwebassets/Content/Images/estudio_puestoico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/folder_exp.png",
+      "PackagePath": "staticwebassets/Content/Images/folder_exp.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/folder_policial.png",
+      "PackagePath": "staticwebassets/Content/Images/folder_policial.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/folder_prof.png",
+      "PackagePath": "staticwebassets/Content/Images/folder_prof.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/header.png",
+      "PackagePath": "staticwebassets/Content/Images/header.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/history.png",
+      "PackagePath": "staticwebassets/Content/Images/history.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/key.png",
+      "PackagePath": "staticwebassets/Content/Images/key.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/location_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/location_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/location_review.png",
+      "PackagePath": "staticwebassets/Content/Images/location_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/logo.ico",
+      "PackagePath": "staticwebassets/Content/Images/logo.ico"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/logo.png",
+      "PackagePath": "staticwebassets/Content/Images/logo.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/look.png",
+      "PackagePath": "staticwebassets/Content/Images/look.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/new.png",
+      "PackagePath": "staticwebassets/Content/Images/new.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/nota.gif",
+      "PackagePath": "staticwebassets/Content/Images/nota.gif"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/oferente_add.png",
+      "PackagePath": "staticwebassets/Content/Images/oferente_add.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/oferente_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/oferente_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/office_change.png",
+      "PackagePath": "staticwebassets/Content/Images/office_change.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pbar-ani.gif",
+      "PackagePath": "staticwebassets/Content/Images/pbar-ani.gif"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pdf.png",
+      "PackagePath": "staticwebassets/Content/Images/pdf.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pdf_download.png",
+      "PackagePath": "staticwebassets/Content/Images/pdf_download.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie-gris.png",
+      "PackagePath": "staticwebassets/Content/Images/pie-gris.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie-oscuro.jpg",
+      "PackagePath": "staticwebassets/Content/Images/pie-oscuro.jpg"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie-oscuro.png",
+      "PackagePath": "staticwebassets/Content/Images/pie-oscuro.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie.png",
+      "PackagePath": "staticwebassets/Content/Images/pie.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie_error.png",
+      "PackagePath": "staticwebassets/Content/Images/pie_error.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie_gris.png",
+      "PackagePath": "staticwebassets/Content/Images/pie_gris.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/pie_usuarios.png",
+      "PackagePath": "staticwebassets/Content/Images/pie_usuarios.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/presupuesto_history.png",
+      "PackagePath": "staticwebassets/Content/Images/presupuesto_history.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/presupuesto_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/presupuesto_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/progressbar.gif",
+      "PackagePath": "staticwebassets/Content/Images/progressbar.gif"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_ask.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_ask.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_ask_edit.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_ask_edit.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_ask_review.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_ask_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_askico.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_askico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_assign.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_assign.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_change.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_change.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_pencil.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_pencil.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_prestamo.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_prestamo.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_prestamo_review.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_prestamo_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_prestamoico.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_prestamoico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/puesto_search.png",
+      "PackagePath": "staticwebassets/Content/Images/puesto_search.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/swap_puesto.png",
+      "PackagePath": "staticwebassets/Content/Images/swap_puesto.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/table_add.png",
+      "PackagePath": "staticwebassets/Content/Images/table_add.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/table_edit.png",
+      "PackagePath": "staticwebassets/Content/Images/table_edit.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/tarea_ico.png",
+      "PackagePath": "staticwebassets/Content/Images/tarea_ico.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/task_review.png",
+      "PackagePath": "staticwebassets/Content/Images/task_review.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-anim.basic.16x16.gif",
+      "PackagePath": "staticwebassets/Content/Images/ui-anim.basic.16x16.gif"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_flat_0_aaaaaa_40x100.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_flat_0_aaaaaa_40x100.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_flat_75_ffffff_40x100.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_flat_75_ffffff_40x100.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_glass_55_fbf9ee_1x400.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_glass_55_fbf9ee_1x400.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_glass_65_ffffff_1x400.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_glass_65_ffffff_1x400.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_glass_75_dadada_1x400.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_glass_75_dadada_1x400.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_glass_75_e6e6e6_1x400.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_glass_75_e6e6e6_1x400.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_glass_95_fef1ec_1x400.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_glass_95_fef1ec_1x400.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-bg_highlight-soft_75_cccccc_1x100.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-icons_222222_256x240.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-icons_222222_256x240.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-icons_2e83ff_256x240.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-icons_2e83ff_256x240.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-icons_454545_256x240.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-icons_454545_256x240.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-icons_888888_256x240.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-icons_888888_256x240.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/ui-icons_cd0a0a_256x240.png",
+      "PackagePath": "staticwebassets/Content/Images/ui-icons_cd0a0a_256x240.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/user.png",
+      "PackagePath": "staticwebassets/Content/Images/user.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/user_add.png",
+      "PackagePath": "staticwebassets/Content/Images/user_add.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/user_delete.png",
+      "PackagePath": "staticwebassets/Content/Images/user_delete.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/view.png",
+      "PackagePath": "staticwebassets/Content/Images/view.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/Images/warning.png",
+      "PackagePath": "staticwebassets/Content/Images/warning.png"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/_bootstrap-datetimepicker.less",
+      "PackagePath": "staticwebassets/Content/_bootstrap-datetimepicker.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/js/bootstrap-datepicker.js",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/js/bootstrap-datepicker.js"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/js/jquery-3.4.1.slim.min.js",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/js/jquery-3.4.1.slim.min.js"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datepicker3.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datepicker3.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datetimepicker-build.less",
+      "PackagePath": "staticwebassets/Content/bootstrap-datetimepicker-build.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datetimepicker.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datetimepicker.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap.css",
+      "PackagePath": "staticwebassets/Content/bootstrap.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/Content/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/alerts.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/alerts.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/badges.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/badges.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/bootstrap.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/bootstrap.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/breadcrumbs.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/breadcrumbs.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/button-groups.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/button-groups.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/buttons.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/buttons.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/carousel.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/carousel.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/close.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/close.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/code.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/code.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/component-animations.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/component-animations.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/dropdowns.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/dropdowns.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/forms.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/forms.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/glyphicons.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/glyphicons.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/grid.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/grid.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/input-groups.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/input-groups.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/jumbotron.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/jumbotron.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/labels.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/labels.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/list-group.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/list-group.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/media.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/media.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/alerts.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/alerts.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/background-variant.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/background-variant.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/border-radius.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/border-radius.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/buttons.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/buttons.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/center-block.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/center-block.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/clearfix.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/clearfix.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/forms.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/forms.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/gradients.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/gradients.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/grid-framework.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/grid-framework.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/grid.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/grid.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/hide-text.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/hide-text.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/image.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/image.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/labels.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/labels.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/list-group.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/list-group.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/nav-divider.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/nav-divider.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/nav-vertical-align.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/nav-vertical-align.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/opacity.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/opacity.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/pagination.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/pagination.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/panels.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/panels.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/progress-bar.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/progress-bar.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/reset-filter.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/reset-filter.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/reset-text.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/reset-text.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/resize.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/resize.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/responsive-visibility.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/responsive-visibility.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/size.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/size.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/tab-focus.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/tab-focus.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/table-row.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/table-row.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/text-emphasis.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/text-emphasis.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/text-overflow.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/text-overflow.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/mixins/vendor-prefixes.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/mixins/vendor-prefixes.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/modals.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/modals.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/navbar.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/navbar.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/navs.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/navs.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/normalize.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/normalize.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/pager.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/pager.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/pagination.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/pagination.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/panels.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/panels.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/popovers.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/popovers.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/print.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/print.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/progress-bars.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/progress-bars.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/responsive-embed.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/responsive-embed.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/responsive-utilities.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/responsive-utilities.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/scaffolding.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/scaffolding.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/tables.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/tables.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/theme.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/theme.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/thumbnails.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/thumbnails.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/tooltip.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/tooltip.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/type.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/type.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/utilities.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/utilities.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/variables.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/variables.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrap/wells.less",
+      "PackagePath": "staticwebassets/Content/bootstrap/wells.less"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/bootstrapv3.min.css",
+      "PackagePath": "staticwebassets/Content/bootstrapv3.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/datetimepicker.css",
+      "PackagePath": "staticwebassets/Content/datetimepicker.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/font-awesome.css",
+      "PackagePath": "staticwebassets/Content/font-awesome.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/font-awesome.min.css",
+      "PackagePath": "staticwebassets/Content/font-awesome.min.css"
+    },
+    {
+      "Id": "/Users/dayver13/SGT/SGT/wwwroot/Content/sidebar.css",
+      "PackagePath": "staticwebassets/Content/sidebar.css"
+    },
+    {
       "Id": "/Users/dayver13/SGT/SGT/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
