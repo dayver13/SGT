@@ -1,0 +1,69 @@
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll.config
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csprojResolveAssemblyReference.cache
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll.config
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csprojResolveAssemblyReference.cache
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll.config
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csprojResolveAssemblyReference.cache
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Servicios.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Logica.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.Datos.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.csproj.CopyComplete
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Servicios\obj\Debug\SIRH.Servicios.pdb

@@ -1,0 +1,20 @@
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csprojResolveAssemblyReference.cache
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csprojResolveAssemblyReference.cache
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
