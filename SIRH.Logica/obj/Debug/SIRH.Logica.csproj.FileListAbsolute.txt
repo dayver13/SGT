@@ -1,0 +1,232 @@
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csprojResolveAssemblyReference.cache
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\stdole.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csprojResolveAssemblyReference.cache
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csprojResolveAssemblyReference.cache
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.Datos.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CopyComplete
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.Shell.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.VisualStudio.OLE.Interop.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Datos.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.csproj.CopyComplete
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.dll.config
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Logica.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EntityFramework.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Datos.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DTO.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE80.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\stdole.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.Datos.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\SIRH.DTO.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EntityFramework.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\EnvDTE80.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.csprojResolveAssemblyReference.cache
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Logica\obj\Debug\SIRH.Logica.pdb

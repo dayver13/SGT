@@ -1,0 +1,332 @@
+﻿@model SIRH.Web.ViewModels.PerfilFuncionarioVM
+
+@{
+    ViewBag.Title = "AvalJefatura";
+    Layout = "~/Views/Shared/General.cshtml";
+}
+
+<center><h2>Revisión de solicitud de teletrabajo - Jefatura</h2></center>
+<br />
+
+<div id="tabs">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        @*<li class="nav-item">
+            <a id="tab1" class="nav-link" href="#tabs-1" data-toggle="tab" role="tab" aria-controls="tabs-1" aria-selected="false">Datos de la solicitud</a>
+        </li>*@
+        <li class="nav-item">
+            <a id="tab2" class="nav-link active" href="#tabs-2" data-toggle="tab" role="tab" aria-controls="tabs-2" aria-selected="true">Formulario de aval</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        @*<div id="tabs-1" class="tab-pane fade" role="tabpanel" aria-labelledby="tab1">
+            <div class="card">
+                <h5 class="card-header">Datos Personales</h5>
+                <div class="card-body">
+                </div>
+            </div>
+
+            <div class="card">
+                <h5 class="card-header">Información de Contacto</h5>
+                <div class="card-body">
+
+                </div>
+            </div>
+
+        </div>*@
+
+        <div id="tabs-2" class="tab-pane fade  show active" role="tabpanel" aria-labelledby="tab2">
+
+            <div class="card">
+                <h5 class="card-header">Formulario</h5>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <th style="width: 85%;">@Html.LabelFor(model => model.AvalSolicitud.AvalFunciones)</th>
+                            <td style="width: 15%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFunciones, true, new { @id = "apruebaSi", onclick = "verificaAprueba()" }) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFunciones, false, new { @id = "apruebaNo", @checked = "checked", onclick = "verificaAprueba()" }) <label>No</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="tablaJustificacion" class="table table-hover">
+                        <tr>
+                            <th style="width: 60%;">@Html.LabelFor(model => model.AvalSolicitud.MotivoNoAvalFunciones)</th>
+                            <td style="width: 40%;">@Html.TextAreaFor(model => model.AvalSolicitud.MotivoNoAvalFunciones, new { style = "width: 100%;", rows = "5" })</td>
+                        </tr>
+                    </table>
+                    <table id="tablaAprobacion" class="table table-hover">
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalObjetivosMetas) </th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalObjetivosMetas, 1) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalObjetivosMetas, 2) <label>Usualmente</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalObjetivosMetas, 3) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalSupervision)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSupervision, 1) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSupervision, 2) <label>Usualmente</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSupervision, 3) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalFueraOficina)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFueraOficina, 1) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFueraOficina, 2) <label>Usualmente</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFueraOficina, 3) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalSistemas)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSistemas, 1) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSistemas, 2) <label>Usualmente</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSistemas, 3) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalInteraccion)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalInteraccion, 1) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalInteraccion, 2) <label>Usualmente</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalInteraccion, 3) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalTeletrabajable)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTeletrabajable, true, new { @id = "teletrabajableSi", onclick = "verificaTeletrabajable()" }) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTeletrabajable, false, new { @id = "teletrabajableNo", onclick = "verificaTeletrabajable()" }) <label>No</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="tablaJustificacionTeletrabajable" class="table table-hover" style="display: 'none';">
+                        <tr>
+                            <th style="width: 60%;">@Html.LabelFor(model => model.AvalSolicitud.NoTeletrabajable)</th>
+                            <td style="width: 40%;">@Html.TextAreaFor(model => model.AvalSolicitud.NoTeletrabajable, new { style = "width: 100%;", rows = "5" })</td>
+                        </tr>
+                    </table>
+                    <table id="tablaAprobacionTeletrabajable" class="table table-hover">
+                        <tr>
+                            <td colspan="2" class="alert alert-info">******* Para las siguientes 3 opciones, solo puede seleccionar <b>SÍ</b> en una de las preguntas ******* </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AtencionPublico)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AtencionPublico, true) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AtencionPublico, false) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AtencionDiasEspecificos)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AtencionDiasEspecificos, true) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AtencionDiasEspecificos, false) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.RealizaInvestigacion)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.RealizaInvestigacion, true) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.RealizaInvestigacion, false) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.CaracteristicasPuesto)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.CaracteristicasPuesto, true, new { @id = "caracteristicasSi", onclick = "verificaCaracteristicas()" }) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.CaracteristicasPuesto, false, new { @id = "caracteristicasNo", onclick = "verificaCaracteristicas()" }) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr id="trJustificacionCaracteristicas">
+                            <th style="width: 60%;">@Html.LabelFor(model => model.AvalSolicitud.NoTeletrabajable)</th>
+                            <td style="width: 40%;">@Html.TextAreaFor(model => model.AvalSolicitud.NoTeletrabajable, new { style = "width: 100%;", rows = "5" })</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalHerramientasComunicacion)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHerramientasComunicacion, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHerramientasComunicacion, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHerramientasComunicacion, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalHabilidadesOrganizacion)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHabilidadesOrganizacion, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHabilidadesOrganizacion, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalHabilidadesOrganizacion, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalTrabajoAutonomo)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTrabajoAutonomo, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTrabajoAutonomo, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTrabajoAutonomo, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalFlexibilidad)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFlexibilidad, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFlexibilidad, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalFlexibilidad, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalLogro)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalLogro, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalLogro, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalLogro, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalIniciativa)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalIniciativa, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalIniciativa, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalIniciativa, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalSeguridad)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSeguridad, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSeguridad, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalSeguridad, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalDisposicion)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalDisposicion, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalDisposicion, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalDisposicion, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalCumplimiento)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalCumplimiento, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalCumplimiento, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalCumplimiento, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalAccesibilidad)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalAccesibilidad, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalAccesibilidad, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalAccesibilidad, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 70%;">@Html.LabelFor(model => model.AvalSolicitud.AvalJustificacion)</th>
+                            <td style="width: 30%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalJustificacion, 1) <label style="margin-right: 10px;">Necesita desarrollar, ha sido una observación constante al funcionario.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalJustificacion, 2) <label>Necesita mejorar, sin embargo, hasta el momento lo ha utilizado bien.</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalJustificacion, 3) <label>Cumple muy bien con las expectativas.</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 75%;">@Html.LabelFor(model => model.AvalSolicitud.AvalTeletrabajo)</th>
+                            <td style="width: 25%;">
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTeletrabajo, true, new { @id = "teletrabajoSi", onclick = "verificaTeletrabajo()" }) <label style="margin-right: 10px;">Sí</label>
+                                @Html.RadioButtonFor(model => model.AvalSolicitud.AvalTeletrabajo, false, new { @id = "teletrabajoNo", onclick = "verificaTeletrabajo()" }) <label>No</label>
+                            </td>
+                        </tr>
+                        <tr id="trJustificacionTeletrabajo">
+                            <th style="width: 60%;">@Html.LabelFor(model => model.AvalSolicitud.JustificacionNoAvalTeletrabajo)</th>
+                            <td style="width: 40%;">@Html.TextAreaFor(model => model.AvalSolicitud.JustificacionNoAvalTeletrabajo, new { style = "width: 100%;", rows = "5" })</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br/>
+            <div style="text-align: right;">
+                <button type="submit" class="btn btn-success">Enviar respuesta</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script src="~/Scripts/sidebar.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/DetailsFuncionario.js" type="text/javascript"></script>
+<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+
+<script>
+    function verificaAprueba() {
+        var select1 = document.getElementById('apruebaSi');
+        var textDiv = document.getElementById('tablaJustificacion');
+        var otraTabla = document.getElementById('tablaAprobacion');
+
+        if (select1.checked) {
+            textDiv.style.display = 'none';
+            otraTabla.style.display = 'table';
+        } else {
+            textDiv.style.display = 'table';
+            otraTabla.style.display = 'none';
+        }
+    }
+
+    function verificaTeletrabajable() {
+        var select1 = document.getElementById('teletrabajableSi');
+        var select2 = document.getElementById('teletrabajableNo');
+        var textDiv = document.getElementById('tablaJustificacionTeletrabajable');
+        var otraTabla = document.getElementById('tablaAprobacionTeletrabajable');
+
+        if (select1.checked) {
+            otraTabla.style.display = 'table';
+        } else {
+            otraTabla.style.display = 'none';
+        }
+
+        if (select2.checked) {
+            textDiv.style.display = 'table';
+        } else {
+            textDiv.style.display = 'none';
+        }
+    }
+
+    function verificaCaracteristicas() {
+        var select1 = document.getElementById('caracteristicasSi');
+        var select2 = document.getElementById('CaracteristicasNo');
+        var textDiv = document.getElementById('trJustificacionCaracteristicas');
+
+        if (select1.checked) {
+            textDiv.style.display = 'table-row';
+        } else {
+            textDiv.style.display = 'none';
+        }
+    }
+
+    function verificaTeletrabajo() {
+        var select1 = document.getElementById('teletrabajoNo');
+        var select2 = document.getElementById('teletrabajoSi');
+        var textDiv = document.getElementById('trJustificacionTeletrabajo');
+
+        if (select1.checked) {
+            textDiv.style.display = 'table-row';
+        } else {
+            textDiv.style.display = 'none';
+        }
+    }
+
+    // Ensure the correct state on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        verificaAprueba();
+        verificaTeletrabajable();
+        verificaCaracteristicas();
+        verificaTeletrabajo();
+    });
+</script>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71b0f4c6-0b43-41a7-a867-e5aeb9c5c78c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://vm-sisrhdesa:86/SIRH.Servicios.CVacacionesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SIRH1.disco" MetadataType="Disco" ID="2d158323-c970-41fa-bf82-2038a2d8be78" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?disco" />
+    <MetadataFile FileName="SIRH5.xsd" MetadataType="Schema" ID="a4dd243e-7b42-40e7-8052-80632a8a1300" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SIRH51.xsd" MetadataType="Schema" ID="ce3059a6-02c8-4f5b-abab-ad40333ce2f3" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SIRH52.xsd" MetadataType="Schema" ID="0255a990-1a04-4320-b751-c6757226a5f9" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SIRH53.xsd" MetadataType="Schema" ID="bcddfbf8-ebe7-492a-b7e7-2dfd0c1b9aee" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CVacacionesService1.wsdl" MetadataType="Wsdl" ID="5dd13f82-02cd-4385-ba33-79b07aa8a091" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?wsdl" />
+    <MetadataFile FileName="SIRH54.xsd" MetadataType="Schema" ID="2e683883-e8c0-4079-85a1-31afc5e9bf43" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CVacacionesService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,132 @@
+﻿@model SIRH.Web.ViewModels.FormularioRegistroVacacionesVM
+@{
+    if (Model != null)
+    {
+        using (Ajax.BeginForm("AdministracionSolicitudes", new AjaxOptions
+        {
+            UpdateTargetId = "Errores_Formulario",
+            HttpMethod = "POST",
+            OnComplete = "CompleteCargarVacaciones",
+            OnBegin = "BeginCargarVacaciones"
+        }))
+        {
+            Html.ValidationSummary(true);
+            <br>
+            <div class="card">
+                <div class="card-header"><h5>Registro de vacaciones</h5></div>
+                <div class="card">
+                    @if (@Model.ListaRegistroVacacionesPendientes != null && Model.ListaRegistroVacacionesPendientes.Count > 0)
+                    {
+                        <table class="table">
+                            <thead class="card-header">
+                                <tr>
+                                    <th>N° Transacción</th>
+                                    <th>Rige</th>
+                                    <th>Vence</th>
+                                    <th>Días</th>
+                                    <th>Estado</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ListaRegistroVacacionesPendientes.Count; i++)
+                                {
+                                    if (Model.ListaRegistroVacacionesPendientes[i].Estado == 2)
+                                    {
+                                        Model.estadoRegistroVacaciones = "Pendiente";
+                                    }
+                                    else
+                                    {
+                                        Model.estadoRegistroVacaciones = "Pendiente RRHH";
+                                    }
+
+                                    <tr></tr>
+                                    <tr>
+                                        @if (Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion == null)
+                                        {
+                                            Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion = " ";
+                                        }
+                                        <td>@Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion</td>
+                                        <td>@Model.ListaRegistroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString()</td>
+                                        <td>@Model.ListaRegistroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString()</td>
+                                        <td>@Model.ListaRegistroVacacionesPendientes[i].Dias</td>
+                                        <td>@Model.estadoRegistroVacaciones</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-success"
+                                                    onclick="abrirAprobarRegistro(@(Model.ListaRegistroVacacionesPendientes[i].IdEntidad),
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Dias.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Cedula.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Nombre.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.PrimerApellido.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnAprobar">
+                                                <i class="fa fa-check-square"></i> Aprobar
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning"
+                                                    onclick="abrirDiscusionRegistro(@(Model.ListaRegistroVacacionesPendientes[i].IdEntidad),
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Dias.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Cedula.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Nombre.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.PrimerApellido.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnDiscusion">
+                                                <i class="fa fa-reply"></i> Someter a discusion
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-danger"
+                                                    onclick="abrirCancelarRegistro(@(Model.ListaRegistroVacacionesPendientes[i].IdEntidad),
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].NumeroTransaccion.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Dias.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Cedula.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.Nombre.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.PrimerApellido.ToString())',
+                                                                                    '@(Model.ListaRegistroVacacionesPendientes[i].Periodo.Nombramiento.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnRechazar">
+                                                <i class="fa fa-window-close"></i> Rechazar
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">No se encontraron registros de vacaciones pendientes para el funcionario </div>
+                    }
+                </div>
+            </div>
+            <br>
+            <div>
+                <a class="btn btn-primary" href="javascript:history.back()" id="A5"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
+            </div>
+        }
+        <div id="Errores_Formulario" style="margin-top:15px;"> </div>
+    }
+}
+

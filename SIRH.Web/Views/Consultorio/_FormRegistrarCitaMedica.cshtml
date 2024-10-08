@@ -1,0 +1,126 @@
+﻿@model SIRH.Web.ViewModels.FormularioCitaVM
+@{
+
+    if (Model != null)
+    {
+        <br />
+        <div id="formulario">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Información del Funcionario</strong>
+                </div>
+                <div class="card-body text-center">
+                    <table class="table table-hover">
+                        <tr>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.Cedula): </strong>@Html.DisplayFor(model => model.Funcionario.Cedula)
+                                @Html.HiddenFor(model => model.Funcionario.Cedula)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.Nombre): </strong>@Model.Funcionario.Nombre
+                                @Html.HiddenFor(model => model.Funcionario.Nombre)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.PrimerApellido): </strong>@Model.Funcionario.PrimerApellido
+                                @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.SegundoApellido): </strong>@Model.Funcionario.SegundoApellido
+                                @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron">
+            <div style="text-align: center;">
+                @{
+                    using (Ajax.BeginForm("CreateAppointment", new AjaxOptions
+                    {
+                        UpdateTargetId = "Errores_Formulario",
+                        HttpMethod = "POST",
+                        OnSuccess = "SuccessCargarCitaMedica",
+                        OnComplete = "CompleteCargarCitaMedica",
+                        OnBegin = "BeginCargarCitaMedica"
+                    }))
+                    {
+                        @Html.HiddenFor(model => model.Funcionario.Cedula)
+                        @Html.ValidationSummary(true)
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Formulario de Registro de Cita Médica</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        @Html.LabelFor(model => model.Cita.Especialidad)
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(
+                                            model => model.Cita.Especialidad,
+                                            new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Value = "MEDICINA GENERAL", Text = "Medicina General" },
+                                                new SelectListItem { Value = "PSICOLOGIA", Text = "Psicología" },
+                                                new SelectListItem { Value = "ODONTOLOGIA", Text = "Odontología" }
+                                            }, "Seleccione una Especialidad",
+                                            new { @class = "form-control", onchange = "MostrarDoctores(this.value)" }
+                                            )
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label>Doctores</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.CedulaDoctor,
+                                            new List<SelectListItem> { Capacity = 0 },
+                                            "Seleccione un Doctor",
+                                            new { id = "doctoresDropDwn", @class = "doctoresDropDownListFor form-control",
+                                                onchange = "MostrarCitasPorDoctor(this.value)" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        @Html.LabelFor(model => model.Cita.Fecha)
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(model => model.Cita.Fecha, new { id = "FecIniCita", @class = "form-control", @readonly = "readonly", onchange = "MostrarHorasDisponiblesPorDoctor(this.value)" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.LabelFor(model => model.Cita.HoraInicio)
+                                    </div>
+                                    <div class="col-sm-3">
+                                        @Html.DropDownListFor(model => model.Cita.HoraInicio,
+                                            new List<SelectListItem> { Capacity = 0 },
+                                            "Seleccione una Hora",
+                                            new { id = "horasDropDwn", @class = "form-control"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <button class="btn btn-success" id="btnGuardar" name="SubmitButton" type="submit" value="Guardar">
+                                <i class="fa fa-save"></i>
+                                Guardar
+                            </button>
+                        </div>
+                    }
+                    <div id="Errores_Formulario" style="margin-top: 15px;"> </div>
+                }
+            </div>
+        </div>
+
+        <div class="container">
+            <div id='calendar'></div>
+        </div>
+
+    }
+}

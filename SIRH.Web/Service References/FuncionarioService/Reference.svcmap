@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f8760f01-e50b-4e2f-9328-0220f3fde5e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CFuncionarioService1.wsdl" MetadataType="Wsdl" ID="1ad77d85-8c72-457b-9985-0ecad59f1676" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?wsdl" />
+    <MetadataFile FileName="SIRH.xsd" MetadataType="Schema" ID="375cc18e-1431-480e-8562-4851d87de64b" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SIRH.disco" MetadataType="Disco" ID="0ccfd0c2-e7b4-4fac-aaf5-1d7fdec6363b" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?disco" />
+    <MetadataFile FileName="SIRH1.xsd" MetadataType="Schema" ID="d78dd7b5-76fb-412e-b6fb-35553a25d410" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SIRH2.xsd" MetadataType="Schema" ID="a0bdee3c-08ea-458c-bdef-3b4c1ad5e45f" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SIRH3.xsd" MetadataType="Schema" ID="7a0ee4e4-0873-4263-8fee-cb6706c1774f" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SIRH4.xsd" MetadataType="Schema" ID="db2b6c3f-c64c-44b1-a3d9-124bcaf293fe" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CFuncionarioService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

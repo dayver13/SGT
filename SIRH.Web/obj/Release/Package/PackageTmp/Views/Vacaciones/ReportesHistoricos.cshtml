@@ -1,0 +1,195 @@
+﻿@model SIRH.Web.ViewModels.BusquedaVacacionesReportesVM
+
+@{
+    ViewBag.Title = "Reportes Históricos";
+    Layout = "~/Views/Shared/Vacaciones.cshtml";
+}
+<link href="~/Content/datetimepicker.css" rel="stylesheet" />
+
+<center><h2>Generar reportes históricos</h2></center>
+
+<br>
+
+<div id="tabs">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a id="tab1" class="nav-link active" href="#tabs-1" data-toggle="tab" role="tab" aria-controls="tabs-1" aria-selected="true">Búsqueda por cédula</a>
+        <li class="nav-item">
+            <a id="tab2" class="nav-link" href="#tabs-2" data-toggle="tab" role="tab" aria-controls="tabs-2" aria-selected="false"> Búsqueda por división</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div id="tabs-1" class="tab-pane fade  show active" role="tabpanel" aria-labelledby="tab1">
+            @{
+                Html.EnableClientValidation();
+                using (Html.BeginForm(Ajax.BeginForm("ReportesHistoricos", "Vacaciones", new AjaxOptions
+                {
+                    UpdateTargetId = "dvResultadoBusquedaFunc",
+                    HttpMethod = "POST",
+                    OnComplete = "CompleteInfoFuncionario",
+                    OnBegin = "BeginCargarInfoFuncionario"
+
+                })))
+                {
+                    <div class="card">
+                        <h5 class="card-header"></h5>
+                        <div class="card-body">
+                            <center>
+                                <div class="row">
+
+                                    <form class="form-inline">
+                                        <div class="col-2">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Funcionario.Cedula)
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Funcionario.Cedula, new { @class = "form-control", style = "margin-bottom:10px;", @maxlength = "10" })
+
+                                                @Html.ValidationMessageFor(model => model.Funcionario.Cedula)
+                                            </div>
+
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-primary " id="btnBuscarFunc" name="SubmitButton" type="submit" value="BuscarFuncionario">
+                                                <i class="fa fa-search"></i>
+                                                Buscar
+                                            </button>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-10">
+                                        <center>
+                                            <div id="preloaderFunc" class="loader" hidden></div>
+                                        </center>
+                                    </div>
+
+
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                }
+                <div id="dvResultadoBusquedaFunc"></div>
+            }
+        </div>
+        <div id="tabs-2" class="tab-pane fade" role="tabpanel" aria-labelledby="tab2">
+            @{
+
+                using (Ajax.BeginForm("ReportesHistoricos", "Vacaciones", new AjaxOptions
+                {
+                    UpdateTargetId = "dvResultadoBusqueda",
+                    HttpMethod = "POST",
+                    OnComplete = "CompleteInfo",
+                    OnBegin = "BeginCargarInfo"
+
+                }))
+                {
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong> Filtros de busqueda </strong>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <div class="form-group col-4">
+                                            @Html.Label("División")
+                                            <span>:</span>
+                                            @Html.DropDownListFor(model => model.DivisionSeleccion, Model.Divisiones, "División", new { @class = "form-control", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.Divisiones)
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom:5px;">
+
+
+                                        <div class="form-group col-3">
+                                            @Html.LabelFor(model => model.EstadoSeleccion)
+                                            <span>:</span>
+                                            @Html.DropDownListFor(model => model.EstadoSeleccion, Model.Estados, "Tipo de registro", new { @class = "form-control", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.EstadoSeleccion)
+                                        </div>
+
+
+                                        <div class="form-group col-5">
+                                            @Html.LabelFor(model => model.SeleccionTipoVacaciones)
+                                            <span>:</span>
+                                            @Html.DropDownListFor(model => model.SeleccionTipoVacaciones, Model.tipoRegistroVacaciones, "Tipo de vacaciones", new { @class = "form-control", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.SeleccionTipoVacaciones)
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row" id="divPeriodo">
+
+                                        <div class="form-group col-4">
+                                            @Html.Label("Periodo:")
+                                            @Html.TextBoxFor(model => model.Periodo.Periodo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Periodo)
+                                        </div>
+
+                                    </div>
+                                    <div class="row" id="divFechaEsp">
+
+                                        <div class="form-group col-3">
+                                            @Html.Label("Fecha de inicio:")
+                                            <div class="start_date input-group mb-4">
+                                                @Html.TextBoxFor(model => model.FechaInicioVacaciones, new { @id = "FechaInicioVacaciones", @class = "form-control start_date", @readonly = "readonly", @placeholder = "Fecha de Inicio" })
+                                                @Html.ValidationMessageFor(model => model.FechaInicioVacaciones)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            @Html.Label("Fecha final:")
+                                            <div class="end_date input-group mb-4">
+                                                @Html.TextBoxFor(model => model.FechaFinalVacaciones, new { @id = "FechaFinalVacaciones", @class = "form-control start_date", @readonly = "readonly", @placeholder = "Fecha de Finalización" })
+                                                @Html.ValidationMessageFor(model => model.FechaFinalVacaciones)
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="btnBuscar" class="form-group">
+
+                                        <button type="button" class="btn btn-primary " value="Limpiar" onclick="CleanSearch()">
+                                            <i class="fa fa-eraser"></i>
+                                            Limpiar
+                                        </button>
+
+                                        <button type="submit" class="btn btn-primary " value="Buscar" name="SubmitButton">
+                                            <i class="fa fa-search"></i>
+                                            Buscar
+                                        </button>
+                                       
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-5"></div>
+                                        <div id="preloader" class="loader" hidden></div>
+                                    </div>
+                                </div>
+                            </div>
+                }
+                <div id="dvResultadoBusqueda"></div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/ReportesVacaciones.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker-es.js" type="text/javascript"></script>
+

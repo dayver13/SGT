@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="60a7b8dc-beb5-4618-baeb-0378c9d629ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CFormacionAcademicaService.wsdl" MetadataType="Wsdl" ID="226f5fc0-641d-40a9-af0b-d808330112bc" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?wsdl" />
+    <MetadataFile FileName="CFormacionAcademicaService.xsd" MetadataType="Schema" ID="a8b1a328-af35-4cde-8d86-b90ce980d14e" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CFormacionAcademicaService1.xsd" MetadataType="Schema" ID="e768d75e-8d04-4fec-be23-e7e097d43c8a" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CFormacionAcademicaService2.xsd" MetadataType="Schema" ID="e99db2e2-2b67-4c8a-bda5-080eab3205c4" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CFormacionAcademicaService3.xsd" MetadataType="Schema" ID="76d7bed4-9765-429e-be17-413013d28957" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CFormacionAcademicaService4.xsd" MetadataType="Schema" ID="ce904aef-b451-48e0-91ea-4a909763b4aa" SourceId="1" SourceUrl="http://sisrh.mopt.go.cr:85/CFormacionAcademicaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

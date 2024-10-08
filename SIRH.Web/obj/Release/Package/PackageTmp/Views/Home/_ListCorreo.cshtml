@@ -1,0 +1,94 @@
+﻿@model SIRH.Web.ViewModels.FormularioCorreoVM
+@{
+    if (Model.Error == null)
+    {
+        if (Model.Registros.Count < 1)
+        {
+
+            <div class="card border-danger">
+                <div class="card-header"><strong>La búsqueda contiene los siguientes errores</strong></div>
+                <div class="card-body text-danger">
+                    <p>No se encontraron resultados dentro del archivo.</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            using (Html.BeginForm("EnviarCorreo", "Home", FormMethod.Post, new { @id = "thisForm"}))
+            {
+                <fieldset>
+                    <legend>Resultados (@Model.Registros.Count)</legend>
+                    @*<div align="left" colspan="2">
+                        <div class="row">
+                            <div class="form-group col-3">
+                                <input id="btnEnviarCorreo" name="SubmitButton" type="submit" value="Enviar Correo" class="btn btn-success" style="margin:auto;" />
+                            </div>
+                        </div>
+                    </div>*@
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Cédula</th>
+                                <th scope="col">Primer Apellido</th>
+                                <th scope="col">Segundo Apellido</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int cuenta = 0;
+                                foreach (var item in Model.Registros)
+                                {
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Numero)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Cedula)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Nombre)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].PrimerApellido)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].SegundoApellido)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Correo)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Fecha)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Hora)
+                                    @Html.HiddenFor(model => model.Registros[cuenta].Estado)
+                                    
+                                    cuenta++;
+                                    <tr>
+                                        <td>@item.Numero</td>
+                                        <td>@item.Cedula</td>
+                                        <td>@item.PrimerApellido</td>
+                                        <td>@item.SegundoApellido</td>
+                                        <td>@item.Nombre</td>
+                                        <td>@item.Correo</td>
+                                        <td>@item.Fecha</td>
+                                        <td>@item.Hora</td>
+                                        <td>@item.Estado</td>
+                                    </tr>
+                                }
+                            }
+                            </tbody>
+                            <tfoot>
+                        </tfoot>
+                    </table>
+                </fieldset>
+                                        }
+            }
+        }
+
+        else
+        {
+            <div class="card border-danger">
+                <div class="card-header"><strong>La búsqueda contiene los siguientes errores</strong></div>
+                <div class="card-body text-danger">
+                    <p>@Model.Error.MensajeError</p>
+                </div>
+            </div>
+        }
+        <script type="text/javascript">
+        function onBeginNew() {
+                document.getElementById("form_reportar").submit();
+        }
+        </script>
+
+}
