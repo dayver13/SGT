@@ -1,0 +1,49 @@
+﻿@model SIRH.Web.ViewModels.DetalleVacacionesVM
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/Consultorio.cshtml";
+}
+
+@using (Ajax.BeginForm("Search", "Consultorio", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "dvResultadoBusqueda",
+    OnComplete = "CompleteSearch",
+    OnBegin = "BeginSearch"
+}))
+{
+    <div class="jumbotron">
+        <div style="text-align: center;">
+            <h3 class="display-4">Listar Citas Médicas</h3>
+            <br/>
+            <center>
+                <div class="card">
+                    <div class="card-header text-left">
+                        Digite el número de cédula de funcionario
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Funcionario.Cedula, new { @class = "form-control", placeholder = "Cédula", style = "width: 280px;" })
+                            @Html.ValidationMessageFor(model => model.Funcionario.Cedula)
+                        </div>
+                        <input id="btnBuscar" name="SubmitButton" class="btn btn-primary" type="submit" value="Buscar" />
+                        <div id="preloader" class="loader" style="display: none"></div>
+
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+}
+
+<div id="dvResultadoBusqueda"></div>
+
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/popper.min.js"></script>
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/SearchConsultorio.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker-es.js" type="text/javascript"></script>

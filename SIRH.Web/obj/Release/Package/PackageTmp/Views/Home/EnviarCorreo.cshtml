@@ -1,0 +1,118 @@
+﻿@model SIRH.Web.ViewModels.FormularioCorreoVM
+@{
+    ViewBag.Title = "Enviar Correo";
+    Layout = "~/Views/Shared/Reporte.cshtml";
+}
+
+@{
+    using (Ajax.BeginForm("EnviarCorreo", "Home", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "target",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "beginData",
+        OnComplete = "completeData",
+        OnSuccess = "successData"
+    }, new { @id = "form", enctype = "multipart/form-data" }))
+
+    {
+        <div class="card">
+            <div class="row">
+                <div class="form-group col-3">
+                    <strong> Motivos </strong>
+                </div>
+                <div class="form-group col-9" >
+                    @Html.DropDownListFor(model => model.MotivoSeleccionado, Model.Motivos, "Seleccionar Motivo", new { @id = "listMotivos", @class = "btn btn-secondary dropdown-toggle form-control fa-align-left", @onchange = "MostrarDatos(this.value)" })
+                </div>
+            </div>
+            <div id="cuadroArchivo" class="form-group row" hidden>
+                <div class="card-body text-warning">
+                    <div class="alert alert-warning" role="alert">
+                        <h6>El archivo debe tener las siguientes columnas y en el mismo orden:</h6>
+                        <ul id="listadoColumnas">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-3">
+                    <strong> Documento de Excel </strong>
+                </div>
+                <div class="custom-file form-group col-6">
+                    @Html.TextBoxFor(model => model.File, new { id = "ImagenError", @class = "custom-file-input form-control", type = "file", accept = "application/xlsx", title = "Solo archivos .xlsx" })
+                    <label class="custom-file-label" for="ImagenError">Seleccionar Archivo/xlsx</label>
+                    @Html.HiddenFor(model => model.Imagen, new { id = "Imagen" })
+                </div>
+                <div class="form-group col-2">
+                    <input id="btnCargar" name="SubmitButton" type="submit" value="Cargar Excel" class="btn btn-primary" />
+                    <div id="preloader" class="loader" style="display: none"></div>
+                </div>
+            </div>
+        </div>
+    }
+
+      <div id="target"> @{Html.RenderPartial("_ListCorreo", Model);}</div>
+
+}
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script src="~/Scripts/Pages/EnviarCorreo.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#ImagenError').on('change', function () {
+            var fileName = $(this).val();
+            fileName = fileName.replace("C:\\fakepath\\", "");
+            $(this).next('.custom-file-label').html(fileName);
+            $('#Imagen').val(fileName);
+        });
+        $('#ErrorComun').on('change', ShowErrorArea);
+
+        window.addEventListener("submit", function (e) {
+            let form = e.target;
+            if (form.getAttribute("enctype") === "multipart/form-data") {
+                e.preventDefault();
+                //BeginValidacion();
+                sendFormDetalle(e, form, e.submitter.defaultValue);
+            } 
+        }, true)
+    });
+       
+
+    function sendFormDetalle(e, form, value) {
+        e.stopImmediatePropagation();
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action);
+        let formData = new FormData(form);
+        formData.append("submit", value);
+        xhr.send(formData);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (form.dataset.ajaxUpdate) {
+                    if (!xhr.responseURL.includes("Saved")) {
+                        var updateTarget = $('#dvResultadoBusqueda');
+                        if (updateTarget) {
+                            let filerow = document.getElementById('filaArchivo');
+                            let filediv = filerow.children[1];
+                            updateTarget.html(xhr.response);
+                            filerow = document.getElementById('filaArchivo');
+                            //SuccessValidacion();
+                            //CompleteValidacion();
+                            $('form')[1].reset();
+                            filerow.replaceChild(filediv, filerow.children[1]);
+                            readURL(document.getElementById("file"));
+                        }
+                    } else {
+                        window.location.replace(xhr.responseURL);
+                    }
+                } else {
+                    //CompleteValidacion();
+                }
+            }
+        };
+    }
+</script>

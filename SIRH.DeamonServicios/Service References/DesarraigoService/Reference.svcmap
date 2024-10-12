@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="55e7998f-1959-4f04-bd04-bf9b0d67cf8f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="211f6d3e-5cce-4150-9042-ccbe70d5e523" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="fa977c61-e901-45bb-bd16-0973ff5875de" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="137eda3c-f50b-4b78-a1c0-efa6be8a0211" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+    <MetadataFile FileName="SIRH.DTO1.xsd" MetadataType="Schema" ID="38990dcc-3998-4101-a1b0-5c8b715112f6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="ebdd0cf6-512e-458b-96c1-fd6f2ca2bbef" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+    <MetadataFile FileName="service22.xsd" MetadataType="Schema" ID="77185a05-98c9-4183-95cc-b37bb6ca3960" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CDesarraigoService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

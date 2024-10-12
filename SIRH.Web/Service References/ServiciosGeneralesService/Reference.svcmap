@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="e99629be-c3fb-4267-9e1c-ac11a6b245ec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2d5bff46-52de-49e6-9deb-f9cef07ce9f7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e3c17f03-344e-4848-8c79-e56aee39b4b1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6da63f0d-802d-4ed6-813f-76064002d29c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e56842d2-33f0-436b-a015-17e0f3d5cac3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="ee2f8a8b-ef0a-417f-b2c2-ed9afadce215" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="SIRH.DTO.xsd" MetadataType="Schema" ID="d69fa27a-6eed-4a98-ab5d-bae54122d90d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="7e5df8ef-47b3-4a5c-b274-9c6058b4d800" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CServiciosGeneralesService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

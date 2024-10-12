@@ -1,0 +1,107 @@
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csprojResolveAssemblyReference.cache
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.Cache
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dguiltrc\Documents\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csprojResolveAssemblyReference.cache
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.Cache
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\RESPALDO\Visual Studio 2015\Projects\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csprojResolveAssemblyReference.cache
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.Cache
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs\Downloads\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.CopyComplete
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.Cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll.config
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.AssemblyReference.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.CoreCompileInputs.cache
+C:\Users\deivert.guiltrichs.MOPT\Documents\SIRH_RESPALDO\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.CopyComplete
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csprojResolveAssemblyReference.cache
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.Cache
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll.config
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DatosMarcasReloj.pdb
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.dll
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.dll
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.pdb
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.Datos.dll.config
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\SIRH.DTO.pdb
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\bin\Debug\EntityFramework.xml
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.AssemblyReference.cache
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.Properties.Resources.resources
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.GenerateResource.cache
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.csproj.CoreCompileInputs.cache
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.Dat.FFC69604.Up2Date
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.dll
+C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DatosMarcasReloj\obj\Debug\SIRH.DatosMarcasReloj.pdb

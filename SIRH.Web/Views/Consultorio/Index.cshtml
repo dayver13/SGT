@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Consultorio.cshtml";
+}
+
+<div class="jumbotron">
+    <div style="text-align: center;">
+        <h1 class="display-4">Módulo de Consultorio Médico</h1>
+        <p class="lead">Bienvenido(a), @Session["Nombre_Completo"]</p>
+        <hr class="my-4">
+        <p>Para iniciar, seleccione alguna de las opciones del menú a su izquierda.</p>
+        <p>En este módulo, usted puede:</p>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center">
+
+            <div class="col-sm-3 col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="text-center card-header">Gestionar Citas Médicas</div>
+                    <div class="card-body text-secondary">
+                        <center>
+                            <img src="~/Content/Images/table_add.png" class="img-thumbnail" alt="">
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="text-center card-header">Gestionar Expedientes Médicos</div>
+                    <div class="card-body text-secondary">
+                        <center>
+                            <img src="~/Content/Images/edit_page.png" class="img-thumbnail" alt="">
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="text-center card-header">Gestionar Notificaciones</div>
+                    <div class="card-body text-secondary">
+                        <center>
+                            <img src="~/Content/Images//puesto_ask.png" class="img-thumbnail" alt="">
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Gestionar Horarios</div>
+                    <div class="card-body text-secondary">
+                        <center>
+                            <img alt="" src="../../Content/Images/pdf_download.png"/>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4">
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Gestionar Documentos Varios</div>
+                    <div class="card-body text-secondary">
+                        <center>
+                            <img alt="" src="../../Content/Images/pdf_download.png"/>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

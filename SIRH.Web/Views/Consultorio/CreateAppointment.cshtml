@@ -1,0 +1,58 @@
+﻿@model SIRH.Web.ViewModels.FormularioCitaVM
+@{
+    ViewBag.Title = "CreateAppointment";
+    Layout = "~/Views/Shared/Consultorio.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/datetimepicker.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.js"></script>
+
+@using (Ajax.BeginForm("CreateAppointment", "Consultorio", new AjaxOptions
+{
+    HttpMethod = "Post",
+    UpdateTargetId = "dvCreateAppointment",
+    InsertionMode = InsertionMode.Replace,
+    OnSuccess = "SuccessCargarCitaMedica",
+    OnComplete = "CompleteCargarCitaMedica",
+    OnBegin = "BeginCargarCitaMedica"
+}))
+{
+    <div class="jumbotron">
+        
+        <div style="text-align: center;">
+            <h3 class="display-4">Agregar Cita Médica</h3>
+            <br />
+            <center>
+                <div class="card">
+                    <div class="card-header text-left">
+                        Digite el número de cédula de funcionario
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Funcionario.Cedula, new { @class = "form-control", placeholder = "Cédula", style = "width: 280px;" })
+                            @Html.ValidationMessageFor(model => model.Funcionario.Cedula)
+                        </div>
+                        <input id="btnBuscar" name="SubmitButton" class="btn btn-primary" type="submit" value="Buscar" />
+                        <div id="preloader" class="loader" style="display: none"></div>
+
+                    </div>
+                </div>
+            </center>
+        </div>
+        
+    </div>
+}
+
+<div id="dvCreateAppointment"></div>
+
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/popper.min.js"></script>
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/FormularioConsultorio.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker-es.js" type="text/javascript"></script>

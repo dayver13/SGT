@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="9f913e32-9a77-4a21-aed9-fa9ccf8711e2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="c1f98e74-bf12-4f7a-bce3-cebdb0ca4dc2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="a4250168-ba15-42f9-bcba-aa9f4f8da5df" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="1fc04e26-a064-4f1d-81f5-ad26e8344660" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+    <MetadataFile FileName="SIRH.DTO1.xsd" MetadataType="Schema" ID="7e1b780f-38d8-4075-aa10-2a8268741d5e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="4edec5eb-75aa-4a0c-b8c5-80cf7436e9cf" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+    <MetadataFile FileName="service22.xsd" MetadataType="Schema" ID="3060c58a-3dc3-4c4f-9686-ff17bd758375" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SIRH.Servicios/CMarcacionService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

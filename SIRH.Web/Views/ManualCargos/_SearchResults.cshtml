@@ -1,0 +1,91 @@
+﻿@model IList<SIRH.DTO.CCargoDTO>
+@{
+    if (Model.ElementAt(0).Mensaje != null)
+    {
+        <div class="alert alert-danger"><b>@Model.ElementAt(0).Mensaje</b></div>
+    }
+    else
+    {
+        using (Html.BeginForm("", "ManualCargos", FormMethod.Post, new { @id = "thisForm" }))
+        {
+        <div class="card">
+            <div class="card-header"><b>Resultados (@Model.Count)</b></div>
+            <div class="card-body">
+                <table class="table detalle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Clase</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Subespecialidad</th>
+                            <th scope="col">Sección</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Model.ElementAt(i).NombreCargo
+                                    @Html.HiddenFor(model => model[i].NombreCargo)
+                                </td>
+                                <td>
+                                    @if (Model.ElementAt(i).ClaseCargo != null)
+                                    {
+                                        @Model.ElementAt(i).ClaseCargo.DesClase
+                                        @Html.HiddenFor(model => model[i].ClaseCargo.DesClase)
+                                    }
+                                </td>
+                                <td>
+                                    @if (Model.ElementAt(i).EspecialidadCargo != null)
+                                    {
+                                        @Model.ElementAt(i).EspecialidadCargo.DesEspecialidad
+                                        @Html.HiddenFor(model => model[i].EspecialidadCargo.DesEspecialidad)
+                                    }
+                                </td>
+                                <td>
+                                    @if (Model.ElementAt(i).SubespecialidadCargo != null)
+                                    {
+                                        @Model.ElementAt(i).SubespecialidadCargo.DesSubEspecialidad
+                                        @Html.HiddenFor(model => model[i].SubespecialidadCargo.DesSubEspecialidad)
+                                    }
+                                </td>
+                                <td>
+                                    @if (Model.ElementAt(i).SeccionCargo != null)
+                                    {
+                                        @Model.ElementAt(i).SeccionCargo.NomSeccion
+                                        @Html.HiddenFor(model => model[i].SeccionCargo.NomSeccion)
+                                    }
+                                </td>
+                                <td>
+                                    En construcción
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DescripcionCargo", "ManualCargos", new { codigo = Model.ElementAt(i).IdEntidad })" class="btn btn-warning btn-sm">
+                                        <i class="fa fa-pencil"></i> Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DetalleCargo", "ManualCargos", new { codigo = Model.ElementAt(i).IdEntidad })" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-search"></i> Ver Detalle
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <button class="btn btn-danger" type="submit"><i class="fa fa-file-pdf-o"></i> Exportar a pdf</button>
+            </div>
+        </div>
+        }
+    }
+    <br />
+    @*<a href="@Url.Action("Create", "Caucion")" class="btn btn-success">
+        <i class="fa fa-plus-circle"></i> Crear nuevo
+    </a>*@
+}
+

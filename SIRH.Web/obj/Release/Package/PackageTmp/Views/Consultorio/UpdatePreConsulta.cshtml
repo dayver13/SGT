@@ -1,0 +1,138 @@
+﻿@model SIRH.Web.ViewModels.FormularioCitaVM
+@{
+    ViewBag.Title = "UpdatePreConsulta";
+    Layout = "~/Views/Shared/Consultorio.cshtml";
+}
+
+<div class="jumbotron">
+    <div style="text-align: center;">
+        @{
+            using (Ajax.BeginForm("UpdatePreConsulta", new AjaxOptions
+            {
+                UpdateTargetId = "Errores_Formulario",
+                HttpMethod = "POST",
+            }))
+            {
+                @Html.ValidationSummary(true)
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Formulario de Pre Consulta Médica</strong>
+                        @Html.HiddenFor(model => model.Preconsulta.IdEntidad)
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.Motivo):</strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Motivo, new { id = "motivoText", @class = "form-control", maxlength = "100" })
+                            </div>
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.Presion):</strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Presion, new { id = "presionText", @class = "form-control", maxlength = "50" })
+                            </div>
+
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <strong>@Html.LabelFor(model => model.Preconsulta.Peso): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Peso, new { id = "pesoText", @class = "form-control", maxlength = "50" })
+                            </div>
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.Talla): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Talla, new { id = "tallaText", @class = "form-control", maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.Temperatura): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Temperatura, new { id = "temperaturaText", @class = "form-control", maxlength = "50" })
+                            </div>
+                            <div class="col-sm-3">
+                                <strong>@Html.LabelFor(model => model.Preconsulta.FrecuenciaCardiaca): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.FrecuenciaCardiaca, new { id = "frecuenciaCardiacaText", @class = "form-control", maxlength = "50" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.Glicemia): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.Glicemia, new { id = "glicemiaText", @class = "form-control", maxlength = "50" })
+                            </div>
+                            <div class="col-sm-3">
+                                <strong> @Html.LabelFor(model => model.Preconsulta.SaturacionOxigeno): </strong>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.Preconsulta.SaturacionOxigeno, new { id = "saturacionText", @class = "form-control", maxlength = "50" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="AnotacionesPreconsulta">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Anotaciones</strong>
+                        </div>
+                        <div class="card-body text-center">
+                            @Html.TextAreaFor(model => model.Preconsulta.Anotaciones, new { rows = 20, style = "width: 100%;", @class = "form-control tinymce" })
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div>
+                    <button class="btn btn-success" id="btnGuardar" name="SubmitButton" type="submit" value="Guardar">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            }
+            <div id="Errores_Formulario" style="margin-top: 15px;"> </div>
+        }
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/popper.min.js"></script>
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/plugins/image/plugin.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/plugins/link/plugin.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/plugins/code/plugin.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/plugins/emoticons/plugin.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/plugins/codesample/plugin.min.js"></script>
+<script type="text/javascript" src="/Scripts/tinymce/themes/silver/theme.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: '.tinymce',
+        language: 'es_MX',
+        height: 500,
+        readonly: false,
+        menubar: false,
+        plugins: [
+
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+</script>

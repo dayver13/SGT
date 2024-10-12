@@ -1,0 +1,170 @@
+﻿@model SIRH.Web.ViewModels.DetalleConsultorioVM
+@{
+    if (Model != null)
+    {
+        <br />
+        <div id="formulario">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Información del Funcionario</strong>
+                </div>
+                <div class="card-body text-center">
+                    <table class="table table-hover">
+                        <tr>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.Cedula): </strong>@Html.DisplayFor(model => model.Funcionario.Cedula)
+                                @Html.HiddenFor(model => model.Funcionario.Cedula)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.Nombre): </strong>@Model.Funcionario.Nombre
+                                @Html.HiddenFor(model => model.Funcionario.Nombre)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.PrimerApellido): </strong>@Model.Funcionario.PrimerApellido
+                                @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                            </td>
+                            <td>
+                                <strong>@Html.LabelFor(model => model.Funcionario.SegundoApellido): </strong>@Model.Funcionario.SegundoApellido
+                                @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="card">
+            <div class="card-header">
+                <strong>Información de Citas Médicas</strong>
+            </div>
+            <div class="card-body text-center">
+
+                <div id="tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a id="tab1" class="nav-link active " href="#tabs-1" data-toggle="tab" role="tab" aria-controls="tabs-1" aria-selected="true">Medicina General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab2" class="nav-link" href="#tabs-2" data-toggle="tab" role="tab" aria-controls="tabs-2" aria-selected="false">Psicología</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab3" class="nav-link" href="#tabs-3" data-toggle="tab" role="tab" aria-controls="tabs-3" aria-selected="false">Ondotología</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div id="tabs-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab1">
+                            <table class="table" id="tablaMedicinaGeneral" style="margin-bottom: 70px;">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Numero de Cita</th>
+                                        <th>Especialidad</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.citaMedicas != null)
+                                    {
+                                        foreach (var citaMedica in Model.citaMedicas.Where(cita => cita.Especialidad.Equals("MEDICINA GENERAL")))
+                                        {
+                                            <tr class="text-center">
+                                                <td class="border-bottom border-success">@citaMedica.IdEntidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Especialidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Fecha</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Estado</td>
+
+                                                <td class="border-bottom border-success ">
+                                                    <a href="@Url.Action("Details", "Consultorio", new { citaMedicaId = citaMedica.IdEntidad, cedula = Model.Funcionario.Cedula, accion = "DetalleCitaMedica" })" class="btn btn-primary">
+                                                        <i class="fa fa-paperclip"></i> Detalles
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabs-2" class="tab-pane fade " role="tabpanel" aria-labelledby="tab2">
+                            <table class="table" id="tablaMedicinaGeneral" style="margin-bottom: 70px;">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Numero de Cita</th>
+                                        <th>Especialidad</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.citaMedicas != null)
+                                    {
+                                        foreach (var citaMedica in Model.citaMedicas.Where(cita => cita.Especialidad.Equals("PSICOLOGIA")))
+                                        {
+                                            <tr class="text-center">
+                                                <td class="border-bottom border-success">@citaMedica.IdEntidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Especialidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Fecha</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Estado</td>
+
+                                                <td class="border-bottom border-success ">
+                                                    <a href="@Url.Action("Details", "Consultorio", new { citaMedicaId = citaMedica.IdEntidad, cedula = Model.Funcionario.Cedula, accion = "DetalleCitaMedica" })" class="btn btn-primary">
+                                                        <i class="fa fa-paperclip"></i> Detalles
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabs-3" class="tab-pane fade " role="tabpanel" aria-labelledby="tab3">
+                            <table class="table" id="tablaMedicinaGeneral" style="margin-bottom: 70px;">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Numero de Cita</th>
+                                        <th>Especialidad</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.citaMedicas != null)
+                                    {
+                                        foreach (var citaMedica in Model.citaMedicas.Where(cita => cita.Especialidad.Equals("ODONTOLOGIA")))
+                                        {
+                                            <tr class="text-center">
+                                                <td class="border-bottom border-success">@citaMedica.IdEntidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Especialidad</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Fecha</td>
+
+                                                <td class="border-bottom border-success">@citaMedica.Estado</td>
+
+                                                <td class="border-bottom border-success ">
+                                                    <a href="@Url.Action("Details", "Consultorio", new { citaMedicaId = citaMedica.IdEntidad, cedula = Model.Funcionario.Cedula, accion = "DetalleCitaMedica" })" class="btn btn-primary">
+                                                        <i class="fa fa-paperclip"></i> Detalles
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,90 @@
+﻿@model SIRH.Web.ViewModels.FuncionarioCarreraVM
+
+@{
+    ViewBag.Title = "Registrar datos de carrera";
+    Layout = "~/Views/Shared/Carrera.cshtml";
+}
+
+@*<link href="~/Content/datetimepicker.css" rel="stylesheet" />*@
+
+<script src="~/Content/bootstrap-datepicker/js/jquery-3-4.1.slim.min.js"></script>
+<!--link id="bs-css" href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"-->
+<link id="bsdp-css" href="~/Content/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+
+@using (Ajax.BeginForm("Create", "Carrera", new AjaxOptions
+{
+    UpdateTargetId = "dvResultadoBusqueda",
+    HttpMethod = "POST",
+    OnComplete = "CompleteCargarFuncionario",
+    OnBegin = "BeginCargarFuncionario"
+}))
+{
+    <div class="jumbotron">
+        <center>
+            <h3 class="display-4">Registrar datos de carrera</h3>
+            <br />
+            <div class="card">
+                <div class="card-header text-left">
+                    <strong>Buscar Funcionario</strong>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Funcionario.Cedula, new { @class = "form-control", @placeholder = "Cédula", style = "width: 280px;" })
+                        @Html.ValidationMessageFor(model => model.Funcionario.Cedula)
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownListFor(model => model.CursoSeleccionado,
+                            Model.TipoCurso as SelectList,
+                            "Tipo de Curso", new { @id = "CursoSeleccionado", @class = "form-control", style = "width: 280px;" })
+                    </div>
+                    <input id="btnBuscar" name="SubmitButton" class="btn btn-primary" type="submit" value="Buscar" />
+                    <div id="preloader" class="loader" style="display: none"></div>
+
+                </div>
+            </div>
+
+        </center>
+    </div>
+
+    <br />
+
+}
+
+<div id="dvResultadoBusqueda"></div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/funciones-generales.js"></script>
+<script src="~/Scripts/Pages/FormularioCarrera.js"></script>
+
+@*<script src="~/Scripts/datetimepicker.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker-es.js" type="text/javascript"></script>*@
+
+<script src="~/Content/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="~/Content/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#FechaI').val("Click aquí");
+        $('#FechaI').datepicker(
+        {
+            language: "es",
+            autoclose: true
+        });
+        $('#FechaF').val("Click aquí");
+        $('#FechaF').datepicker(
+        {
+            language: "es",
+            autoclose: true
+        });
+        $('#FechaE').val("Click aquí");
+        $('#FechaE').datepicker(
+        {
+            language: "es",
+            autoclose: true
+        });
+    });
+</script>

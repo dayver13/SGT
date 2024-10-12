@@ -1,0 +1,288 @@
+﻿@using SIRH.DTO
+@model SIRH.Web.ViewModels.DetalleConsultorioVM
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Consultorio.cshtml";
+}
+
+@{
+    if (Model.Accion == "CitaMedica")
+    {
+        <h1>
+            <span>Detalles de la Cita Médica </span>
+            <br>
+        </h1>
+
+        <div class="alert alert-success">Cita Médica agregada con éxito!</div>
+    }
+    else if (Model.Accion == "ExpedienteMedico")
+    {
+        <h1>
+            <span>Detalles del Expediente Médico </span>
+            <br>
+        </h1>
+
+        <div class="alert alert-success">Expediente Médico agregado con éxito!</div>
+    }
+    else
+    {
+        <h1>
+            <span>Detalles del de la Cita Médica </span>
+            <br>
+        </h1>
+    }
+}
+
+<br>
+
+<div class="card">
+    <div class="card-header">
+        <strong>Información del Funcionario</strong>
+    </div>
+    <div class="card-body text-center">
+        <table class="table table-hover">
+            <tr>
+                <td>
+                    <strong>@Html.LabelFor(model => model.Funcionario.Cedula): </strong>@Html.DisplayFor(model => model.Funcionario.Cedula)
+                    @Html.HiddenFor(model => model.Funcionario.Cedula)
+                </td>
+                <td>
+                    <strong>@Html.LabelFor(model => model.Funcionario.Nombre): </strong>@Model.Funcionario.Nombre
+                    @Html.HiddenFor(model => model.Funcionario.Nombre)
+                </td>
+                <td>
+                    <strong>@Html.LabelFor(model => model.Funcionario.PrimerApellido): </strong>@Model.Funcionario.PrimerApellido
+                    @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                </td>
+                <td>
+                    <strong>@Html.LabelFor(model => model.Funcionario.SegundoApellido): </strong>@Model.Funcionario.SegundoApellido
+                    @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<br>
+
+@{
+    if (Model.Accion == "CitaMedica" || Model.Accion == "DetalleCitaMedica")
+    {
+        <div class="card">
+            <div class="card-header">
+                <strong>Registro de la Cita Médica</strong>
+            </div>
+            <div class="card-body text-center">
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            <strong>@Html.LabelFor(model => model.CitaMedicaId):</strong> @Html.DisplayFor(model => model.CitaMedica.IdEntidad)
+                        </td>
+                        <td>
+                            <strong>@Html.LabelFor(model => model.CitaMedica.Especialidad): </strong>@Html.DisplayFor(model => model.CitaMedica.Especialidad)
+                        </td>
+                        <td>
+                            <strong>@Html.LabelFor(model => model.CitaMedica.Fecha):</strong> @Html.DisplayFor(model => model.CitaMedica.Fecha)
+                        </td>
+                     
+                        <td>
+                            <strong>Doctor:</strong>
+                            @Html.DisplayFor(model => model.Doctor.Nombre)
+                            @Html.DisplayFor(model => model.Doctor.PrimerApellido)
+                        </td>
+
+                        <td>
+                            <strong>@Html.LabelFor(model => model.CitaMedica.Estado): </strong>@Html.DisplayFor(model => model.CitaMedica.Estado)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-anular" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert alert-danger" role="alert">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                            ¡Atención! Usted está apunto de anular la Cita Médica <strong></strong> para el funcionario <strong>@Model.Funcionario.Cedula - @Model.Funcionario.Nombre @Model.Funcionario.PrimerApellido @Model.Funcionario.SegundoApellido</strong>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @using (Ajax.BeginForm("ActualizarCitaMedica", "Consultorio", new { citaMedicaId = @Model.CitaMedica.IdEntidad, mensaje = "Anular" }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "dvResultadoDerecho",
+                        OnSuccess = "AnularCitaMedica",
+                        OnBegin = "AnularCitaMedicaConfirmado",
+                        OnFailure = "CompleteAnularCitaMedica('btnAnular','preloader')",
+                        OnComplete = "CompleteAnularCitaMedica('btnAnular','preloader')"
+                    }, new { @id = "formAnularPeriodo" }))
+                    {
+
+                        <div class="modal-body">
+                            <h9>La cita médica quedará anulada y no podrá reactivarse ni se le podrán realizar acciones a futuro.</h9>
+                            @Html.HiddenFor(model => model.Funcionario.Cedula, new { @id = "cedula" })
+                        </div>
+                        <div class="modal-footer">
+                            <input name="SubmitButton" class="btn btn-primary" type="submit" value="Anular" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert alert-warning" role="alert">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                            ¡Atención! Usted está apunto de confirmar la Cita Médica <strong></strong> para el funcionario <strong>@Model.Funcionario.Cedula - @Model.Funcionario.Nombre @Model.Funcionario.PrimerApellido @Model.Funcionario.SegundoApellido</strong>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @using (Ajax.BeginForm("ActualizarCitaMedica", "Consultorio", new { citaMedicaId = @Model.CitaMedica.IdEntidad, mensaje = "Confirmar" }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "dvResultadoDerecho",
+                        OnSuccess = "ConfimarCitaMedica",
+                        OnBegin = "ConfirmarCitaMedicaConfirmado",
+                        OnFailure = "CompleteConfirmarCitaMedica('btnConfirmar','preloader')",
+                        OnComplete = "CompleteConfirmarCitaMedica('btnConfirmar','preloader')"
+                    }, new { @id = "formConfirmarPeriodo" }))
+                    {
+
+                        <div class="modal-body">
+                            <h9>La cita médica quedará confirmada, se habilita la pre consulta y consulta.</h9>
+                            @Html.HiddenFor(model => model.Funcionario.Cedula, new { @id = "cedula" })
+                        </div>
+                        <div class="modal-footer">
+                            <input name="SubmitButton" class="btn btn-primary" type="submit" value="Confirmar" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-finalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert alert-info" role="alert">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                            ¡Atención! Usted está apunto de finalizar la Cita Médica <strong></strong> para el funcionario <strong>@Model.Funcionario.Cedula - @Model.Funcionario.Nombre @Model.Funcionario.PrimerApellido @Model.Funcionario.SegundoApellido</strong>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @using (Ajax.BeginForm("ActualizarCitaMedica", "Consultorio", new { citaMedicaId = @Model.CitaMedica.IdEntidad, mensaje = "Finalizar" }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "dvResultadoDerecho",
+                        OnSuccess = "FinalizarCitaMedica",
+                        OnBegin = "FinalizarCitaMedicaConfirmado",
+                        OnFailure = "CompleteFinalizarCitaMedica('btnFinalizar','preloader')",
+                        OnComplete = "CompleteFinalizarCitaMedica('btnFinalizar','preloader')"
+                    }, new { @id = "formFinalizarPeriodo" }))
+                    {
+
+                        <div class="modal-body">
+                            <h9>La cita médica quedará finalizada.</h9>
+                            @Html.HiddenFor(model => model.Funcionario.Cedula, new { @id = "cedula" })
+                        </div>
+                        <div class="modal-footer">
+                            <input name="SubmitButton" class="btn btn-primary" type="submit" value="Finalizar" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-bloquear" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert alert-dark" role="alert">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                            ¡Atención! Usted está apunto de bloquear la Cita Médica <strong></strong> para el funcionario <strong>@Model.Funcionario.Cedula - @Model.Funcionario.Nombre @Model.Funcionario.PrimerApellido @Model.Funcionario.SegundoApellido</strong>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @using (Ajax.BeginForm("ActualizarCitaMedica", "Consultorio", new { citaMedicaId = @Model.CitaMedica.IdEntidad, mensaje = "Bloquear" }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "dvResultadoDerecho",
+                        OnSuccess = "BloquearCitaMedica",
+                        OnBegin = "BloquearCitaMedicaConfirmado",
+                        OnFailure = "CompleteBloquearCitaMedica('btnBloquear','preloader')",
+                        OnComplete = "CompleteBloquearCitaMedica('btnBloquear','preloader')"
+                    }, new { @id = "formBloquearPeriodo" }))
+                    {
+
+                        <div class="modal-body">
+                            <h9>La cita médica quedará bloqueada.</h9>
+                            @Html.HiddenFor(model => model.Funcionario.Cedula, new { @id = "cedula" })
+                        </div>
+                        <div class="modal-footer">
+                            <input name="SubmitButton" class="btn btn-primary" type="submit" value="Bloquear" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<br />
+
+<a class="btn btn-primary" href="javascript:history.back()" id="A5"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
+@{
+    if (Model.Accion == "CitaMedica" || Model.Accion == "DetalleCitaMedica")
+    {
+        if (Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Cancelada)
+        {
+            <button class="btn btn-danger" onclick="abrirAnularCitaMedica();" id="btnAnular"><i class="fa fa-eraser"></i> Anular Cita Médica</button>
+        }
+
+        if (Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Cancelada && Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Confirmada)
+        {
+            <button class="btn btn-warning" onclick="abrirConfirmarCitaMedica();" id="btnConfirmar"><i class="fa fa-eraser"></i> Confirmar Cita Médica</button>
+        }
+
+        if (Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Cancelada && Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Finalizada)
+        {
+            <button class="btn btn-info" onclick="abrirFinalizarCitaMedica();" id="btnFinalizar"><i class="fa fa-eraser"></i> Finalizar Cita Médica</button>
+        }
+
+        if (Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Cancelada && Model.CitaMedica.Estado != EstadoCitaMedicaEnum.Bloqueada)
+        {
+            <button class="btn btn-dark" onclick="abrirBloquearCitaMedica();" id="btnBloquear"><i class="fa fa-eraser"></i> Bloquear Cita Médica</button>
+        }
+    }
+}
+
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/funciones-generales.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/DetailsConsultorio.js" type="text/javascript"></script>

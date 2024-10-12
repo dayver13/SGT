@@ -1,0 +1,297 @@
+﻿@model SIRH.Web.ViewModels.FormularioRegistroVacacionesVM
+
+@{
+    ViewBag.Title = "AdministracionSolicitudes";
+    Layout = "~/Views/Shared/VacacionesGeneral.cshtml";
+}
+
+<center><h2>Administración de solicitudes de vacaciones</h2></center>
+
+@if(Model.division == "guardar")
+{
+    <div class="alert alert-success">Registro actualizado correctamente!</div>
+}
+
+<br>
+@{
+    Html.EnableClientValidation();
+    using (Ajax.BeginForm("AdministracionSolicitudes", "Vacaciones", new AjaxOptions
+    {
+        UpdateTargetId = "dvResultadoBusqueda",
+        HttpMethod = "POST",
+        OnComplete = "CompleteSearch",
+        OnBegin = "BeginSearch"
+    }))
+    {
+        <div class="card">
+            <h5 class="card-header"></h5>
+            <div class="card-body">
+                <center>
+                    <div class="row">
+
+                        <form class="form-inline">
+                            <div class="col-4">
+
+                                <div class="form-group">
+                                    Seleccione el funcionario
+                                </div>
+
+
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.funcionarioSeleccionado,
+                                    Model.FuncionariosAsociados, "Seleccione...",
+                                    new
+                                    {
+                                        @class = "form-control",
+                                        @readonly = "readonly",
+                                        style = "width: 300px;"
+                                    })
+
+                                    @*Html.ValidationMessageFor(model => model.Funcionario.Cedula)*@
+                                </div>
+
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-primary " id="btnBuscar" name="SubmitButton" type="submit" value="Buscar">
+                                    <i class="fa fa-search"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-10">
+                            <center>
+                                <div id="preloader" class="loader" hidden></div>
+                            </center>
+                        </div>
+
+
+                    </div>
+                </center>
+            </div>
+        </div>
+    }
+    <div id="dvResultadoBusqueda"></div>
+
+}
+
+<!--MODAL APROBAR-->
+<div class="modal fade" id="modal-aprobar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert alert-success" role="alert">
+                <h5 class="modal-title" id="exampleModalCenterTitle">
+
+                    <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                    ¡Atención! Usted está apunto de aprobar el registro de vacaciones <strong id="numDocumento"></strong> del funcionario <strong id="cedula"></strong> - <strong id="nomFuncionario"></strong> <strong id="primerApellido"></strong> <strong id="segundoApellido"></strong>
+
+                </h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Ajax.BeginForm("ActualizarSolicitud", "Vacaciones", new AjaxOptions
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "dvResultadoAprobado",
+                OnBegin = "AprobarRegistroConfirmado",
+                OnFailure = "CompleteAprobarRegistro('btnaprobar','preloader')",
+                OnComplete = "CompleteAprobarRegistro('btnaprobar','preloader')"
+            }, new { @id = "formAprobarRegistro" }))
+            {
+                <div class="modal-body">
+                    <input type="hidden" id="Solicitud" name="Solicitud" value="" />
+                    <input type="hidden" id="Cedula" name="Cedula" value="" />
+                    @*<strong>Seleccione el periodo o periodos en el que ubicará el registro y la cantidad de días a aprobar. Si el registro tiene un reintegro no podrá dividirlo, deberá aprobar sus días completos.</strong>
+                        <div>Puede separar los días en varios periodos, eso seccionará el registro en varios nuevos. El máximo de días que puede aprobar son: <strong id="mensajeDias"></strong> </div>*@
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Nº Transacción</td>
+                            <td>Fecha Rige</td>
+                            <td>Fecha Vence</td>
+                            <td>Días a aprobar</td>
+                            @Html.HiddenFor(model => model.Funcionario.Cedula)
+                            @Html.HiddenFor(model => model.Funcionario.Nombre)
+                            @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                            @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                        </tr>
+
+                        <tr>
+                            <td><div id="numDocumento"></div></td>
+                            <td><div id="fechaSalida"></div></td>
+                            <td><div id="fechaEntrada"></div></td>
+                            <td><div id="dias"></div></td>
+                        </tr>
+
+                    </table>
+                    <div id="error" class="alert alert-danger" style="display:none"></div>
+                    @*@Html.HiddenFor(model => model.Periodo.Periodo, new { @id = "periodo" })
+                        @Html.HiddenFor(model => model.Periodo.IdEntidad, new { @id = "identperiodo" })*@
+                </div>
+                <div class="modal-footer">
+
+                    <button class="btn btn-primary " id="btnAprobar" name="SubmitButton" type="submit" value="Aprobar">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--MODAL DISCUSION-->
+<div class="modal fade" id="modal-discusion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert alert-warning" role="alert">
+                <h5 class="modal-title" id="exampleModalCenterTitle">
+                    <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                    ¡Atención! Usted está apunto de someter a discusion el registro de vacaciones <strong id="numDocumento"></strong> del funcionario <strong id="cedula"></strong> - <strong id="nomFuncionario"></strong> <strong id="primerApellido"></strong> <strong id="segundoApellido"></strong>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Ajax.BeginForm("ActualizarSolicitud", "Vacaciones", new AjaxOptions
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "dvResultadoDiscusion",
+                OnBegin = "DiscusionRegistroConfirmado",
+                OnFailure = "CompleteDiscusionRegistro('btndiscusion','preloader')",
+                OnComplete = "CompleteDiscusionRegistro('btndiscusion','preloader')"
+            }, new { @id = "formDiscusionRegistro" }))
+            {
+                <div class="modal-body">
+                    <input type="hidden" id="Solicitud" name="Solicitud" value="" />
+                    <input type="hidden" id="Cedula" name="Cedula" value="" />
+                    <strong>Escriba un comentario para someter a discusión la solicitud.</strong>
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Nº Transacción</td>
+                            <td>Fecha Rige</td>
+                            <td>Fecha Vence</td>
+                            <td>Días a aprobar</td>
+                        </tr>
+
+                        <tr>
+                            <td><div id="numDocumento"></div></td>
+                            <td><div id="fechaSalida"></div></td>
+                            <td><div id="fechaEntrada"></div></td>
+                            <td><div id="dias"></div></td>
+                        </tr>
+                    </table>
+                    <div class="form-group">
+                        <label for="comment"> Comentario: </label>
+                        @Html.TextAreaFor(model => model.RegistroVacaciones.Comentario, new { @class = "form-control", @size = 50, @placeholder = "Comentario" })
+                    </div>
+                    <div id="error" class="alert alert-danger" style="display:none"></div>
+                    @*@Html.HiddenFor(model => model.Periodo.Periodo, new { @id = "periodo" })
+        @Html.HiddenFor(model => model.Periodo.IdEntidad, new { @id = "identperiodo" })*@
+                    @Html.HiddenFor(model => model.Funcionario.Cedula)
+                    @Html.HiddenFor(model => model.Funcionario.Nombre)
+                    @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                    @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                    @Html.HiddenFor(model => model.PeriodosActivos.Count)
+                </div>
+                <div class="modal-footer">
+                    <input name="SubmitButton" class="btn btn-primary" type="submit" value="Discusion" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--MODAL RECHAZAR-->
+<div class="modal fade" id="modal-cancelar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert alert-danger" role="alert">
+                <h5 class="modal-title" id="exampleModalCenterTitle">
+                    <i class="fa fa-exclamation-circle d-inline" style="font-size:25px;"></i>
+                    ¡Atención! Usted está apunto de rechazar el registro de vacaciones <strong id="numDocumento"></strong> del funcionario <strong id="cedula"></strong> - <strong id="nomFuncionario"></strong> <strong id="primerApellido"></strong> <strong id="segundoApellido"></strong>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Ajax.BeginForm("ActualizarSolicitud", "Vacaciones", new AjaxOptions
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "dvResultadoCancelado",
+                OnBegin = "CancelarRegistroConfirmado",
+                OnFailure = "CompleteCancelarRegistro('btncancelar','preloader')",
+                OnComplete = "CompleteCancelarRegistro('btncancelar','preloader')"
+            }, new { @id = "formCancelarRegistro" }))
+            {
+                <div class="modal-body">
+                    <input type="hidden" id="Solicitud" name="Solicitud" value="" />
+                    <input type="hidden" id="Cedula" name="Cedula" value="" />
+                    <strong>Escriba un comentario para rechazar la solicitud.</strong>
+
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Nº Transacción</td>
+                            <td>Fecha Rige</td>
+                            <td>Fecha Vence</td>
+                            <td>Días a aprobar</td>
+                        </tr>
+
+                        <tr>
+                            <td><div id="numDocumento"></div></td>
+                            <td><div id="fechaSalida"></div></td>
+                            <td><div id="fechaEntrada"></div></td>
+                            <td><div id="dias"></div></td>
+                        </tr>
+                    </table>
+                    <div>
+                        <label for="comment"> Comentario: </label>
+                        @Html.TextAreaFor(model => model.RegistroVacaciones.Comentario, new { @class = "form-control", @size = 50, @placeholder = "Comentario" })
+                        @Html.HiddenFor(model => model.RegistroVacaciones.NumeroTransaccion)
+                    </div>
+                    <div id="error" class="alert alert-danger" style="display:none"></div>
+                    @*@Html.HiddenFor(model => model.Periodo.Periodo, new { @id = "periodo" })
+        @Html.HiddenFor(model => model.Periodo.IdEntidad, new { @id = "identperiodo" })*@
+                    @Html.HiddenFor(model => model.Funcionario.Cedula)
+                    @Html.HiddenFor(model => model.Funcionario.Nombre)
+                    @Html.HiddenFor(model => model.Funcionario.PrimerApellido)
+                    @Html.HiddenFor(model => model.Funcionario.SegundoApellido)
+                    @Html.HiddenFor(model => model.PeriodosActivos.Count)
+                </div>
+                <div class="modal-footer">
+                    <input name="SubmitButton" class="btn btn-primary" type="submit" value="Rechazar" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/FormularioVacaciones.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/AdminSolicitudVacaciones.js" type="text/javascript"></script>
+
+<!--script src="~/Scripts/sidebar.js" type="text/javascript"></!--script>
+<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script-->
+<script src="~/Scripts/Pages/SearchVacaciones.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker.js" type="text/javascript"></script>
+<script src="~/Scripts/datetimepicker-es.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("formAprobarRegistro").on('submit', function (event) {
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+        });
+    });
+</script>
+

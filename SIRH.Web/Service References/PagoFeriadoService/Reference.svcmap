@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b695584-0c8b-4d3b-866c-db1b713c770b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://vm-sisrhdesa:86/SIRH.Servicios.CPagoFeriadoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SIRH.xsd" MetadataType="Schema" ID="ce1e14da-7925-4022-8014-25d2b12c063d" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SIRH1.xsd" MetadataType="Schema" ID="57a248bc-2853-4baf-9b59-83cd8946f154" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SIRH2.xsd" MetadataType="Schema" ID="3185685a-1631-4ece-84d8-765db924fe51" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SIRH3.xsd" MetadataType="Schema" ID="d92c8fc3-294d-49ad-adf8-e685c25eef8d" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CPagoFeriadoService.wsdl" MetadataType="Wsdl" ID="47af901b-c6bd-42c8-8c64-acd81f551cbe" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?wsdl" />
+    <MetadataFile FileName="SIRH.disco" MetadataType="Disco" ID="995ce776-aaaf-49ee-96a6-b02cb0138b84" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?disco" />
+    <MetadataFile FileName="SIRH4.xsd" MetadataType="Schema" ID="68ad935f-a34e-46dc-b60a-72dc11db4573" SourceId="1" SourceUrl="http://vm-sisrhdesa.mopt.go.cr:86/SIRH.Servicios.CPagoFeriadoService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,133 @@
+﻿@model SIRH.Web.ViewModels.FormularioRegistroVacacionesVM
+@{
+    if (Model != null)
+    {
+        using (Ajax.BeginForm("AdministracionReintegros", new AjaxOptions
+        {
+            UpdateTargetId = "Errores_Formulario",
+            HttpMethod = "POST",
+            OnComplete = "CompleteCargarReintegros",
+            OnBegin = "BeginCargarReintegros"
+        }))
+        {
+            Html.ValidationSummary(true);
+            <br>
+            <div class="card">
+                <div class="card-header"><h5>Solicitudes de reintegros de vacaciones</h5></div>
+                <div class="card">
+                    @if (@Model.ListaReintegroVacacionesPendientes != null && 
+                        Model.ListaReintegroVacacionesPendientes.Count > 0)
+                    {
+                        <table class="table">
+                            <thead class="card-header">
+                                <tr>
+                                    <th>N° Transacción</th>
+                                    <th>Rige</th>
+                                    <th>Vence</th>
+                                    <th>Días</th>
+                                    <th>Estado</th>
+                                    <th>Motivo</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ListaReintegroVacacionesPendientes.Count; i++)
+                                {
+                                    if (Model.ListaReintegroVacacionesPendientes[i].Estado == 2)
+                                    {
+                                        Model.estadoReintegroVacaciones = "Pendiente";
+                                    }
+                                    else
+                                    {
+                                        Model.estadoReintegroVacaciones = "Pendiente RRHH";
+                                    }
+
+                                    <tr></tr>
+                                    <tr>
+                                        @if (Model.ListaReintegroVacacionesPendientes[i].SolReintegro == null)
+                                        {
+                                            Model.ListaReintegroVacacionesPendientes[i].SolReintegro = " ";
+                                        }
+                                        <td>@Model.ListaReintegroVacacionesPendientes[i].SolReintegro</td>
+                                        <td>@Model.ListaReintegroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString()</td>
+                                        <td>@Model.ListaReintegroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString()</td>
+                                        <td>@Model.ListaReintegroVacacionesPendientes[i].CantidadDias</td>
+                                        <td>@Model.estadoReintegroVacaciones</td>
+                                        <td>@Model.ListaReintegroVacacionesPendientes[i].Observaciones</td>
+                                        <td>
+                                            <button class="btn btn-outline-success" onclick="abrirAprobarReintegro(@(Model.ListaReintegroVacacionesPendientes[i].IdEntidad),
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].SolReintegro.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].CantidadDias.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                    '@(Model.Funcionario.Cedula.ToString())',
+                                                    '@(Model.Funcionario.Nombre.ToString())',
+                                                    '@(Model.Funcionario.PrimerApellido.ToString())',
+                                                    '@(Model.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnAprobar">
+                                                <i class="fa fa-check-square"></i> Aprobar
+                                            </button>
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-warning" onclick="abrirDiscusionReintegro(@(Model.ListaReintegroVacacionesPendientes[i].IdEntidad),
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].SolReintegro.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].CantidadDias.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                    '@(Model.Funcionario.Cedula.ToString())',
+                                                    '@(Model.Funcionario.Nombre.ToString())',
+                                                    '@(Model.Funcionario.PrimerApellido.ToString())',
+                                                    '@(Model.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnDiscusion">
+                                                <i class="fa fa-reply"></i> Someter a discusion
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-outline-danger" onclick="abrirCancelarReintegro(@(Model.ListaReintegroVacacionesPendientes[i].IdEntidad),
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].SolReintegro.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].CantidadDias.ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaRige.ToShortDateString().ToString())',
+                                                    '@(Model.ListaReintegroVacacionesPendientes[i].FechaVence.ToShortDateString().ToString())',
+                                                    '@(Model.Funcionario.Cedula.ToString())',
+                                                    '@(Model.Funcionario.Nombre.ToString())',
+                                                    '@(Model.Funcionario.PrimerApellido.ToString())',
+                                                    '@(Model.Funcionario.SegundoApellido.ToString())');"
+                                                    id="btnRechazar">
+                                                <i class="fa fa-window-close"></i> Rechazar
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">No se encontraron reintegros de vacaciones pendientes para el funcionario </div>
+                    }
+                </div>
+            </div>
+            <br>
+            <div>
+                <a class="btn btn-primary" href="javascript:history.back()" id="A5"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
+            </div>
+        }
+        <div id="Errores_Formulario" style="margin-top:15px;"> </div>
+    }
+}

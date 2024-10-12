@@ -1,0 +1,105 @@
+﻿@model SIRH.Web.ViewModels.PerfilFuncionarioVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/General.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/sidebar.css">
+
+<h2>Actualizar Contrato de Teletrabajo</h2>
+<div class="jumbotron">
+    <div class="sidebar"></div>
+    <header>
+        <div>
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="~/Content/Images/logo-mopt-gobazuldorado2023@2x-8.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="main-content">
+            <div class="user-information">
+                <h2>Información de Colaborador</h2>
+                <ul>
+                    <li>Nombre:</li>
+                    <li>Departamento:</li>
+                    <li>Puesto:</li>
+                </ul>
+            </div>
+            <div class="form-area">
+                <h2>Datos de la Petición</h2>
+                <form action="">
+                    <div id="direccion" class="section">
+                        <details>
+                            <summary>Dirección</summary>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.Direccion.Distrito.Canton.Provincia.NomProvincia) </th>
+                                        <td>@Html.DisplayFor(model => model.Direccion.Distrito.Canton.Provincia.NomProvincia) </td>
+                                        <th>@Html.LabelFor(model => model.Direccion.Distrito.Canton.NomCanton) </th>
+                                        <td>@Html.DisplayFor(model => model.Direccion.Distrito.Canton.NomCanton)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.Direccion.Distrito.NomDistrito) </th>
+                                        <td>@Html.DisplayFor(model => model.Direccion.Distrito.NomDistrito)</td>
+                                        <th>@Html.LabelFor(model => model.Direccion.DirExacta) </th>
+                                        <td>@Html.DisplayFor(model => model.Direccion.DirExacta)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <textarea name="" id="" autocapitalize="on"></textarea>
+                        </details>
+                    </div>
+                    <div id="funciones" class="section">
+                        <details>
+                            <summary>Funciones</summary>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.Puesto.CodPuesto) </th>
+                                        <td>@Html.DisplayFor(model => model.Puesto.CodPuesto)</td>
+                                        <th>@Html.LabelFor(model => model.Puesto.EstadoPuesto.DesEstadoPuesto)</th>
+                                        <td>@Html.DisplayFor(model => model.Puesto.EstadoPuesto.DesEstadoPuesto)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.DetallePuesto.Clase.DesClase) </th>
+                                        <td>@Html.DisplayFor(model => model.DetallePuesto.Clase.DesClase)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <textarea name="" id="" autocapitalize="on"></textarea>
+                        </details>
+                    </div>
+                    <div id="dias" class="section">
+                        <details>
+                            <summary>Días en teletrabajo</summary>
+                            <input type="number" name="cantidad_dias" id="cantidad_dias" min="1" max="365">
+                        </details>
+                    </div>
+                    <div class="button-container">
+                        <!-- New div for button layout -->
+                        <a href="#" class="button">Regresar</a>
+                        <button type="submit" class="button">Actualizar contrato</button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <div class="footer-content"></div>
+        </div>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+
