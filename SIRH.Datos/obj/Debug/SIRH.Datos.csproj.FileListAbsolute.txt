@@ -60,3 +60,13 @@ C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.cspr
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.Up2Date
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.dll
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.pdb
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.dll.config
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.dll
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.pdb
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\bin\Debug\SIRH.DTO.dll
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\bin\Debug\SIRH.DTO.pdb
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.AssemblyReference.cache
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CoreCompileInputs.cache
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.Up2Date
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.dll
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.pdb

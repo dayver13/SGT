@@ -24,9 +24,9 @@
             <div class="user-information">
                 <h2>Información de Colaborador</h2>
                 <ul>
-                    <li>Nombre:</li>
-                    <li>Departamento:</li>
-                    <li>Puesto:</li>
+                    <li>Nombre:@Html.DisplayFor(model => model.Funcionario.Nombre)</li>
+                    <li>Departamento:@Html.DisplayFor(model => model.DepartamentoPuesto.NomDepartamento) </li>
+                    <li>Puesto:@Html.DisplayFor(model => model.Puesto.CodPuesto)</li>
                 </ul>
             </div>
             <div class="form-area">
@@ -60,14 +60,17 @@
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
-                                        <th>@Html.LabelFor(model => model.Puesto.CodPuesto) </th>
-                                        <td>@Html.DisplayFor(model => model.Puesto.CodPuesto)</td>
-                                        <th>@Html.LabelFor(model => model.Puesto.EstadoPuesto.DesEstadoPuesto)</th>
-                                        <td>@Html.DisplayFor(model => model.Puesto.EstadoPuesto.DesEstadoPuesto)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>@Html.LabelFor(model => model.DetallePuesto.Clase.DesClase) </th>
-                                        <td>@Html.DisplayFor(model => model.DetallePuesto.Clase.DesClase)</td>
+                                        <th>@Html.LabelFor(model => model.ActividadesTeletrabajo) </th>
+                                        @if (Model != null)
+                                        {
+                                            if (Model.ActividadesTeletrabajo.Count > 0)
+                                            {
+                                                for (var i = 0; i < Model.ActividadesTeletrabajo.Count; i++)
+                                                {
+                                               <td> @Html.DisplayFor(model => model.ActividadesTeletrabajo[i].DescripcionActividad)</td> 
+                                                }
+                                            }
+                                        }
                                     </tr>
                                 </tbody>
                             </table>
@@ -77,7 +80,24 @@
                     <div id="dias" class="section">
                         <details>
                             <summary>Días en teletrabajo</summary>
-                            <input type="number" name="cantidad_dias" id="cantidad_dias" min="1" max="365">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo) </th>
+                                        <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo) </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @if (Model != null)
+                            {
+                                var i = @Model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
+                                <input type="number" name="cantidad_dias" id="cantidad_dias" min="1" max=@i>
+                            }
+                            else
+                            {
+                                <input type="number" name="cantidad_dias" id="cantidad_dias" min="1" max="3">
+                            }
+
                         </details>
                     </div>
                     <div class="button-container">

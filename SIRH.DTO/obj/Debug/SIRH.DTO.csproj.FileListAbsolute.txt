@@ -35,3 +35,9 @@ C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.A
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.dll
 C:\Users\dayver13\source\repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\dayver\Source\Repos\dayver13\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
