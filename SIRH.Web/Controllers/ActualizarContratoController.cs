@@ -38,12 +38,13 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
 
-                var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["CedulaUsuario"].ToString());
+                Session["userid"] = "305030863";
+                var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["userid"].ToString());
                 if (perfil.ElementAt(0).ElementAt(0).GetType() != typeof(CErrorDTO))
                 {
                     modelo = ConstruirModeloPuesto(modelo, perfil);
 
-                    var datos = funcionarioReference.BuscarFuncionarioSalario(Session["CedulaUsuario"].ToString());
+                    var datos = funcionarioReference.BuscarFuncionarioSalario(Session["userid"].ToString());
                     modelo.Salario = (CSalarioDTO)datos.ElementAt(1);
                 }
                 else
