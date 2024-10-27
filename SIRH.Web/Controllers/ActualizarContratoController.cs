@@ -38,13 +38,13 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
 
-                Session["userid"] = "305030863";
-                var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["userid"].ToString());
+                Session["CedulaUsuario"] = "305030863";
+                var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["CedulaUsuario"].ToString());
                 if (perfil.ElementAt(0).ElementAt(0).GetType() != typeof(CErrorDTO))
                 {
                     modelo = ConstruirModeloPuesto(modelo, perfil);
 
-                    var datos = funcionarioReference.BuscarFuncionarioSalario(Session["userid"].ToString());
+                    var datos = funcionarioReference.BuscarFuncionarioSalario(Session["CedulaUsuario"].ToString());
                     modelo.Salario = (CSalarioDTO)datos.ElementAt(1);
                 }
                 else
@@ -93,6 +93,64 @@ namespace SIRH.Web.Controllers
 
 
                 return View(modelo);
+            }
+            catch (Exception error)
+            {
+                Session["errorF"] = "error";
+
+                if (error.Message != "modelo")
+                {
+                    ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
+
+                }
+                else
+                {
+                    ModelState.AddModelError("modelo", "No existen datos del lugar de contrato ni el lugar de trabajo.\n\n Pongase en contacto con el personal autorizado.");
+
+                }
+                return View();
+
+            }
+        }
+
+        [HttpPost]
+        public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton)
+        {
+            Session["errorF"] = null;
+            try
+            {
+                if (SubmitButton == "Enviar nueva solicitud")
+                {
+                    var errors = ModelState.Where(x => x.Value.Errors.Count > 0).Select(x => new { x.Key, x.Value.Errors }).ToArray();
+                    if (ModelState.IsValid == true)
+                    {
+                        model.SolicitudTeletrabajo.Escolaridad = Int32.Parse(model.EscolaridadSeleccionada);
+                        model.SolicitudTeletrabajo.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+                        model.SolicitudTeletrabajo.FuncionarioTeletrabajo = model.Funcionario;
+                        model.SolicitudTeletrabajo.AprobadoJefaturaInmediata = false;
+                        model.SolicitudTeletrabajo.AprobadoJefaturaSuperior = false;
+
+                        //model.SolicitudTeletrabajo.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+
+                        var guardarDatos = funcionarioReference.GuardarSolicitud(model.SolicitudTeletrabajo);
+
+                        if (((CRespuestaDTO)guardarDatos).Codigo > 0)
+                        {
+                            return Content("<div class='alert alert-success'>Cambios guardados correctamente</div>");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("BusquedaSolicitud", ((CRespuestaDTO)guardarDatos).Mensaje);
+                            throw new Exception("Guardar");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Busqueda");
+                    }
+                }
+
+                return View(model);
             }
             catch (Exception error)
             {

@@ -1,0 +1,62 @@
+﻿@model SIRH.Web.ViewModels.PerfilFuncionarioVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Teletrabajo.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/sidebar.css">
+<style>
+    .aprobar {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .rechazar {
+        background-color: #f44336;
+        color: white;
+    }
+    .corregir {
+        background-color: #ff8000;
+        color: white;
+    }
+</style>
+
+
+<h2>Contratos Teletrabajo</h2>
+<div class="jumbotron">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Enlace a la Petición</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                if (Model.ActividadesTeletrabajo.Count > 0)
+                {
+                    for (var i = 0; i < Model.ActividadesTeletrabajo.Count; i++)
+                    {
+                        <tr>
+                            @*<td>@petition.UserName</td>
+                                <td><a href="@petition.PetitionLink" target="_blank">Ver Petición</a></td>
+                                <td>@petition.Status</td>
+                                <td>
+                                    <form method="post" action="/Peticiones/ActualizarEstado">
+                                        <input type="hidden" name="id" value="@petition.Id" />
+                                        <button type="submit" name="action" value="aprobar" class="aprobar">Aprobar</button>
+                                        <button type="submit" name="action" value="rechazar" class="rechazar">Rechazar</button>
+                                    </form>
+                                </td>*@
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+
+</div>

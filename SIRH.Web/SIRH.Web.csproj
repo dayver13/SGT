@@ -236,6 +236,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\CalificacionController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\GestionContratoController.cs" />
     <Compile Include="Controllers\GestionUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JornadasController.cs" />
@@ -3033,6 +3034,8 @@
     <Content Include="Views\Vacaciones\ConsultarVacacionesFuncionario.cshtml" />
     <Content Include="Views\Vacaciones\_DetalleVacacionesFuncionario.cshtml" />
     <Content Include="Views\ActualizarContrato\Index.cshtml" />
+    <Content Include="Views\Shared\Teletrabajo.cshtml" />
+    <Content Include="Views\GestionContrato\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
