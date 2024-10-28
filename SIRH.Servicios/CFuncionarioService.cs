@@ -408,5 +408,6 @@ namespace SIRH.Servicios
         public CBaseDTO AprobacionInmediato(int solicitud) => new CSolicitudTeletrabajoL().AprobacionInmediato(solicitud);
         public CBaseDTO AprobacionSuperior(int solicitud) => new CSolicitudTeletrabajoL().AprobacionSuperior(solicitud);
         public List<SolicitudTeletrabajoDTO> ListarSolicitudes(string cedula) => new CSolicitudTeletrabajoL().ListarSolicitudes(cedula);
+        public SolicitudTeletrabajoDTO SolicitudActual(string cedula) => new CSolicitudTeletrabajoL().SolicitudActual(cedula);
     }
 }

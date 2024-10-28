@@ -46,6 +46,7 @@ namespace SIRH.Web.Controllers
 
                     var datos = funcionarioReference.BuscarFuncionarioSalario(Session["CedulaUsuario"].ToString());
                     modelo.Salario = (CSalarioDTO)datos.ElementAt(1);
+                    modelo.SolicitudTeletrabajo = funcionarioReference.SolicitudActual(Session["CedulaUsuario"].ToString());
                 }
                 else
                 {

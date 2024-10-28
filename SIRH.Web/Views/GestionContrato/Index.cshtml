@@ -30,6 +30,7 @@
             <tr>
                 <th>Numero de Solicitud</th>
                 <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -37,25 +38,32 @@
             {
                 if (Model.solicitudes.Count > 0)
                 {
-                    for (var i = 0; i < Model.solicitudes.Count; i++)
+                    for (var i = Model.solicitudes.Count; i > 0; i--)
                     {
 
 
                         <tr>
                             <td>i</td>
-                            @if (!Model.solicitudes[i].AprobadoJefaturaInmediata && !Model.solicitudes[i].AprobadoJefaturaSuperior)
+                            @if (!Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior)
                             {
         
                                 <td>Esperando aprobacion jefatura inmediata</td>
                             }
-                            @if (Model.solicitudes[i].AprobadoJefaturaInmediata && !Model.solicitudes[i].AprobadoJefaturaSuperior)
+                            @if (Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior)
                             {
                                 <td>Esperando aprobacion jefatura superior</td>
                             }
-                            @if (Model.solicitudes[i].AprobadoJefaturaInmediata && Model.solicitudes[i].AprobadoJefaturaSuperior)
+                            @if (Model.solicitudes[i-1].AprobadoJefaturaInmediata && Model.solicitudes[i-1].AprobadoJefaturaSuperior)
                             {
                                 <td>Aprobado</td>
                             }
+                            <td>
+                                @if(!Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior) { 
+                                    <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" onclick="location.href='/GestionContrato'">
+                                        Modificar Solicitud
+                                    </button>
+                                }
+                            </td>
                         </tr>
                     }
                 }

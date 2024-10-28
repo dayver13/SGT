@@ -153,6 +153,28 @@ namespace SIRH.Datos
             }
         }
 
+        public SolicitudTeletrabajo SolicitudActual(string cedula)
+        {
+            try
+            {
+
+                var datos = entidadBase.SolicitudTeletrabajo.Last(F => F.Funcionario.IdCedulaFuncionario == cedula);
+
+                if (datos != null)
+                {
+                    return datos;
+                }
+                else
+                {
+                    throw new Exception("Ocurrió un error al descargar los datos de las solicitudes");
+                }
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
 
         #endregion
     }

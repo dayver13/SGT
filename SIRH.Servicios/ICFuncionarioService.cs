@@ -170,6 +170,10 @@ namespace SIRH.Servicios
         [OperationContract]
         CBaseDTO GuardarSolicitud(SolicitudTeletrabajoDTO solicitud);
         [OperationContract]
+        List<SolicitudTeletrabajoDTO> ListarSolicitudes(string cedula);
+        [OperationContract]
+        SolicitudTeletrabajoDTO SolicitudActual(string cedula);
+        [OperationContract]
         CBaseDTO AprobacionInmediato(int solicitud);
         [OperationContract]
         CBaseDTO AprobacionSuperior(int solicitud);
