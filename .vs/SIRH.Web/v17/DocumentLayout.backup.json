@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\actualizarcontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\actualizarcontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\home\\avaljefatura.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\avaljefatura.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\shared\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\service references\\funcionariolocal\\reference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\service references\\funcionariolocal\\reference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,118 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAPQBAAAAAAAAAAAowAUCAABrAAAAAAAAAA==",
+              "Title": "Reference.cs",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Service References\\FuncionarioLocal\\Reference.cs",
+              "RelativeDocumentMoniker": "SIRH.Web\\Service References\\FuncionarioLocal\\Reference.cs",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Service References\\FuncionarioLocal\\Reference.cs",
+              "RelativeToolTip": "SIRH.Web\\Service References\\FuncionarioLocal\\Reference.cs",
+              "ViewState": "AgIAAKsSAAAAyP////8nwLYSAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T02:45:54.216Z",
+              "WhenOpened": "2024-10-28T05:57:42.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AvalJefatura.cshtml",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\AvalJefatura.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Home\\AvalJefatura.cshtml",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\AvalJefatura.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Home\\AvalJefatura.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T03:16:28.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Teletrabajo.cshtml",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ViewState": "AgIAACQAAACAMTMzM7MiwCQAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T02:31:23.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Home.cshtml",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T02:01:57.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "SolicitarTeletrabajo.cshtml",
               "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
-              "ViewState": "AgIAAHwBAAAAMDMzMzMbwGICAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAACAzMzMzAwswDsAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T01:46:06.459Z",
+              "WhenOpened": "2024-10-28T05:42:25.734Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ActualizarContratoController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\ActualizarContratoController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\ActualizarContratoController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\ActualizarContratoController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\ActualizarContratoController.cs",
-              "ViewState": "AgIAAB4AAAAA5DIzMzPjvzAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T01:43:50.924Z",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAKDMzMzPbvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-28T05:42:20.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
-              "ViewState": "AgIAALcAAAAARDMzMzMLwBcAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T01:11:24.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "GestionContratoController.cs",
               "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
               "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\GestionContratoController.cs",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
               "RelativeToolTip": "SIRH.Web\\Controllers\\GestionContratoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAByPREAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T02:51:55.068Z",
+              "WhenOpened": "2024-10-28T04:37:02.298Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAABAaGZmZmYUwB4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-27T02:53:45.767Z",
+              "WhenOpened": "2024-10-28T02:33:11.933Z",
               "EditorCaption": ""
             }
           ]

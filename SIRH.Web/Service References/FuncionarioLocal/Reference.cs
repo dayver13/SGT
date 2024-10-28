@@ -3600,7 +3600,265 @@ namespace SIRH.Web.FuncionarioLocal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICFuncionarioService/GuardarSolicitud", ReplyAction="http://tempuri.org/ICFuncionarioService/GuardarSolicitudResponse")]
         System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarSolicitudAsync(SIRH.DTO.SolicitudTeletrabajoDTO solicitud);
-        
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ICFuncionarioService/CargarSolicitud", ReplyAction = "http://tempuri.org/ICFuncionarioService/CargarSolicitudResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoPedimentoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCambioPedimentoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoResolucionPedimentoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CResolucionPedimentoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CUsuarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CActividadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoFuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleAccesoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAreaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionNombramientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionAutoEvaluacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoAutoEvaluacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionNombramientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatalogoPreguntaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionCapacitacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionNombramientoFuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionObservacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionSeguimientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatMetaEstadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CNombramientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoNombramientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CClaseDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePuestoRubroDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CComponenteSalarialDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CObjetoGastoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPartidaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CSubPartidaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEscalaSalarialDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPeriodoEscalaSalarialDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEspecialidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.COcupacionRealDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CSubEspecialidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstudioPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFamiliaPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPedimentoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CUbicacionAdministrativaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDepartamentoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDireccionGeneralDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDivisionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPresupuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CProgramaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CSeccionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPeriodoCalificacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoPoliticaPublicaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionCompetenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoCompetenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionJefeColaboradorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoCalJefeColaboradorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionMetaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMetaIndividualCalificacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMetaIndividualEvidenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMetaIndividualInformeDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMetaObjetivoCalificacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CObjetivoCalificacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatMetaNivelDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatMetaPrioridadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoIndicadorMetaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCalificacionServicioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoCategoriaServicioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCantonDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CProvinciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatEstadoCivilDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatPermisoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCuentaBancariaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleContratacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadFinancieraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDesgloseSalarialDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleTiempoExtraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRegistroTiempoExtraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoExtraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDireccionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDistritoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CHistorialEstadoCivilDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CIncentivoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleNombramientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoIncentivoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CInformacionContactoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoContactoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMotivoMovimientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMovimientoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoMovimientoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPerfilDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPerfilAccesoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRelPresupuestoExtraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRelPuestoUbicacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CUbicacionPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoUbicacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoJornadaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CUbicacionRealDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CErrorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRespuestaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadSegurosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCaucionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMontoCaucionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFormacionAcademicaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCursoCapacitacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadEducativaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CModalidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCursoGradoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CContenidoPresupuestarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPrestamoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadAdscritaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadGubernamentalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAddendumPrestamoPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCaracteristicasPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFactorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTituloFactorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTareasPuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRescisionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPagoExtraordinarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoDeduccionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatalogoDeduccionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoDiaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatalogoDiaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CUbicacionAsuetoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPagoFeriadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDeduccionEfectuadaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDiaPagadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoTramiteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatalogoRemuneracionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRemuneracionEfectuadaPFDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDispositivoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEmpleadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEmpleadoDispositivoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMotivoBajaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CContratoArrendamientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDesarraigoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleDesarraigoEliminacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoDesarraigoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFacturaDesarraigoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCartaPresentacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CHorarioRangoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMarcacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoIncapacidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEntidadMedicaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRegistroIncapacidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleIncapacidadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionReglaTecnicaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CProcAlmacenadoDatosGeneralesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CProcAlmacenadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CBorradorAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoBorradorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleBorradorAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMovimientoBorradorAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAccionPersonalHistoricoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleAccionPersonalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPeriodoVacacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CBitacoraDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CReintegroVacacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRegistroVacacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMovimientoViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleDeduccionViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPagoViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePagoViaticoCorridoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoDetallePagoViaticoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPagoViaticoRetroactivoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CViaticoCorridoReintegroDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CMovimientoGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleDeduccionGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPagoGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePagoGastoTrasporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoDetallePagoGastoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CGastoTransporteReintegroDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CGastoTransporteRutasDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleAsignacionGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CBitacoraUsuarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleEliminacionViaticoCorridoGastoTransporteDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleAsignacionGastoTransporteModificadaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatDiaViaticoGastoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatMovimientoPresupuestoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CComponentePresupuestarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CBoletaPrestamoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CExpedienteFuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFolioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTomoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CNotificacionUsuarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CSalarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CBitacoraIncidenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CIncidenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatalogoIncidenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDeduccionTemporalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoDeduccionTemporalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CHistoricoPlanillaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEMUExfuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CActividadFuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionEncargadoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPrestacionLegalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePrestacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePrestacionAfiliacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePrestacionCuadroDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoPrestacionCuadroDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTipoPrestacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.COrdenMovimientoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoOrdenDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.COrdenMovimientoDeclaracionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CListaNombramientosActivosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFactorClasificacionCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CRequerimientoEspecificoCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CResultadoCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CActividadResultadoCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCompetenciaTransversalCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CComportamientoTransversalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEvidenciaComportamientoTransversalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCompetenciaGrupoOcupacionalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CComportamientoGrupoOcupacionalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEvidenciaGrupoOcupacionalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoCargoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatCampoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CSolicitudCambioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleSolicitudCambioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CParametrosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CTemp_EnviarCorreoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCarreraProfesionalDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCursoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetallePuntosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPuntosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionServicioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionAutoEvaluacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCalificacionJefeColaboradorDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatCalificacionCompetenciaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualActividadAvanceDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualActividadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoActividadDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualMetaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoPlanDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualProductosDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanEstrategicoProductoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanEstrategicoLineaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanEstrategicoEjeDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanEstrategicoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanEstrategicoAccionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CPlanAnualActividadFuncionarioDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CCatCalificacionAutoevaluacionDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAprobacionVacacionesDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CVacacionesJefaturaDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.SolicitudTeletrabajoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CAvalSolicitudTeletrabajoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CActividadSolicitudTeletrabajoDTO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CFuncionarioDTO))]
+        SIRH.DTO.SolicitudTeletrabajoDTO[] ListarSolicitudes(string cedula);
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ICFuncionarioService/CargarSolicitud", ReplyAction = "http://tempuri.org/ICFuncionarioService/CargarSolicitudResponse")]
+        System.Threading.Tasks.Task<SIRH.DTO.SolicitudTeletrabajoDTO[]> ListarSolicitudesAsync(string cedula);
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICFuncionarioService/AprobacionInmediato", ReplyAction="http://tempuri.org/ICFuncionarioService/AprobacionInmediatoResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CEstadoPedimentoDTO))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SIRH.DTO.CDetalleCambioPedimentoDTO))]
@@ -4121,414 +4379,424 @@ namespace SIRH.Web.FuncionarioLocal {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICFuncionarioServiceChannel : SIRH.Web.FuncionarioLocal.ICFuncionarioService, System.ServiceModel.IClientChannel {
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class CFuncionarioServiceClient : System.ServiceModel.ClientBase<SIRH.Web.FuncionarioLocal.ICFuncionarioService>, SIRH.Web.FuncionarioLocal.ICFuncionarioService {
-        
+
         public CFuncionarioServiceClient() {
         }
-        
-        public CFuncionarioServiceClient(string endpointConfigurationName) : 
+
+        public CFuncionarioServiceClient(string endpointConfigurationName) :
                 base(endpointConfigurationName) {
         }
-        
-        public CFuncionarioServiceClient(string endpointConfigurationName, string remoteAddress) : 
+
+        public CFuncionarioServiceClient(string endpointConfigurationName, string remoteAddress) :
                 base(endpointConfigurationName, remoteAddress) {
         }
-        
-        public CFuncionarioServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public CFuncionarioServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(endpointConfigurationName, remoteAddress) {
         }
-        
-        public CFuncionarioServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public CFuncionarioServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(binding, remoteAddress) {
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarDireccionFuncionario(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CDireccionDTO direccion) {
             return base.Channel.GuardarDireccionFuncionario(funcionario, direccion);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarDireccionFuncionarioAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CDireccionDTO direccion) {
             return base.Channel.GuardarDireccionFuncionarioAsync(funcionario, direccion);
         }
-        
+
         public SIRH.DTO.CBaseDTO[][] BuscarFuncionarioOferente(string cedula) {
             return base.Channel.BuscarFuncionarioOferente(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[][]> BuscarFuncionarioOferenteAsync(string cedula) {
             return base.Channel.BuscarFuncionarioOferenteAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] ListarEntidadesFinancieras() {
             return base.Channel.ListarEntidadesFinancieras();
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> ListarEntidadesFinancierasAsync() {
             return base.Channel.ListarEntidadesFinancierasAsync();
         }
-        
+
         public SIRH.DTO.CBaseDTO[] ListarEntidadesGubernamentales() {
             return base.Channel.ListarEntidadesGubernamentales();
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> ListarEntidadesGubernamentalesAsync() {
             return base.Channel.ListarEntidadesGubernamentalesAsync();
         }
-        
+
         public SIRH.DTO.CBaseDTO[] ListarEntidadesAdscritas() {
             return base.Channel.ListarEntidadesAdscritas();
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> ListarEntidadesAdscritasAsync() {
             return base.Channel.ListarEntidadesAdscritasAsync();
         }
-        
+
         public SIRH.DTO.CBaseDTO BuscarEntidadFinanciera(int codigo) {
             return base.Channel.BuscarEntidadFinanciera(codigo);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> BuscarEntidadFinancieraAsync(int codigo) {
             return base.Channel.BuscarEntidadFinancieraAsync(codigo);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarInformacionContacto(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CInformacionContactoDTO informacionContacto) {
             return base.Channel.GuardarInformacionContacto(funcionario, informacionContacto);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarInformacionContactoAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CInformacionContactoDTO informacionContacto) {
             return base.Channel.GuardarInformacionContactoAsync(funcionario, informacionContacto);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarCuentaBancariaFuncionario(SIRH.DTO.CCuentaBancariaDTO cuenta) {
             return base.Channel.GuardarCuentaBancariaFuncionario(cuenta);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarCuentaBancariaFuncionarioAsync(SIRH.DTO.CCuentaBancariaDTO cuenta) {
             return base.Channel.GuardarCuentaBancariaFuncionarioAsync(cuenta);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] DescargarDireccion(string cedula) {
             return base.Channel.DescargarDireccion(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> DescargarDireccionAsync(string cedula) {
             return base.Channel.DescargarDireccionAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] DescargarCatEstadoCivil(string cedula) {
             return base.Channel.DescargarCatEstadoCivil(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> DescargarCatEstadoCivilAsync(string cedula) {
             return base.Channel.DescargarCatEstadoCivilAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] EditarJornadaFuncionario(SIRH.DTO.CTipoJornadaDTO jornada) {
             return base.Channel.EditarJornadaFuncionario(jornada);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> EditarJornadaFuncionarioAsync(SIRH.DTO.CTipoJornadaDTO jornada) {
             return base.Channel.EditarJornadaFuncionarioAsync(jornada);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] RegistrarJornadaFuncionario(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CNombramientoDTO nombramiento, SIRH.DTO.CTipoJornadaDTO jornada) {
             return base.Channel.RegistrarJornadaFuncionario(funcionario, nombramiento, jornada);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> RegistrarJornadaFuncionarioAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CNombramientoDTO nombramiento, SIRH.DTO.CTipoJornadaDTO jornada) {
             return base.Channel.RegistrarJornadaFuncionarioAsync(funcionario, nombramiento, jornada);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] DescargarInformacionContacto(string cedula) {
             return base.Channel.DescargarInformacionContacto(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> DescargarInformacionContactoAsync(string cedula) {
             return base.Channel.DescargarInformacionContactoAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarHistEstadoCivil(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CHistorialEstadoCivilDTO historialEstadoCivil) {
             return base.Channel.GuardarHistEstadoCivil(funcionario, historialEstadoCivil);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarHistEstadoCivilAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CHistorialEstadoCivilDTO historialEstadoCivil) {
             return base.Channel.GuardarHistEstadoCivilAsync(funcionario, historialEstadoCivil);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] GuardarDetalleContratacion(SIRH.DTO.CDetalleContratacionDTO detalle, SIRH.DTO.CCuentaBancariaDTO cuenta) {
             return base.Channel.GuardarDetalleContratacion(detalle, cuenta);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> GuardarDetalleContratacionAsync(SIRH.DTO.CDetalleContratacionDTO detalle, SIRH.DTO.CCuentaBancariaDTO cuenta) {
             return base.Channel.GuardarDetalleContratacionAsync(detalle, cuenta);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarDetalleNombramiento(SIRH.DTO.CDetalleNombramientoDTO detalleNombramiento) {
             return base.Channel.GuardarDetalleNombramiento(detalleNombramiento);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarDetalleNombramientoAsync(SIRH.DTO.CDetalleNombramientoDTO detalleNombramiento) {
             return base.Channel.GuardarDetalleNombramientoAsync(detalleNombramiento);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] GuardarDatosPersonalesFuncionario(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CHistorialEstadoCivilDTO estadoCivil, SIRH.DTO.CInformacionContactoDTO[] informacion, SIRH.DTO.CDireccionDTO direccion) {
             return base.Channel.GuardarDatosPersonalesFuncionario(funcionario, estadoCivil, informacion, direccion);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> GuardarDatosPersonalesFuncionarioAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CHistorialEstadoCivilDTO estadoCivil, SIRH.DTO.CInformacionContactoDTO[] informacion, SIRH.DTO.CDireccionDTO direccion) {
             return base.Channel.GuardarDatosPersonalesFuncionarioAsync(funcionario, estadoCivil, informacion, direccion);
         }
-        
+
         public SIRH.DTO.CBaseDTO[][] FuncionariosConCauciones() {
             return base.Channel.FuncionariosConCauciones();
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[][]> FuncionariosConCaucionesAsync() {
             return base.Channel.FuncionariosConCaucionesAsync();
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioUsuario(string nombreUsuario) {
             return base.Channel.BuscarFuncionarioUsuario(nombreUsuario);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioUsuarioAsync(string nombreUsuario) {
             return base.Channel.BuscarFuncionarioUsuarioAsync(nombreUsuario);
         }
-        
+
         public SIRH.DTO.CBaseDTO BuscarFuncionarioBase(string cedula) {
             return base.Channel.BuscarFuncionarioBase(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> BuscarFuncionarioBaseAsync(string cedula) {
             return base.Channel.BuscarFuncionarioBaseAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioJornada(string cedula) {
             return base.Channel.BuscarFuncionarioJornada(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioJornadaAsync(string cedula) {
             return base.Channel.BuscarFuncionarioJornadaAsync(cedula);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO DescargarPerfilFuncionarioBásico(string cedula) {
             return base.Channel.DescargarPerfilFuncionarioBásico(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO> DescargarPerfilFuncionarioBásicoAsync(string cedula) {
             return base.Channel.DescargarPerfilFuncionarioBásicoAsync(cedula);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioGeneral(string[] query) {
             return base.Channel.BuscarFuncionarioGeneral(query);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioGeneralAsync(string[] query) {
             return base.Channel.BuscarFuncionarioGeneralAsync(query);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioParam(string cedula, string nombre, string apellido1, string apellido2) {
             return base.Channel.BuscarFuncionarioParam(cedula, nombre, apellido1, apellido2);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioParamAsync(string cedula, string nombre, string apellido1, string apellido2) {
             return base.Channel.BuscarFuncionarioParamAsync(cedula, nombre, apellido1, apellido2);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioPuesto(string codPuesto, int codClase, int codEspecialidad, int codOcupacionReal) {
             return base.Channel.BuscarFuncionarioPuesto(codPuesto, codClase, codEspecialidad, codOcupacionReal);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioPuestoAsync(string codPuesto, int codClase, int codEspecialidad, int codOcupacionReal) {
             return base.Channel.BuscarFuncionarioPuestoAsync(codPuesto, codClase, codEspecialidad, codOcupacionReal);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioUbicacion(int division, int direccion, int departamento, int seccion, string presupuesto) {
             return base.Channel.BuscarFuncionarioUbicacion(division, direccion, departamento, seccion, presupuesto);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioUbicacionAsync(int division, int direccion, int departamento, int seccion, string presupuesto) {
             return base.Channel.BuscarFuncionarioUbicacionAsync(division, direccion, departamento, seccion, presupuesto);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioDesgloceSalarial(string cedula, string periodo) {
             return base.Channel.BuscarFuncionarioDesgloceSalarial(cedula, periodo);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioDesgloceSalarialAsync(string cedula, string periodo) {
             return base.Channel.BuscarFuncionarioDesgloceSalarialAsync(cedula, periodo);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioDetallePuesto(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuesto(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioDetallePuestoAsync(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioDetallePuestoVacaciones(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoVacaciones(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioDetallePuestoVacacionesAsync(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoVacacionesAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioDetallePuestoPV(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoPV(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioDetallePuestoPVAsync(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoPVAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioDetallePuestoPropiedad(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoPropiedad(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioDetallePuestoPropiedadAsync(string cedula) {
             return base.Channel.BuscarFuncionarioDetallePuestoPropiedadAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioSalario(string cedula) {
             return base.Channel.BuscarFuncionarioSalario(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioSalarioAsync(string cedula) {
             return base.Channel.BuscarFuncionarioSalarioAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioProfesional(string cedula) {
             return base.Channel.BuscarFuncionarioProfesional(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioProfesionalAsync(string cedula) {
             return base.Channel.BuscarFuncionarioProfesionalAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarFuncionarioPolicial(string cedula) {
             return base.Channel.BuscarFuncionarioPolicial(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarFuncionarioPolicialAsync(string cedula) {
             return base.Channel.BuscarFuncionarioPolicialAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[][] DescargarPerfilFuncionarioCompleto(string cedula) {
             return base.Channel.DescargarPerfilFuncionarioCompleto(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[][]> DescargarPerfilFuncionarioCompletoAsync(string cedula) {
             return base.Channel.DescargarPerfilFuncionarioCompletoAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO BuscarFuncionarioPuntosCarreraProfesional(string cedula) {
             return base.Channel.BuscarFuncionarioPuntosCarreraProfesional(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> BuscarFuncionarioPuntosCarreraProfesionalAsync(string cedula) {
             return base.Channel.BuscarFuncionarioPuntosCarreraProfesionalAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] ListarTiposContacto() {
             return base.Channel.ListarTiposContacto();
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> ListarTiposContactoAsync() {
             return base.Channel.ListarTiposContactoAsync();
         }
-        
+
         public SIRH.DTO.CBaseDTO BuscarFuncionarioNuevo(string cedula) {
             return base.Channel.BuscarFuncionarioNuevo(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> BuscarFuncionarioNuevoAsync(string cedula) {
             return base.Channel.BuscarFuncionarioNuevoAsync(cedula);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioCompleto(string cedula, string nombre, string apellido1, string apellido2, string codpuesto, string codclase, string codespecialidad, string codocupacion, string coddivision, string coddireccion, string coddepartamento, string codseccion, string codpresupuesto) {
             return base.Channel.BuscarFuncionarioCompleto(cedula, nombre, apellido1, apellido2, codpuesto, codclase, codespecialidad, codocupacion, coddivision, coddireccion, coddepartamento, codseccion, codpresupuesto);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioCompletoAsync(string cedula, string nombre, string apellido1, string apellido2, string codpuesto, string codclase, string codespecialidad, string codocupacion, string coddivision, string coddireccion, string coddepartamento, string codseccion, string codpresupuesto) {
             return base.Channel.BuscarFuncionarioCompletoAsync(cedula, nombre, apellido1, apellido2, codpuesto, codclase, codespecialidad, codocupacion, coddivision, coddireccion, coddepartamento, codseccion, codpresupuesto);
         }
-        
+
         public SIRH.DTO.CFuncionarioDTO[] BuscarFuncionarioCompletoPP(string cedula, string nombre, string apellido1, string apellido2, string codpuesto, string codclase, string codespecialidad, int codnivel, string coddivision, string coddireccion, string coddepartamento, string codseccion, string codpresupuesto, string codestado, string codcostos) {
             return base.Channel.BuscarFuncionarioCompletoPP(cedula, nombre, apellido1, apellido2, codpuesto, codclase, codespecialidad, codnivel, coddivision, coddireccion, coddepartamento, codseccion, codpresupuesto, codestado, codcostos);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CFuncionarioDTO[]> BuscarFuncionarioCompletoPPAsync(string cedula, string nombre, string apellido1, string apellido2, string codpuesto, string codclase, string codespecialidad, int codnivel, string coddivision, string coddireccion, string coddepartamento, string codseccion, string codpresupuesto, string codestado, string codcostos) {
             return base.Channel.BuscarFuncionarioCompletoPPAsync(cedula, nombre, apellido1, apellido2, codpuesto, codclase, codespecialidad, codnivel, coddivision, coddireccion, coddepartamento, codseccion, codpresupuesto, codestado, codcostos);
         }
-        
+
         public SIRH.DTO.CBaseDTO ActualizarInformacionBasicaFuncionario(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CDireccionDTO direccion, SIRH.DTO.CInformacionContactoDTO[] contacto, SIRH.DTO.CHistorialEstadoCivilDTO historial) {
             return base.Channel.ActualizarInformacionBasicaFuncionario(funcionario, direccion, contacto, historial);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> ActualizarInformacionBasicaFuncionarioAsync(SIRH.DTO.CFuncionarioDTO funcionario, SIRH.DTO.CDireccionDTO direccion, SIRH.DTO.CInformacionContactoDTO[] contacto, SIRH.DTO.CHistorialEstadoCivilDTO historial) {
             return base.Channel.ActualizarInformacionBasicaFuncionarioAsync(funcionario, direccion, contacto, historial);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] BuscarInformacionBasicaFuncionario(string cedula) {
             return base.Channel.BuscarInformacionBasicaFuncionario(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> BuscarInformacionBasicaFuncionarioAsync(string cedula) {
             return base.Channel.BuscarInformacionBasicaFuncionarioAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarDetalleContratacionFuncionario(SIRH.DTO.CDetalleContratacionDTO datos) {
             return base.Channel.GuardarDetalleContratacionFuncionario(datos);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarDetalleContratacionFuncionarioAsync(SIRH.DTO.CDetalleContratacionDTO datos) {
             return base.Channel.GuardarDetalleContratacionFuncionarioAsync(datos);
         }
-        
+
         public SIRH.DTO.CBaseDTO[] CargarDetalleContratacionFuncionario(string cedula) {
             return base.Channel.CargarDetalleContratacionFuncionario(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[]> CargarDetalleContratacionFuncionarioAsync(string cedula) {
             return base.Channel.CargarDetalleContratacionFuncionarioAsync(cedula);
         }
-        
+
         public SIRH.DTO.CEMUExfuncionarioDTO[] BuscarExfuncionarioFiltros(string cedula, string nombre, string primerApellido, string segundoApellido, string codPuesto) {
             return base.Channel.BuscarExfuncionarioFiltros(cedula, nombre, primerApellido, segundoApellido, codPuesto);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CEMUExfuncionarioDTO[]> BuscarExfuncionarioFiltrosAsync(string cedula, string nombre, string primerApellido, string segundoApellido, string codPuesto) {
             return base.Channel.BuscarExfuncionarioFiltrosAsync(cedula, nombre, primerApellido, segundoApellido, codPuesto);
         }
-        
+
         public SIRH.DTO.CBaseDTO[][] BuscarDetalleFuncionarioPolicial(SIRH.DTO.CDetalleContratacionDTO detalle, System.DateTime[] fechas) {
             return base.Channel.BuscarDetalleFuncionarioPolicial(detalle, fechas);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO[][]> BuscarDetalleFuncionarioPolicialAsync(SIRH.DTO.CDetalleContratacionDTO detalle, System.DateTime[] fechas) {
             return base.Channel.BuscarDetalleFuncionarioPolicialAsync(detalle, fechas);
         }
-        
+
         public SIRH.DTO.CBaseDTO CargarCalificacionActual(string cedula) {
             return base.Channel.CargarCalificacionActual(cedula);
         }
-        
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> CargarCalificacionActualAsync(string cedula) {
             return base.Channel.CargarCalificacionActualAsync(cedula);
         }
-        
+
         public SIRH.DTO.CBaseDTO GuardarSolicitud(SIRH.DTO.SolicitudTeletrabajoDTO solicitud) {
             return base.Channel.GuardarSolicitud(solicitud);
         }
-        
+
+        public SIRH.DTO.SolicitudTeletrabajoDTO[] ListarSolicitudes(string cedula) {
+            return base.Channel.ListarSolicitudes(cedula);
+        }
+
+        public System.Threading.Tasks.Task<SIRH.DTO.SolicitudTeletrabajoDTO[]> ListarSolicitudesAsync(string cedula)
+        {
+            return base.Channel.ListarSolicitudesAsync(cedula);
+        }
+
         public System.Threading.Tasks.Task<SIRH.DTO.CBaseDTO> GuardarSolicitudAsync(SIRH.DTO.SolicitudTeletrabajoDTO solicitud) {
             return base.Channel.GuardarSolicitudAsync(solicitud);
         }
-        
+
+
         public SIRH.DTO.CBaseDTO AprobacionInmediato(int solicitud) {
             return base.Channel.AprobacionInmediato(solicitud);
         }

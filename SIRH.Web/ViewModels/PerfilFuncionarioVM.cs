@@ -90,5 +90,7 @@ namespace SIRH.Web.ViewModels
         public SelectList ListaDistritos { get; set; }
 
         public string DistritoSeleccionado { get; set; }
+
+        public List<SolicitudTeletrabajoDTO> solicitudes { get; set; }
     }
 }
