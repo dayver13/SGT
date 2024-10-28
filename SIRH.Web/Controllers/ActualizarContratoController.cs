@@ -38,7 +38,7 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
 
-                Session["CedulaUsuario"] = "305030863";
+                Session["CedulaUsuario"] = "0305030863";
                 var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["CedulaUsuario"].ToString());
                 if (perfil.ElementAt(0).ElementAt(0).GetType() != typeof(CErrorDTO))
                 {
