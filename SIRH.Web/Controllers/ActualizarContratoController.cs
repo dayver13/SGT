@@ -37,7 +37,7 @@ namespace SIRH.Web.Controllers
     {
         CFuncionarioServiceClient funcionarioReference = new CFuncionarioServiceClient();
         CPuestoServiceClient puestoLocal = new CPuestoServiceClient();
-        
+
 
         // GET: ActualizarContrato
         public ActionResult Index()
@@ -51,7 +51,7 @@ namespace SIRH.Web.Controllers
                 var data = getUsuario(Session["CedulaUsuario"].ToString());
                 modelo.Funcionario = (CFuncionarioDTO)data;
                 modelo = ConstruirModeloPuestoSQL(modelo);
-                modelo.SolicitudTeletrabajo = descargarsolicitud(Session["CedulaUsuario"].ToString(),modelo);
+                modelo.SolicitudTeletrabajo = descargarsolicitud(Session["CedulaUsuario"].ToString(), modelo);
                 //var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["CedulaUsuario"].ToString());
                 /*if (perfil.ElementAt(0).ElementAt(0).GetType() != typeof(CErrorDTO))
                 {
@@ -93,7 +93,7 @@ namespace SIRH.Web.Controllers
 
                 List<SelectListItem> listaCantonSelect = new List<SelectListItem>{
                     new SelectListItem { Text = "", Value = "" },
-                    
+
                 };
 
                 modelo.ListaCantones = new SelectList(listaCantonSelect, "Value", "Text");
@@ -155,9 +155,14 @@ namespace SIRH.Web.Controllers
                 var data = getUsuario(Session["CedulaUsuario"].ToString());
                 modelo.Funcionario = (CFuncionarioDTO)data;
                 modelo = ConstruirModeloPuestoSQL(modelo);
-                
+
                 modelo.SolicitudTeletrabajo = solicitudes.FirstOrDefault(item => item.IdEntidad == Convert.ToInt32(id));
                 Session["SolicitudActual"] = solicitudes.FirstOrDefault(item => item.IdEntidad == Convert.ToInt32(id));
+                CDistritoDTO distrito = new CDistritoDTO();
+                distrito = getDistrito(modelo.SolicitudTeletrabajo.DistritoSecundario);
+                modelo.DistritoSeleccionado = distrito.NomDistrito;
+                modelo.CantonSeleccionado = distrito.Canton.NomCanton;
+                modelo.ProvinciaSeleccionada = distrito.Canton.Provincia.NomProvincia;
 
                 //var perfil = puestoLocal.DescargarPerfilPuestoAccionesFuncionarioPP(Session["CedulaUsuario"].ToString());
                 /*if (perfil.ElementAt(0).ElementAt(0).GetType() != typeof(CErrorDTO))
@@ -185,6 +190,30 @@ namespace SIRH.Web.Controllers
                     new SelectListItem { Text = "Otros", Value =  "6"}
                 };
                 modelo.ListaEscolaridad = new SelectList(listaEscolaridadSelect, "Value", "Text");
+
+                if (modelo.SolicitudTeletrabajo.Escolaridad == 1) {
+                    modelo.EscolaridadSeleccionada = "Primaria";
+                }
+                if (modelo.SolicitudTeletrabajo.Escolaridad == 2)
+                {
+                    modelo.EscolaridadSeleccionada = "Secundaria";
+                }
+                if (modelo.SolicitudTeletrabajo.Escolaridad == 3)
+                {
+                    modelo.EscolaridadSeleccionada = "Bachillerato Universitario";
+                }
+                if (modelo.SolicitudTeletrabajo.Escolaridad == 4)
+                {
+                    modelo.EscolaridadSeleccionada = "Licenciatura Universitaria";
+                }
+                if (modelo.SolicitudTeletrabajo.Escolaridad ==5)
+                {
+                    modelo.EscolaridadSeleccionada = "Maestría";
+                }
+                if (modelo.SolicitudTeletrabajo.Escolaridad == 6)
+                {
+                    modelo.EscolaridadSeleccionada = "Otros";
+                }
 
                 List<SelectListItem> listaProvinciaSelect = new List<SelectListItem>{
                     new SelectListItem { Text = "San José", Value = "1" },
@@ -256,15 +285,18 @@ namespace SIRH.Web.Controllers
             try
             {
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
-                solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                //solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+
+                if(model.SolicitudTeletrabajo.DistritoSecundario != 0) { 
+                    solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
+                    solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+                }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
                 //solicitud.DetalleDiasTeletrabajo = model.SolicitudTeletrabajo.DetalleDiasTeletrabajo;
 
 
-                    int solicitudId = 0;
-                    string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
-                    string query = @"
+                int solicitudId = 0;
+                string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+                string query = @"
                     INSERT INTO solicitudteletrabajo (
                         IndEscolaridad,
                         IndDistritoSecundario,
@@ -309,37 +341,37 @@ namespace SIRH.Web.Controllers
                         @TiempoLaborarDependencia
                     );";
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@Escolaridad", solicitud.Escolaridad);
-                            command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
-                            command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
-                            command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", solicitud.CantidadPersonasDireccionSecundaria);
-                            command.Parameters.AddWithValue("@CantidadPersonasDireccionPrimaria", solicitud.CantidadPersonasDireccionPrimaria);
-                            command.Parameters.AddWithValue("@TiempoLaborarMOPT", solicitud.TiempoLaborarMOPT);
-                            command.Parameters.AddWithValue("@Teletrabajable", solicitud.Teletrabajable);
-                            command.Parameters.AddWithValue("@CantidadDiasTeletrabajo", solicitud.CantidadDiasTeletrabajo);
-                            command.Parameters.AddWithValue("@DetalleDiasTeletrabajo", solicitud.DetalleDiasTeletrabajo);
-                            command.Parameters.AddWithValue("@Horario", solicitud.Horario);
-                            command.Parameters.AddWithValue("@Funciones", solicitud.Funciones);
-                            command.Parameters.AddWithValue("@TiempoFunciones", solicitud.TiempoFunciones);
-                            command.Parameters.AddWithValue("@Razones", solicitud.Razones);
-                            command.Parameters.AddWithValue("@DeclaracionJurada", solicitud.DeclaracionJurada);
-                            command.Parameters.AddWithValue("@Sistemas", solicitud.Sistemas);
-                            command.Parameters.AddWithValue("@FuncionarioTeletrabajoID", Convert.ToInt32(Session["Identidad"]));
-                            command.Parameters.AddWithValue("@AprobadoJefaturaInmediata", false);
-                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
-                            command.Parameters.AddWithValue("@TiempoLaborarDependencia", solicitud.TiempoLaborarDependencia);
+                        command.Parameters.AddWithValue("@Escolaridad", solicitud.Escolaridad);
+                        command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
+                        command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
+                        command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", solicitud.CantidadPersonasDireccionSecundaria);
+                        command.Parameters.AddWithValue("@CantidadPersonasDireccionPrimaria", solicitud.CantidadPersonasDireccionPrimaria);
+                        command.Parameters.AddWithValue("@TiempoLaborarMOPT", solicitud.TiempoLaborarMOPT);
+                        command.Parameters.AddWithValue("@Teletrabajable", solicitud.Teletrabajable);
+                        command.Parameters.AddWithValue("@CantidadDiasTeletrabajo", solicitud.CantidadDiasTeletrabajo);
+                        command.Parameters.AddWithValue("@DetalleDiasTeletrabajo", solicitud.DetalleDiasTeletrabajo);
+                        command.Parameters.AddWithValue("@Horario", solicitud.Horario);
+                        command.Parameters.AddWithValue("@Funciones", solicitud.Funciones);
+                        command.Parameters.AddWithValue("@TiempoFunciones", solicitud.TiempoFunciones);
+                        command.Parameters.AddWithValue("@Razones", solicitud.Razones);
+                        command.Parameters.AddWithValue("@DeclaracionJurada", solicitud.DeclaracionJurada);
+                        command.Parameters.AddWithValue("@Sistemas", solicitud.Sistemas);
+                        command.Parameters.AddWithValue("@FuncionarioTeletrabajoID", Convert.ToInt32(Session["Identidad"]));
+                        command.Parameters.AddWithValue("@AprobadoJefaturaInmediata", false);
+                        command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
+                        command.Parameters.AddWithValue("@TiempoLaborarDependencia", solicitud.TiempoLaborarDependencia);
 
-                            connection.Open();
-                            solicitudId = (int)command.ExecuteScalar();
-                            guardaractividades(solicitudId);
-                        }
+                        connection.Open();
+                        solicitudId = (int)command.ExecuteScalar();
+                        guardaractividades(solicitudId);
                     }
+                }
 
-                    
+
 
 
                 return View();
@@ -351,7 +383,7 @@ namespace SIRH.Web.Controllers
                 System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
 
-                
+
                 return View();
 
             }
@@ -365,13 +397,17 @@ namespace SIRH.Web.Controllers
             try
             {
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
-                solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                //solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+                if (model.SolicitudTeletrabajo.DistritoSecundario != 0)
+                {
+                    solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
+                    solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+                }
+                if (model.SolicitudTeletrabajo.Escolaridad != 0) {
+                    solicitud.Escolaridad = model.SolicitudTeletrabajo.Escolaridad;
+                }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
                 //solicitud.DetalleDiasTeletrabajo = model.SolicitudTeletrabajo.DetalleDiasTeletrabajo;
 
-
-                int solicitudId = 0;
                 string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
                 string query = @"
                             UPDATE SolicitudTeletrabajo
@@ -452,19 +488,19 @@ namespace SIRH.Web.Controllers
         {
             // Simulando una lista de actividades
 
-            
+
             // Convertir la lista a CSV
             var csv = new StringBuilder();
             csv.AppendLine("Descripcion"); // Encabezados
-           
-             List<CActividadSolicitudTeletrabajoDTO> activList = (List<CActividadSolicitudTeletrabajoDTO>)Session["Actividades"];
-       
+
+            List<CActividadSolicitudTeletrabajoDTO> activList = (List<CActividadSolicitudTeletrabajoDTO>)Session["Actividades"];
+
             foreach (var actividad in activList)
             {
-                
+
                 csv.AppendLine($"{actividad.DescripcionActividad}");
             }
-            
+
 
             // Devolver el CSV como archivo descargable
             var bytes = Encoding.UTF8.GetBytes(csv.ToString());
@@ -612,7 +648,7 @@ namespace SIRH.Web.Controllers
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
                     string query = "SELECT * FROM Funcionario WHERE CedulaReal = " + v; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(query, connectionfake);
-                   
+
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -624,7 +660,7 @@ namespace SIRH.Web.Controllers
                             func.PrimerApellido = reader.GetString(4);
                             func.SegundoApellido = reader.GetString(5);
                             func.FechaNacimiento = reader.GetDateTime(6);
-                            func.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum),reader.GetString(7));
+                            func.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum), reader.GetString(7));
                             System.Diagnostics.Debug.WriteLine(func.Cedula + func.FechaNacimiento.ToString());
                             Session["Identidad"] = reader.GetInt32(0);
                         }
@@ -643,9 +679,9 @@ namespace SIRH.Web.Controllers
             try
             {
                 List<CActividadSolicitudTeletrabajoDTO> actividades = (List<CActividadSolicitudTeletrabajoDTO>)Session["Actividades"];
-          
 
-                System.Diagnostics.Debug.WriteLine (actividades.Count);
+
+                System.Diagnostics.Debug.WriteLine(actividades.Count);
                 int solicitudId = 0;
                 string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
                 string query = @"
@@ -671,7 +707,7 @@ namespace SIRH.Web.Controllers
                     {
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                        
+
                             command.Parameters.AddWithValue("@Actividad", actividades[i].DescripcionActividad);
                             command.Parameters.AddWithValue("@Medios", actividades[i].Medios);
                             command.Parameters.AddWithValue("@Medible", actividades[i].Medible);
@@ -679,7 +715,7 @@ namespace SIRH.Web.Controllers
                             command.Parameters.AddWithValue("SolicitudID", solicitudfk);
 
                             connection.Open();
-                            solicitudId = (int)command.ExecuteScalar(); 
+                            solicitudId = (int)command.ExecuteScalar();
                             connection.Close();
                         }
                     }
@@ -717,8 +753,8 @@ namespace SIRH.Web.Controllers
             CProvinciaDTO provincia = new CProvinciaDTO();
             int fkprovincia;
             CDireccionDTO direccion = new CDireccionDTO();
-            
-           
+
+
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
             {
@@ -742,7 +778,7 @@ namespace SIRH.Web.Controllers
                             fkestado = reader.GetInt32(1);
                             nombramiento.FecRige = reader.GetDateTime(4);
                             nombramiento.FecVence = reader.GetDateTime(5);
-                            nombramiento.FecNombramiento = reader.GetDateTime(6);              
+                            nombramiento.FecNombramiento = reader.GetDateTime(6);
                             nombramiento.EstadoNombramiento = funcEstado(fkestado);
                             nombramiento.Puesto = funcpuesto(fkpuesto);
                         }
@@ -837,9 +873,9 @@ namespace SIRH.Web.Controllers
                 {
                     System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
                 }
-       
+
             }
-            
+
             modelo.Nombramiento = nombramiento;
             //modelo.DetalleContrato = contratacion;
             modelo.Puesto = nombramiento.Puesto;
@@ -1029,7 +1065,7 @@ namespace SIRH.Web.Controllers
         {
             List<CDistritoDTO> listado = new List<CDistritoDTO>();
             CDistritoDTO distrito = new CDistritoDTO();
-    
+
             string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
             try
             {
@@ -1050,15 +1086,15 @@ namespace SIRH.Web.Controllers
                     {
                         while (reader.Read())
                         {
-                           
+
                             distrito.IdEntidad = reader.GetInt32(0);
-                            
+
                             distrito.NomDistrito = reader.GetString(2);
-                            
+
                             distrito.CodPostalDistrito = reader.GetString(3);
-                            
+
                             distrito.Canton = getCanton(idCanton);
-                            
+
                             listado.Add(distrito);
                         }
                     }
@@ -1093,7 +1129,7 @@ namespace SIRH.Web.Controllers
                     {
                         while (reader.Read())
                         {
-                            provincia.NomProvincia = reader.GetString(1); 
+                            provincia.NomProvincia = reader.GetString(1);
                         }
                     }
                 }
@@ -1476,7 +1512,87 @@ namespace SIRH.Web.Controllers
             return actividad;
         }
 
+        CCatEstadoCivilDTO categoriaestado(int id) {
+            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            CCatEstadoCivilDTO estado = new CCatEstadoCivilDTO();
 
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM CatEstadoCivil WHERE PK_CatEstadoCivil=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            estado.IdEntidad = reader.GetInt32(0);
+                            estado.DesEstadoCivil = reader.GetString(1);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return estado;
+
+        }
+
+        List<CHistorialEstadoCivilDTO> historial(string cedula)
+        {
+            List<CHistorialEstadoCivilDTO> historial = new List<CHistorialEstadoCivilDTO>();
+            CHistorialEstadoCivilDTO estado;
+            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = @"SELECT *
+                    FROM HistorialEstadoCivil
+                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal = @cedula)"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            estado = new CHistorialEstadoCivilDTO();
+                            estado.IdEntidad = reader.GetInt32(0);
+                            estado.CatEstadoCivil = categoriaestado(reader.GetInt32(1));
+                            estado.FecIncio = reader.GetDateTime(3);
+                            estado.FecFin = reader.GetDateTime(4);
+                            historial.Add(estado);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+           
+            return historial;
+        }
 
     }
 }

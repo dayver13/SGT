@@ -109,8 +109,8 @@ namespace SIRH.Web.Controllers
                             solicitud.Razones = reader.GetString(13);
                             solicitud.DeclaracionJurada = reader.GetBoolean(14);
                             solicitud.Sistemas = reader.GetString(15);
-                            solicitud.AprobadoJefaturaInmediata = false;
-                            solicitud.AprobadoJefaturaSuperior = false;
+                            solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(17);
+                            solicitud.AprobadoJefaturaSuperior = reader.GetBoolean(18);
                             solicitud.TiempoLaborarDependencia = reader.GetString(19);
                             solicitudes.Add(solicitud);
                         }

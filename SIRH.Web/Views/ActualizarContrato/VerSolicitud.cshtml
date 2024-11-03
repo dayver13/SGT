@@ -57,7 +57,7 @@
         OnBegin = ""
     }))
     {
-        <center><h2>Solicitud de teletrabajo - Personal</h2></center>
+        <center><h2>Solicitud de teletrabajo - @Model.SolicitudTeletrabajo.IdEntidad</h2></center>
         <br />
         <div class="alert alert-info">
             <p class="text-dark">¡Atención! Revise sus datos personales y laborales (primeras tres pestañas) antes de completar el formulario (pestañas en color amarillo). </p>
@@ -290,9 +290,11 @@
                                 <tr>
                                     <th>¿Desea agregar un lugar de Teletrabajo Secundario?</th>
                                     <td>
-                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, true, new { onclick = "toggleTextBox()" }) <label style="margin-right: 10px;">Sí</label>
-                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, false, new { @id = "secundarioNo", @checked = "checked", onclick = "toggleTextBox()" }) <label>No</label>
-                                    </td>
+                                        <fieldset>
+                                            <input type="radio" name="secundario" value="1" checked onclick="toggleTextBox()" /> <label style="margin-right: 10px;">Sí</label>
+                                            <input type="radio" name="secundario" value="0" onclick="toggleTextBox()" /> <label>No</label>
+                                         </fieldset>
+</td>
                                     <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria)</th>
                                     <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria, new { @id = "personasSecundario", @type = "number" })</td>
                                 </tr>
@@ -346,7 +348,7 @@
                                 <tr>
                                     <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Teletrabajable) </th>
                                     <td>
-                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, true) <label style="margin-right: 10px;">Sí</label>
+                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, true)  <label style="margin-right: 10px;">Sí</label>
                                         @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, false) <label>No</label>
                                     </td>
                                     <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo)</th>
