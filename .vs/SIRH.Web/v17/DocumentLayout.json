@@ -7,40 +7,48 @@
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\actualizarcontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\gestionusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\gestionusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\accionpersonalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\accionpersonalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\controllers\\perfilusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\perfilusuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\actualizarcontrato\\versolicitud.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\versolicitud.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.dto\\solicitudteletrabajodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|solutionrelative:sirh.dto\\solicitudteletrabajodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\gestioncontratocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\solicitarteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\scripts\\pages\\detailsfuncionario.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\scripts\\pages\\detailsfuncionario.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\scripts\\pages\\formulariosolicitudteletrabajo.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\scripts\\pages\\formulariosolicitudteletrabajo.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayver\\documents\\github\\sgt\\sirh.web\\views\\actualizarcontrato\\nuevasolicitudteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\nuevasolicitudteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4979A6C-4698-493A-BCE0-A6828FA2EFEC}|SIRH.Servicios\\SIRH.Servicios.csproj|C:\\Users\\dayver\\Documents\\GitHub\\SGT\\sirh.servicios\\cfuncionarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4979A6C-4698-493A-BCE0-A6828FA2EFEC}|SIRH.Servicios\\SIRH.Servicios.csproj|solutionrelative:sirh.servicios\\cfuncionarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,53 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PerfilUsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\PerfilUsuarioController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\PerfilUsuarioController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\PerfilUsuarioController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\PerfilUsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:04:54.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GestionContratoController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\GestionContratoController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\GestionContratoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:57:51.892Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CFuncionarioService.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Servicios\\CFuncionarioService.cs",
-              "RelativeDocumentMoniker": "SIRH.Servicios\\CFuncionarioService.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Servicios\\CFuncionarioService.cs",
-              "RelativeToolTip": "SIRH.Servicios\\CFuncionarioService.cs",
-              "ViewState": "AgIAAI0BAAAA6P////8VwJoBAAB+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:45:05.06Z"
             },
             {
               "$type": "Document",
@@ -106,86 +72,153 @@
               "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\ActualizarContratoController.cs",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\ActualizarContratoController.cs",
               "RelativeToolTip": "SIRH.Web\\Controllers\\ActualizarContratoController.cs",
-              "ViewState": "AgIAAA4AAAAAmpmZmRkmwCgAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAANoBAAAAbJmZmfk4wOkBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:37:02.748Z",
+              "WhenOpened": "2024-10-30T02:34:41.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAB4AAAAAQmZmZmbwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:05:54.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AccionPersonalController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\AccionPersonalController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\AccionPersonalController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\AccionPersonalController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\AccionPersonalController.cs",
-              "ViewState": "AgIAAAAAAAAAmZmZmRkWwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:06:09.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GestionUsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionUsuarioController.cs",
-              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\GestionUsuarioController.cs",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionUsuarioController.cs",
-              "RelativeToolTip": "SIRH.Web\\Controllers\\GestionUsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:06:17.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Teletrabajo.cshtml",
-              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ViewState": "AgIAAAEAAAAA/v////8AwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-28T18:53:03.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAVmZmZmYEwDoAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAADY/v////8gwD0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-28T18:40:11.229Z",
+              "WhenOpened": "2024-10-31T02:49:17.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
+              "Title": "SolicitudTeletrabajoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.DTO\\SolicitudTeletrabajoDTO.cs",
+              "RelativeDocumentMoniker": "SIRH.DTO\\SolicitudTeletrabajoDTO.cs",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.DTO\\SolicitudTeletrabajoDTO.cs",
+              "RelativeToolTip": "SIRH.DTO\\SolicitudTeletrabajoDTO.cs",
+              "ViewState": "AgIAADUAAAAAMDMzMzMNwE4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:27:41.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VerSolicitud.cshtml",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "ViewState": "AgIAACQDAAAARM3MzAwswKcBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T21:47:20.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
               "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
-              "ViewState": "AgIAAC4BAAAAbGZmZuYswKcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAPoAAAAAIDMzM5MwwCcBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-28T18:38:53.107Z"
+              "WhenOpened": "2024-10-30T02:50:13.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SIRH.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAGsCAAAAAAAAAAAuwJUDAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T04:30:48.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SolicitarTeletrabajo.cshtml",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\Home\\SolicitarTeletrabajo.cshtml",
+              "ViewState": "AgIAAA4DAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T20:48:48.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GestionContratoController.cs",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
+              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\GestionContratoController.cs",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\GestionContratoController.cs",
+              "RelativeToolTip": "SIRH.Web\\Controllers\\GestionContratoController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAwwC0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T02:31:32.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormularioSolicitudTeletrabajo.js",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Scripts\\Pages\\FormularioSolicitudTeletrabajo.js",
+              "RelativeDocumentMoniker": "SIRH.Web\\Scripts\\Pages\\FormularioSolicitudTeletrabajo.js",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Scripts\\Pages\\FormularioSolicitudTeletrabajo.js",
+              "RelativeToolTip": "SIRH.Web\\Scripts\\Pages\\FormularioSolicitudTeletrabajo.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-02T22:50:15.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DetailsFuncionario.js",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Scripts\\Pages\\DetailsFuncionario.js",
+              "RelativeDocumentMoniker": "SIRH.Web\\Scripts\\Pages\\DetailsFuncionario.js",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Scripts\\Pages\\DetailsFuncionario.js",
+              "RelativeToolTip": "SIRH.Web\\Scripts\\Pages\\DetailsFuncionario.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-02T22:51:23.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Teletrabajo.cshtml",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T23:40:29.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NuevaSolicitudTeletrabajo.cshtml",
+              "DocumentMoniker": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "ToolTip": "C:\\Users\\dayver\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T17:31:54.926Z",
+              "EditorCaption": ""
             }
           ]
         }

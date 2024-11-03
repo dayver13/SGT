@@ -16,6 +16,7 @@
         background-color: #f44336;
         color: white;
     }
+
     .corregir {
         background-color: #ff8000;
         color: white;
@@ -33,42 +34,75 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-        <tbody>
-            @if (Model != null)
-            {
-                if (Model.solicitudes.Count > 0)
-                {
-                    for (var i = Model.solicitudes.Count; i > 0; i--)
-                    {
-
-
-                        <tr>
-                            <td>i</td>
-                            @if (!Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior)
-                            {
-        
-                                <td>Esperando aprobacion jefatura inmediata</td>
-                            }
-                            @if (Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior)
-                            {
-                                <td>Esperando aprobacion jefatura superior</td>
-                            }
-                            @if (Model.solicitudes[i-1].AprobadoJefaturaInmediata && Model.solicitudes[i-1].AprobadoJefaturaSuperior)
-                            {
-                                <td>Aprobado</td>
-                            }
-                            <td>
-                                @if(!Model.solicitudes[i-1].AprobadoJefaturaInmediata && !Model.solicitudes[i-1].AprobadoJefaturaSuperior) { 
-                                    <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" onclick="location.href='/GestionContrato'">
-                                        Modificar Solicitud
-                                    </button>
-                                }
-                            </td>
-                        </tr>
-                    }
-                }
-            }
+        <tbody id="tablaDatos">
+           
         </tbody>
     </table>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    function cargarsolicitudes() {
+        $.ajax({
+            type: "get",
+            url: "/GestionContrato/DescargarSolicitudes", // Ruta al archivo CSV
+            dataType: "text", // Indicar que se espera texto
+        }).done(function (data) {
+            console.error(data)
+            const filas = data.split('\n'); // Dividir en líneas
+            const tbody = document.getElementById('tablaDatos');
+            tbody.innerHTML = "";
+            let i;
+            
+            // Iterar sobre las filas y agregar datos a la tabla
+            if (filas.length > 2) {
+            for (i = 2; i < filas.length-2; i = i + 2) {
+                let id;
+                    // Saltar la primera fila (encabezados) y líneas vacías
+                    const nuevaFila = document.createElement("tr") // Crear nueva fila
+                    const nuevaCelda = document.createElement("td");
+                    const nuevacelda2 = document.createElement("td");
+                    id = filas[i];
+                    nuevaCelda.appendChild(document.createTextNode(id));
+                    if (filas[i + 1].includes("V")) {
+                        nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion jefatura"));
+                    } if (filas[i + 1].includes("F1")){
+                        nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion superior"));
+                    }
+                    if (filas[i + 1].includes("F2")) {
+                        nuevacelda2.appendChild(document.createTextNode("Aprobado"));
+                    }
+                    nuevaFila.appendChild(nuevaCelda);
+                    nuevaFila.appendChild(nuevacelda2);
+                    if (filas[i + 1].includes("V")) {
+                        const celdaboton = document.createElement("td");
+                        const boton = document.createElement("button");
+                        boton.type = "button";
+                        boton.innerText = "Modificar";
+                        boton.className = "btn btn-success ";
+                        id = filas[i];
+                        boton.addEventListener('click', function () { showcontrato(id) });
+                        celdaboton.appendChild(boton);
+                        nuevaFila.appendChild(celdaboton);
+                    } else {
+
+                    }
+                    
+                    tbody.appendChild(nuevaFila); // Agregar fila al tbody
+                }
+            };
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Error al cargar el archivo CSV:', textStatus, errorThrown);
+        }
+        );
+    };
+
+    function showcontrato(id) {
+        window.location.href = "/ActualizarContrato/VerSolicitud?id=" + id;
+    }
+
+
+    window.addEventListener('load', cargarsolicitudes());
+</script>
