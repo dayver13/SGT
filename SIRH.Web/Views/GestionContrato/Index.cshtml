@@ -1,0 +1,108 @@
+﻿@model SIRH.Web.ViewModels.PerfilFuncionarioVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Teletrabajo.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/sidebar.css">
+<style>
+    .aprobar {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .rechazar {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .corregir {
+        background-color: #ff8000;
+        color: white;
+    }
+</style>
+
+
+<h2>Contratos Teletrabajo</h2>
+<div class="jumbotron">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Numero de Solicitud</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaDatos">
+           
+        </tbody>
+    </table>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    function cargarsolicitudes() {
+        $.ajax({
+            type: "get",
+            url: "/GestionContrato/DescargarSolicitudes", // Ruta al archivo CSV
+            dataType: "text", // Indicar que se espera texto
+        }).done(function (data) {
+            console.error(data)
+            const filas = data.split('\n'); // Dividir en líneas
+            const tbody = document.getElementById('tablaDatos');
+            tbody.innerHTML = "";
+            let i;
+            
+            // Iterar sobre las filas y agregar datos a la tabla
+            if (filas.length > 2) {
+            for (i = 2; i < filas.length-2; i = i + 2) {
+                let id;
+                    // Saltar la primera fila (encabezados) y líneas vacías
+                    const nuevaFila = document.createElement("tr") // Crear nueva fila
+                    const nuevaCelda = document.createElement("td");
+                    const nuevacelda2 = document.createElement("td");
+                    id = filas[i];
+                    nuevaCelda.appendChild(document.createTextNode(id));
+                    if (filas[i + 1].includes("V")) {
+                        nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion jefatura"));
+                    } if (filas[i + 1].includes("F1")){
+                        nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion superior"));
+                    }
+                    if (filas[i + 1].includes("F2")) {
+                        nuevacelda2.appendChild(document.createTextNode("Aprobado"));
+                    }
+                    nuevaFila.appendChild(nuevaCelda);
+                    nuevaFila.appendChild(nuevacelda2);
+                    if (filas[i + 1].includes("V")) {
+                        const celdaboton = document.createElement("td");
+                        const boton = document.createElement("button");
+                        boton.type = "button";
+                        boton.innerText = "Modificar";
+                        boton.className = "btn btn-success ";
+                        id = filas[i];
+                        boton.addEventListener('click', function () { showcontrato(id) });
+                        celdaboton.appendChild(boton);
+                        nuevaFila.appendChild(celdaboton);
+                    } else {
+
+                    }
+                    
+                    tbody.appendChild(nuevaFila); // Agregar fila al tbody
+                }
+            };
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Error al cargar el archivo CSV:', textStatus, errorThrown);
+        }
+        );
+    };
+
+    function showcontrato(id) {
+        window.location.href = "/ActualizarContrato/VerSolicitud?id=" + id;
+    }
+
+
+    window.addEventListener('load', cargarsolicitudes());
+</script>
