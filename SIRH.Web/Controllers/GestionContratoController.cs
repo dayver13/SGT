@@ -68,7 +68,7 @@ namespace SIRH.Web.Controllers
         {
             List<SolicitudTeletrabajoDTO> solicitudes = new List<SolicitudTeletrabajoDTO>();
             SolicitudTeletrabajoDTO solicitud;
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -82,7 +82,7 @@ namespace SIRH.Web.Controllers
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
                     string querynom = @"SELECT *
                     FROM SolicitudTeletrabajo
-                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal = @cedula)
+                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)
                     ORDER BY PK_SolicitudTeletrabajo DESC"; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
                     command.Parameters.AddWithValue("@cedula", cedula);

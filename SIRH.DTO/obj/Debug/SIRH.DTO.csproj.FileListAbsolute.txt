@@ -47,3 +47,9 @@ C:\Users\dayver\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.Assembly
 C:\Users\dayver\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
 C:\Users\dayver\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.dll
 C:\Users\dayver\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.pdb
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\bin\Debug\SIRH.DTO.dll
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\bin\Debug\SIRH.DTO.pdb
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.dll
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DTO\obj\Debug\SIRH.DTO.pdb

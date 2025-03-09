@@ -295,7 +295,7 @@ namespace SIRH.Web.Controllers
 
 
                 int solicitudId = 0;
-                string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+                string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                     INSERT INTO solicitudteletrabajo (
                         IndEscolaridad,
@@ -380,7 +380,7 @@ namespace SIRH.Web.Controllers
             {
                 Session["errorF"] = "error";
 
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {error.Message}");
+                System.Diagnostics.Debug.WriteLine($"2-Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
 
 
@@ -408,7 +408,7 @@ namespace SIRH.Web.Controllers
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
                 //solicitud.DetalleDiasTeletrabajo = model.SolicitudTeletrabajo.DetalleDiasTeletrabajo;
 
-                string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+                string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                             UPDATE SolicitudTeletrabajo
                             SET 
@@ -473,7 +473,7 @@ namespace SIRH.Web.Controllers
             {
                 Session["errorF"] = "error";
 
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {error.Message}");
+                System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
 
 
@@ -633,7 +633,7 @@ namespace SIRH.Web.Controllers
 
         private object getUsuario(string v)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CFuncionarioDTO func = new CFuncionarioDTO();
 
             // Crear una conexión
@@ -646,7 +646,7 @@ namespace SIRH.Web.Controllers
                     System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
 
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
-                    string query = "SELECT * FROM Funcionario WHERE CedulaReal = " + v; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    string query = "SELECT * FROM Funcionario WHERE IdCedulaFuncionario = " + v; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(query, connectionfake);
 
 
@@ -668,7 +668,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"Hi-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return func;
@@ -683,7 +683,7 @@ namespace SIRH.Web.Controllers
 
                 System.Diagnostics.Debug.WriteLine(actividades.Count);
                 int solicitudId = 0;
-                string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+                string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                     INSERT INTO ActividadSolicitudTeletrabajo (
                         DesActividad,
@@ -728,7 +728,7 @@ namespace SIRH.Web.Controllers
             {
                 Session["errorF"] = "error";
 
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {error.Message}");
+                System.Diagnostics.Debug.WriteLine($"Hi2-Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
 
 
@@ -739,7 +739,7 @@ namespace SIRH.Web.Controllers
 
         private PerfilFuncionarioVM ConstruirModeloPuestoSQL(PerfilFuncionarioVM modelo)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CNombramientoDTO nombramiento = new CNombramientoDTO();
             int fkestado;
             int fkpuesto;
@@ -765,7 +765,7 @@ namespace SIRH.Web.Controllers
                     System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
 
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
-                    string querynom = "SELECT * FROM Nombramiento WHERE FK_Funcionario IN (SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal =" + modelo.Funcionario.Cedula + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    string querynom = "SELECT * FROM Nombramiento WHERE FK_Funcionario IN (SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario =" + modelo.Funcionario.Cedula + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
 
 
@@ -871,7 +871,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"Hi3-Error al conectar a la base de datos: {ex.Message}");
                 }
 
             }
@@ -1025,7 +1025,7 @@ namespace SIRH.Web.Controllers
         List<CCantonDTO> cantones(int idProvincia) {
             List<CCantonDTO> listado = new List<CCantonDTO>();
             CCantonDTO canton = new CCantonDTO();
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
             {
                 using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1056,7 +1056,7 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"4-Error al conectar a la base de datos: {ex.Message}");
             }
             return listado;
         }
@@ -1066,7 +1066,7 @@ namespace SIRH.Web.Controllers
             List<CDistritoDTO> listado = new List<CDistritoDTO>();
             CDistritoDTO distrito = new CDistritoDTO();
 
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
             {
                 using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1102,14 +1102,14 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"5-Error al conectar a la base de datos: {ex.Message}");
             }
             return listado;
         }
 
         CProvinciaDTO getProvincia(int idProvincia) {
             CProvinciaDTO provincia = new CProvinciaDTO();
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
             {
                 using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1136,7 +1136,7 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"6-Error al conectar a la base de datos: {ex.Message}");
             }
             return provincia;
         }
@@ -1144,7 +1144,7 @@ namespace SIRH.Web.Controllers
         CCantonDTO getCanton(int idCanton)
         {
             CCantonDTO canton = new CCantonDTO();
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
             {
                 using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1173,7 +1173,7 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"7-Error al conectar a la base de datos: {ex.Message}");
             }
             return canton;
         }
@@ -1181,7 +1181,7 @@ namespace SIRH.Web.Controllers
         CDistritoDTO getDistrito(int idDistrito)
         {
             CDistritoDTO Distrito = new CDistritoDTO();
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
             {
                 using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1210,13 +1210,13 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"8-Error al conectar a la base de datos: {ex.Message}");
             }
             return Distrito;
         }
 
         CEstadoNombramientoDTO funcEstado(int estado) {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CEstadoNombramientoDTO estadonom = new CEstadoNombramientoDTO();
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1243,7 +1243,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"9-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return estadonom;
@@ -1251,7 +1251,7 @@ namespace SIRH.Web.Controllers
 
         CDepartamentoDTO funcdepartamento(int fkdepartamento)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CDepartamentoDTO departamento = new CDepartamentoDTO();
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1279,7 +1279,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return departamento;
@@ -1287,7 +1287,7 @@ namespace SIRH.Web.Controllers
 
         CUbicacionAdministrativaDTO funcubicacion(int fkubicacion)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CUbicacionAdministrativaDTO ubicacion = new CUbicacionAdministrativaDTO();
             int fkdepartamento;
 
@@ -1317,7 +1317,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"11-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return ubicacion;
@@ -1325,7 +1325,7 @@ namespace SIRH.Web.Controllers
 
         CEstadoPuestoDTO funcestadopuesto(int fkestado)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CEstadoPuestoDTO estadopdto = new CEstadoPuestoDTO();
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1352,7 +1352,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"12-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return estadopdto;
@@ -1360,7 +1360,7 @@ namespace SIRH.Web.Controllers
 
         CPuestoDTO funcpuesto(int fkpuesto)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CPuestoDTO puesto = new CPuestoDTO();
             int fkubicacion;
             int fkestadop;
@@ -1396,7 +1396,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"13-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return puesto;
@@ -1404,7 +1404,7 @@ namespace SIRH.Web.Controllers
 
         SolicitudTeletrabajoDTO descargarsolicitud(string cedula, PerfilFuncionarioVM model)
         {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             SolicitudTeletrabajoDTO solicitud = new SolicitudTeletrabajoDTO();
             CDistritoDTO distrito = new CDistritoDTO();
             int index;
@@ -1420,7 +1420,7 @@ namespace SIRH.Web.Controllers
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
                     string querynom = @"SELECT TOP 1 *
                     FROM SolicitudTeletrabajo
-                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal = @cedula)
+                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)
                     ORDER BY PK_SolicitudTeletrabajo DESC"; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
                     command.Parameters.AddWithValue("@cedula", cedula);
@@ -1462,7 +1462,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"1-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return solicitud;
@@ -1471,7 +1471,7 @@ namespace SIRH.Web.Controllers
         List<CActividadSolicitudTeletrabajoDTO> actividades(int ind) {
             List<CActividadSolicitudTeletrabajoDTO> actividad = new List<CActividadSolicitudTeletrabajoDTO>();
             CActividadSolicitudTeletrabajoDTO actv;
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1505,7 +1505,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"14-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             Session["Actividades"] = actividad;
@@ -1513,7 +1513,7 @@ namespace SIRH.Web.Controllers
         }
 
         CCatEstadoCivilDTO categoriaestado(int id) {
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CCatEstadoCivilDTO estado = new CCatEstadoCivilDTO();
 
 
@@ -1542,7 +1542,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"15-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
             return estado;
@@ -1553,7 +1553,7 @@ namespace SIRH.Web.Controllers
         {
             List<CHistorialEstadoCivilDTO> historial = new List<CHistorialEstadoCivilDTO>();
             CHistorialEstadoCivilDTO estado;
-            string connectionString = "Server=tcp:inge.database.windows.net,1433;Database=SIRH;User ID=inge;Password=hola1234!";
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
 
             using (SqlConnection connectionfake = new SqlConnection(connectionString))
@@ -1567,7 +1567,7 @@ namespace SIRH.Web.Controllers
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
                     string querynom = @"SELECT *
                     FROM HistorialEstadoCivil
-                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal = @cedula)"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)"; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
                     command.Parameters.AddWithValue("@cedula", cedula);
 
@@ -1587,7 +1587,7 @@ namespace SIRH.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error al conectar a la base de datos: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"16-Error al conectar a la base de datos: {ex.Message}");
                 }
             }
            
