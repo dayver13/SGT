@@ -3145,7 +3145,9 @@
     <Content Include="Views\ActualizarContrato\VerSolicitud.cshtml" />
     <Content Include="Views\ActualizarContrato\ActualizarSolicitudTeletrabajo.cshtml" />
     <Content Include="Views\Shared\ModuloJefatura.cshtml" />
+    <Content Include="Views\ModuloJefatura\TiempoFuera.cshtml" />
     <Content Include="Views\ModuloJefatura\Index.cshtml" />
+    <Content Include="Views\ModuloJefatura\Desempeno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
