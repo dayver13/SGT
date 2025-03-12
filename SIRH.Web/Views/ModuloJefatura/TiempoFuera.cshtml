@@ -91,20 +91,15 @@
                                         <tr>
                                             <th>Fecha Final:</th>
                                             <td><input name="EndDate" id="EndDate" type="date" class="form-control" /></td>
-
-                                    </tbody>
-                                </table>
-                                <table class="table table-hover">
-                                    <tbody>
+                                        </tr>
                                         <tr>
                                             <th>Tipo de salida:</th>
                                             <td>
-                                                <select name="salida" id="salida">
+                                                <select name="salida" id="salida" class="form-control">
                                                     <option value=1>Vacaciones</option>
                                                     <option value=2>Incapacidad</option>
                                                 </select>
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -160,6 +155,24 @@
         dvalert.appendChild(divsucc);
         setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
     }
+
+    function validarFechas(event) {
+        var fechaInicio = document.getElementById("StartDate").value;
+        var fechaFin = document.getElementById("EndDate").value;
+
+        if (!fechaInicio || !fechaFin) {
+            alert("Debe seleccionar ambas fechas.");
+            event.preventDefault();
+            return;
+        }
+
+        if (new Date(fechaInicio) >= new Date(fechaFin)) {
+            alert("La fecha de inicio debe ser menor que la fecha final.");
+            event.preventDefault();
+        }
+    }
+
+    document.getElementById("btnEnviar").addEventListener("click", validarFechas);
 
 </script>
 

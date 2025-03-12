@@ -79,7 +79,35 @@ namespace SIRH.Web.Controllers
             try
             {
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
-                string query = @"
+
+                // Validando si existe un conflicto para el nuevo registro en la fechas dada
+
+                string checkQuery = @"
+                            SELECT * FROM TiempoFuera
+                            WHERE FK_Funcionario = @Funcionario
+                            AND ((@Inicio BETWEEN Inicio AND Final)
+                            OR (@Final BETWEEN Inicio AND Final)
+                            OR (Inicio BETWEEN @Inicio AND @Final) 
+                            OR (Final BETWEEN @Inicio AND @Final))";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        checkCommand.Parameters.AddWithValue("@Inicio", StartDate);
+                        checkCommand.Parameters.AddWithValue("@Final", EndDate);
+
+                        int count = (int)checkCommand.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            ModelState.AddModelError("ConflictoFechas", "Conflicto de fechas detectado o registro ya existente. Verifique las fechas antes de guardar.");
+                            return View();
+                        }
+                    }
+
+                    string query = @"
                             INSERT INTO TiempoFuera (
                                 FK_Funcionario,
                                 Tipo,
@@ -93,8 +121,7 @@ namespace SIRH.Web.Controllers
                                 @Inicio,
                                 @Final
                             );";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
@@ -104,6 +131,7 @@ namespace SIRH.Web.Controllers
                         connection.Open();
                         command.ExecuteNonQuery();
                     }
+
                 }
                 return View();
             }
@@ -171,7 +199,33 @@ namespace SIRH.Web.Controllers
             try
             {
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
-                string query = @"
+
+                // Validando si ya existe un registro para el periodo
+
+                string checkQuery = @"
+                            SELECT * FROM RegistroRendimiento
+                            WHERE FK_Funcionario = @Funcionario
+                            AND Periodo = @Periodo
+                            AND Ano = 2025";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        checkCommand.Parameters.AddWithValue("@Periodo", mes);
+                        checkCommand.Parameters.AddWithValue("@Ano", 2025);
+
+                        int count = (int)checkCommand.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            ModelState.AddModelError("RegistroDuplicado", "Ya existe un registro para este colaborador en el mismo mes y año.");
+                            return View();
+                        }
+                    }
+
+                    string query = @"
                             INSERT INTO RegistroRendimiento (
                                 FK_Funcionario,
                                 Metricas,
@@ -191,18 +245,17 @@ namespace SIRH.Web.Controllers
                                 @Periodo,
                                 @Ano
                             );";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Funcionario", Int32.Parse(model.personalseleccionado));
+                        command.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
                         command.Parameters.AddWithValue("@Metricas", metricas);
                         command.Parameters.AddWithValue("@Tardias", tardias);
                         command.Parameters.AddWithValue("@Abandono", abandonos);
                         command.Parameters.AddWithValue("@CHorario", horario);
                         command.Parameters.AddWithValue("@Periodo", mes);
                         command.Parameters.AddWithValue("@Ano", 2025);
-                        connection.Open();
+
                         command.ExecuteNonQuery();
                     }
                 }
@@ -220,6 +273,8 @@ namespace SIRH.Web.Controllers
 
             }
         }
+
+
 
         private CFuncionarioDTO getfuncionario(int v)
         {
