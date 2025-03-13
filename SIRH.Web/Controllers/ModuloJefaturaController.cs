@@ -525,6 +525,3 @@ namespace SIRH.Web.Controllers
     }
 }
 
-
-    }
-}

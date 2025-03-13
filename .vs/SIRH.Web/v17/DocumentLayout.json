@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\sirh.web\\viewmodels\\perfilfuncionariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\viewmodels\\perfilfuncionariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayverfx\\documents\\github\\sgt\\sirh.web\\views\\modulojefatura\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\modulojefatura\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayverfx\\documents\\github\\sgt\\sirh.web\\viewmodels\\perfilfuncionariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\viewmodels\\perfilfuncionariovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\dayverfx\\documents\\github\\sgt\\sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|c:\\users\\dayverfx\\documents\\github\\sgt\\sirh.dto\\solicitudteletrabajodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\sirh.dto\\solicitudteletrabajodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|solutionrelative:sirh.dto\\solicitudteletrabajodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
               "ToolTip": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAcwGYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAASwCoAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-13T18:01:43.464Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "SIRH.DTO\\SolicitudTeletrabajoDTO.cs",
               "ViewState": "AgIAAEMAAABAmZmZmfk4wFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T17:58:08.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-13T17:58:08.936Z"
             },
             {
               "$type": "Document",
@@ -78,7 +77,7 @@
               "RelativeDocumentMoniker": "SIRH.Web\\ViewModels\\PerfilFuncionarioVM.cs",
               "ToolTip": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\SIRH.Web\\ViewModels\\PerfilFuncionarioVM.cs",
               "RelativeToolTip": "SIRH.Web\\ViewModels\\PerfilFuncionarioVM.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAIA5wGMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAIAxwGEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T17:56:18.504Z",
               "EditorCaption": ""
@@ -121,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ModuloJefaturaController.cs",
               "DocumentMoniker": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
               "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
               "ToolTip": "C:\\Users\\dayverfx\\Documents\\GitHub\\SGT\\SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
               "RelativeToolTip": "SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
-              "ViewState": "AgIAAMEBAACA/f////8WwA4CAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAIGZmZmbuvw8CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T16:54:03.976Z",
               "EditorCaption": ""
