@@ -1,8 +1,104 @@
-﻿
+﻿@model SIRH.Web.ViewModels.PerfilFuncionarioVM
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Módulo de Jefatura - Actualizar Aval";
     Layout = "~/Views/Shared/ModuloJefatura.cshtml";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="~/Content/sidebar.css">
+<style>
+    .success {
+        padding: 20px;
+        background-color: green;
+        color: white;
+        margin-bottom: 15px;
+        opacity: 1;
+        transition: opacity 0.6s;
+        width: 100%;
+    }
+
+    .failure {
+        padding: 20px;
+        background-color: red;
+        color: white;
+        margin-bottom: 15px;
+        opacity: 1;
+        transition: opacity 0.6s;
+        width: 100%;
+    }
+
+    .form-area {
+        margin: 20px;
+    }
+</style>
+
+<h2>Actualizar Aval de Solicitud de Teletrabajo</h2>
+
+<!-- Dropdown para seleccionar la solicitud pendiente -->
+@using (Html.BeginForm("Index", "ModuloJefatura", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="idSolicitud">Solicitudes Pendientes</label>
+        @Html.DropDownList(
+            "idSolicitud",
+            new SelectList(Model.ListaSolicitudesPendientes, "IdEntidad", "DireccionExactaSecundaria", Model.IdSolicitudSeleccionada),
+            "Seleccione la solicitud pendiente",
+            new { @class = "form-control", @onchange = "this.form.submit();" }
+        )
+    </div>
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="success">@ViewBag.Message</div>
+}
+
+@using (Html.BeginForm("ActualizarAval", "ModuloJefatura", FormMethod.Post, new { id = "formAval" }))
+{
+    <div class="form-area">
+        <h3>Datos del Colaborador</h3>
+        <ul>
+            <li>
+                Nombre: @Html.DisplayFor(model => model.Funcionario.Nombre)
+                @Html.DisplayFor(model => model.Funcionario.PrimerApellido)
+                @Html.DisplayFor(model => model.Funcionario.SegundoApellido)
+            </li>
+            <li>Cédula: @Html.DisplayFor(model => model.Funcionario.Cedula)</li>
+        </ul>
+
+        <h3>Detalles de la Solicitud</h3>
+        <table class="table table-hover">
+            <tr>
+                <th>Dirección Secundaria</th>
+                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.DireccionExactaSecundaria)</td>
+            </tr>
+            <tr>
+                <th>Cantidad de Días de Teletrabajo</th>
+                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo)</td>
+            </tr>
+            <tr>
+                <th>Detalle de Días</th>
+                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.DetalleDiasTeletrabajo)</td>
+            </tr>
+        </table>
+
+        <h3>Actualizar Aval</h3>
+        <div class="form-group">
+            <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
+            @Html.CheckBoxFor(model => model.SolicitudTeletrabajo.AprobadoJefaturaInmediata)
+        </div>
+        <div class="form-group">
+            <label for="AvalSuperior">Aval de Jefatura Superior (Aprobar Solicitud):</label>
+            @Html.CheckBoxFor(model => model.SolicitudTeletrabajo.AprobadoJefaturaSuperior)
+        </div>
+        <div class="form-group">
+            <label for="ComentarioAval">Comentarios de Corrección (si aplica):</label>
+            @Html.TextAreaFor(model => model.SolicitudTeletrabajo.ComentarioAval, new { @class = "form-control", rows = "4" })
+        </div>
+        @Html.HiddenFor(model => model.SolicitudTeletrabajo.IdEntidad)
+        <button type="submit" class="btn btn-success">Actualizar Aval</button>
+    </div>
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
 
