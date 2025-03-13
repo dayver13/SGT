@@ -93,5 +93,12 @@ namespace SIRH.Web.ViewModels
 
         public List<SolicitudTeletrabajoDTO> solicitudes { get; set; }
 
+        public SelectList personal { get; set; }
+
+        public string personalseleccionado { get; set; }
+
+        public List<SolicitudTeletrabajoDTO> ListaSolicitudesPendientes { get; set; }
+
+
     }
 }

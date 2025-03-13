@@ -84,5 +84,9 @@ namespace SIRH.DTO
 
         [DataMember]
         public CFuncionarioDTO FuncionarioTeletrabajo { get; set; }
+
+        [DataMember]
+        [DisplayName("Comentario de la jefatura")]
+        public string ComentarioAval { get; set; }
     }
 }
