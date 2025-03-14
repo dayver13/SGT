@@ -22,7 +22,7 @@ namespace SIRH.Web.Controllers
             // Cargar todas las solicitudes pendientes para la jefatura
             modelo.ListaSolicitudesPendientes = ObtenerSolicitudesPendientes(cedula);
 
-            // Si se envió un id de solicitud, se carga esa solicitud; de lo contrario se carga la primera de la lista (si existe)
+            // Si se envió un id de solicitud, se carga esa solicitud; de lo contrario, se carga la primera de la lista (si existe)
             if (idSolicitud.HasValue)
             {
                 modelo.SolicitudTeletrabajo = ObtenerSolicitudPorId(idSolicitud.Value);
@@ -54,15 +54,12 @@ namespace SIRH.Web.Controllers
                 if (error.Message != "modelo")
                 {
                     ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-
                 }
                 else
                 {
                     ModelState.AddModelError("modelo", "No existen datos del lugar de contrato ni el lugar de trabajo.\n\n Pongase en contacto con el personal autorizado.");
-
                 }
                 return View();
-
             }
         }
 
@@ -82,15 +79,12 @@ namespace SIRH.Web.Controllers
                 if (error.Message != "modelo")
                 {
                     ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-
                 }
                 else
                 {
                     ModelState.AddModelError("modelo", "No existen datos del lugar de contrato ni el lugar de trabajo.\n\n Pongase en contacto con el personal autorizado.");
-
                 }
                 return View();
-
             }
         }
 
@@ -102,22 +96,23 @@ namespace SIRH.Web.Controllers
             {
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
-                // Validando si existe un conflicto para el nuevo registro en la fechas dada
-
+                // Validar conflicto de fechas
                 string checkQuery = @"
-                            SELECT * FROM TiempoFuera
-                            WHERE FK_Funcionario = @Funcionario
-                            AND ((@Inicio BETWEEN Inicio AND Final)
-                            OR (@Final BETWEEN Inicio AND Final)
-                            OR (Inicio BETWEEN @Inicio AND @Final) 
-                            OR (Final BETWEEN @Inicio AND @Final))";
+                    SELECT COUNT(*) FROM TiempoFuera
+                    WHERE FK_Funcionario = @Funcionario
+                    AND (
+                         (@Inicio BETWEEN Inicio AND Final)
+                         OR (@Final BETWEEN Inicio AND Final)
+                         OR (Inicio BETWEEN @Inicio AND @Final) 
+                         OR (Final BETWEEN @Inicio AND @Final)
+                    )";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        checkCommand.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        checkCommand.Parameters.AddWithValue("@Funcionario", Int32.Parse(model.personalseleccionado));
                         checkCommand.Parameters.AddWithValue("@Inicio", StartDate);
                         checkCommand.Parameters.AddWithValue("@Final", EndDate);
 
@@ -130,88 +125,38 @@ namespace SIRH.Web.Controllers
                     }
 
                     string query = @"
-                            INSERT INTO TiempoFuera (
-                                FK_Funcionario,
-                                Tipo,
-                                Inicio,
-                                Final
-                            )
-                            OUTPUT INSERTED.TiempoFuera_PK
-                            VALUES (
-                                @Funcionario,
-                                @Tipo,
-                                @Inicio,
-                                @Final
-                            );";
+                        INSERT INTO TiempoFuera (
+                            FK_Funcionario,
+                            Tipo,
+                            Inicio,
+                            Final
+                        )
+                        OUTPUT INSERTED.TiempoFuera_PK
+                        VALUES (
+                            @Funcionario,
+                            @Tipo,
+                            @Inicio,
+                            @Final
+                        );";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        command.Parameters.AddWithValue("@Funcionario", Int32.Parse(model.personalseleccionado));
                         command.Parameters.AddWithValue("@Tipo", salida);
                         command.Parameters.AddWithValue("@Inicio", StartDate);
                         command.Parameters.AddWithValue("@Final", EndDate);
-                        connection.Open();
                         command.ExecuteNonQuery();
                     }
-
                 }
                 return View();
             }
             catch (Exception error)
             {
                 Session["errorF"] = "error";
-
                 System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-
-
                 return View();
-
             }
-        }
-
-        SelectList funcionarios()
-        {
-            List<SelectListItem> lista = new List<SelectListItem>();
-            SelectList listado;
-            CFuncionarioDTO aux;
-
-            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
-            try
-            {
-                using (SqlConnection connectionfake = new SqlConnection(connectionString))
-                {
-
-                    // Abrir la conexión
-                    connectionfake.Open();
-                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
-
-                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consult
-                    string querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 0"; // Cambia 'tu_tabla' por el nombre de tu tabla
-                    SqlCommand command = new SqlCommand(querynom, connectionfake);
-
-
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            aux = getfuncionario(reader.GetInt32(16));
-                            if (!lista.Any(p => p.Value == aux.Cedula))
-                            {
-                                lista.Add(new SelectListItem { Text = aux.Nombre + " " + aux.PrimerApellido + " " + aux.SegundoApellido, Value = aux.IdEntidad.ToString() });
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"4-Error al conectar a la base de datos: {ex.Message}");
-            }
-
-            listado = new SelectList(lista, "Value", "Text");
-            return listado;
         }
 
         [HttpPost]
@@ -222,20 +167,19 @@ namespace SIRH.Web.Controllers
             {
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
-                // Validando si ya existe un registro para el periodo
-
+                // Validar si ya existe un registro para el periodo
                 string checkQuery = @"
-                            SELECT * FROM RegistroRendimiento
-                            WHERE FK_Funcionario = @Funcionario
-                            AND Periodo = @Periodo
-                            AND Ano = 2025";
+                    SELECT COUNT(*) FROM RegistroRendimiento
+                    WHERE FK_Funcionario = @Funcionario
+                      AND Periodo = @Periodo
+                      AND Ano = @Ano";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
                     {
-                        checkCommand.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        checkCommand.Parameters.AddWithValue("@Funcionario", Int32.Parse(model.personalseleccionado));
                         checkCommand.Parameters.AddWithValue("@Periodo", mes);
                         checkCommand.Parameters.AddWithValue("@Ano", 2025);
 
@@ -248,29 +192,29 @@ namespace SIRH.Web.Controllers
                     }
 
                     string query = @"
-                            INSERT INTO RegistroRendimiento (
-                                FK_Funcionario,
-                                Metricas,
-                                Tardias,
-                                Abandono,
-                                CHorario,
-                                Periodo,
-                                Ano
-                            )
-                            OUTPUT INSERTED.RegistroRendimiento_PK
-                            VALUES (
-                                @Funcionario,
-                                @Metricas,
-                                @Tardias,
-                                @Abandono,
-                                @CHorario,
-                                @Periodo,
-                                @Ano
-                            );";
+                        INSERT INTO RegistroRendimiento (
+                            FK_Funcionario,
+                            Metricas,
+                            Tardias,
+                            Abandono,
+                            CHorario,
+                            Periodo,
+                            Ano
+                        )
+                        OUTPUT INSERTED.RegistroRendimiento_PK
+                        VALUES (
+                            @Funcionario,
+                            @Metricas,
+                            @Tardias,
+                            @Abandono,
+                            @CHorario,
+                            @Periodo,
+                            @Ano
+                        );";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Funcionario",Int32.Parse(model.personalseleccionado));
+                        command.Parameters.AddWithValue("@Funcionario", Int32.Parse(model.personalseleccionado));
                         command.Parameters.AddWithValue("@Metricas", metricas);
                         command.Parameters.AddWithValue("@Tardias", tardias);
                         command.Parameters.AddWithValue("@Abandono", abandonos);
@@ -286,59 +230,10 @@ namespace SIRH.Web.Controllers
             catch (Exception error)
             {
                 Session["errorF"] = "error";
-
                 System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {error.Message}");
                 ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-
-
                 return View();
-
             }
-        }
-
-
-
-        private CFuncionarioDTO getfuncionario(int v)
-        {
-            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
-            CFuncionarioDTO func = new CFuncionarioDTO();
-
-            // Crear una conexión
-            using (SqlConnection connectionfake = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    // Abrir la conexión
-                    connectionfake.Open();
-                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
-
-                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
-                    string query = "SELECT * FROM Funcionario WHERE PK_Funcionario = " + v; // Cambia 'tu_tabla' por el nombre de tu tabla
-                    SqlCommand command = new SqlCommand(query, connectionfake);
-
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            func.IdEntidad = reader.GetInt32(0);
-                            func.Cedula = reader.GetString(8);
-                            func.Nombre = reader.GetString(3);
-                            func.PrimerApellido = reader.GetString(4);
-                            func.SegundoApellido = reader.GetString(5);
-                            func.FechaNacimiento = reader.GetDateTime(6);
-                            func.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum), reader.GetString(7));
-                            System.Diagnostics.Debug.WriteLine(func.Cedula + func.FechaNacimiento.ToString());
-                            Session["Identidad"] = reader.GetInt32(0);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Hi-Error al conectar a la base de datos: {ex.Message}");
-                }
-            }
-            return func;
         }
 
         [HttpPost]
@@ -346,7 +241,7 @@ namespace SIRH.Web.Controllers
         {
             try
             {
-                // Actualiza los campos correspondientes al aval inmediato, al aval de jefatura superior y el comentario.
+                // Actualiza campos de la solicitud
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                     UPDATE SolicitudTeletrabajo 
@@ -369,7 +264,6 @@ namespace SIRH.Web.Controllers
                     }
                 }
                 ViewBag.Message = "El aval de la solicitud ha sido actualizado exitosamente.";
-                // Recargar el Index para reflejar la actualización y la lista de solicitudes pendientes
                 return RedirectToAction("Index", new { idSolicitud = modelo.SolicitudTeletrabajo.IdEntidad });
             }
             catch (Exception ex)
@@ -379,7 +273,148 @@ namespace SIRH.Web.Controllers
             }
         }
 
-        // Método auxiliar para obtener los datos del funcionario
+        /// <summary>
+        /// Acción para mostrar el histórico de solicitudes (aceptadas, rechazadas, etc.)
+   
+        public ActionResult MovimientoTeletrabajo(string periodo = null)
+        {
+            
+            string cedula = "0876543210";
+
+            
+            var vm = new PerfilFuncionarioVM();
+
+            
+            var historicoSolicitudes = ObtenerHistoricoTeletrabajo(cedula, periodo);
+
+            
+            vm.solicitudes = historicoSolicitudes;
+
+            
+            return View(vm);
+        }
+
+        /// <summary>
+        /// Método auxiliar para obtener el histórico de teletrabajo (todas las solicitudes) de un funcionario
+        /// </summary>
+        private List<SolicitudTeletrabajoDTO> ObtenerHistoricoTeletrabajo(string cedula, string periodo)
+        {
+            List<SolicitudTeletrabajoDTO> lista = new List<SolicitudTeletrabajoDTO>();
+
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    // Trae todas las solicitudes del funcionario
+                    string query = @"
+                        SELECT *
+                        FROM SolicitudTeletrabajo
+                        WHERE FK_Funcionario IN (
+                            SELECT PK_Funcionario FROM Funcionario 
+                            WHERE IdCedulaFuncionario = @cedula
+                        )
+                        ORDER BY PK_SolicitudTeletrabajo DESC
+                    ";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@cedula", cedula);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var solicitud = new SolicitudTeletrabajoDTO();
+                                solicitud.IdEntidad = reader.GetInt32(0);
+                                solicitud.Escolaridad = reader.GetInt32(1);
+                                solicitud.DistritoSecundario = reader.GetInt32(2);
+                                solicitud.DireccionExactaSecundaria = reader.GetString(3);
+                                solicitud.CantidadPersonasDireccionSecundaria = reader.GetInt32(4);
+                                solicitud.CantidadPersonasDireccionPrimaria = reader.GetInt32(5);
+                                solicitud.TiempoLaborarMOPT = reader.GetString(6);
+                                solicitud.Teletrabajable = reader.GetBoolean(7);
+                                solicitud.CantidadDiasTeletrabajo = reader.GetInt32(8);
+                                solicitud.DetalleDiasTeletrabajo = reader.GetString(9);
+                                solicitud.Horario = reader.GetString(10);
+                                solicitud.Funciones = reader.GetString(11);
+                                solicitud.TiempoFunciones = reader.GetInt32(12);
+                                solicitud.Razones = reader.GetString(13);
+                                solicitud.DeclaracionJurada = reader.GetBoolean(14);
+                                solicitud.Sistemas = reader.GetString(15);
+                                solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(16);
+
+                                if (!reader.IsDBNull(17))
+                                    solicitud.ComentarioAval = reader.GetString(17);
+
+                                // Si la tabla tiene la columna AprobadoJefaturaSuperior en índice 18
+                                if (reader.FieldCount > 18 && !reader.IsDBNull(18))
+                                    solicitud.AprobadoJefaturaSuperior = reader.GetBoolean(18);
+
+                                // Suponiendo que en la posición 19 está FechaSolicitud (DateTime)
+                                // Ajusta si tu columna está en otra posición o usa reader["FechaSolicitud"]
+                                if (reader.FieldCount > 19 && !reader.IsDBNull(19))
+                                    solicitud.FechaSolicitud = reader.GetDateTime(19);
+
+                                lista.Add(solicitud);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error al obtener histórico de teletrabajo: " + ex.Message);
+                }
+            }
+
+            
+
+            return lista;
+        }
+
+        // -----------------------------
+        // Métodos auxiliares existentes
+        // -----------------------------
+
+        private CFuncionarioDTO getfuncionario(int v)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CFuncionarioDTO func = new CFuncionarioDTO();
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    string query = "SELECT * FROM Funcionario WHERE PK_Funcionario = " + v;
+                    SqlCommand command = new SqlCommand(query, connectionfake);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            func.IdEntidad = reader.GetInt32(0);
+                            func.Cedula = reader.GetString(8);
+                            func.Nombre = reader.GetString(3);
+                            func.PrimerApellido = reader.GetString(4);
+                            func.SegundoApellido = reader.GetString(5);
+                            func.FechaNacimiento = reader.GetDateTime(6);
+                            func.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum), reader.GetString(7));
+                            Session["Identidad"] = reader.GetInt32(0);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Hi-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return func;
+        }
+
         private CFuncionarioDTO ObtenerFuncionario(string cedula)
         {
             CFuncionarioDTO funcionario = new CFuncionarioDTO();
@@ -414,7 +449,6 @@ namespace SIRH.Web.Controllers
             return funcionario;
         }
 
-        // Método auxiliar para obtener una lista de solicitudes pendientes (aval no dado)
         private List<SolicitudTeletrabajoDTO> ObtenerSolicitudesPendientes(string cedula)
         {
             List<SolicitudTeletrabajoDTO> lista = new List<SolicitudTeletrabajoDTO>();
@@ -427,7 +461,9 @@ namespace SIRH.Web.Controllers
                     string query = @"
                         SELECT * 
                         FROM SolicitudTeletrabajo 
-                        WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)
+                        WHERE FK_Funcionario IN (
+                            SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula
+                        )
                         AND AprobadoJefaturaInmediata = 0 
                         ORDER BY PK_SolicitudTeletrabajo DESC";
                     SqlCommand command = new SqlCommand(query, connection);
@@ -454,10 +490,10 @@ namespace SIRH.Web.Controllers
                             solicitud.DeclaracionJurada = reader.GetBoolean(14);
                             solicitud.Sistemas = reader.GetString(15);
                             solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(16);
+
                             if (!reader.IsDBNull(17))
                                 solicitud.ComentarioAval = reader.GetString(17);
 
-                            // Si el campo AprobadoJefaturaSuperior existe, se lee (se asume columna 18)
                             if (reader.FieldCount > 18 && !reader.IsDBNull(18))
                                 solicitud.AprobadoJefaturaSuperior = reader.GetBoolean(18);
 
@@ -473,7 +509,6 @@ namespace SIRH.Web.Controllers
             return lista;
         }
 
-        // Método auxiliar para obtener una solicitud específica por su id
         private SolicitudTeletrabajoDTO ObtenerSolicitudPorId(int idSolicitud)
         {
             SolicitudTeletrabajoDTO solicitud = new SolicitudTeletrabajoDTO();
@@ -507,6 +542,7 @@ namespace SIRH.Web.Controllers
                             solicitud.DeclaracionJurada = reader.GetBoolean(14);
                             solicitud.Sistemas = reader.GetString(15);
                             solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(16);
+
                             if (!reader.IsDBNull(17))
                                 solicitud.ComentarioAval = reader.GetString(17);
 
@@ -522,6 +558,49 @@ namespace SIRH.Web.Controllers
             }
             return solicitud;
         }
+
+        SelectList funcionarios()
+        {
+            List<SelectListItem> lista = new List<SelectListItem>();
+            SelectList listado;
+            CFuncionarioDTO aux;
+
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Ejemplo: Tomar funcionarios con IndAprobadoSuperior = 0
+                    string querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 0";
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            aux = getfuncionario(reader.GetInt32(16));
+                            if (!lista.Any(p => p.Value == aux.Cedula))
+                            {
+                                lista.Add(new SelectListItem
+                                {
+                                    Text = aux.Nombre + " " + aux.PrimerApellido + " " + aux.SegundoApellido,
+                                    Value = aux.IdEntidad.ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"4-Error al conectar a la base de datos: {ex.Message}");
+            }
+
+            listado = new SelectList(lista, "Value", "Text");
+            return listado;
+        }
     }
 }
-

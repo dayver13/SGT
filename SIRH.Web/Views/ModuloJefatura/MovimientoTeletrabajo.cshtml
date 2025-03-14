@@ -1,0 +1,80 @@
+@model SIRH.Web.ViewModels.PerfilFuncionarioVM
+
+@{
+    ViewBag.Title = "Histórico de Movimientos de Teletrabajo";
+    Layout = "~/Views/Shared/ModuloJefatura.cshtml";
+}
+
+<h2>Histórico de Movimientos de Teletrabajo</h2>
+
+
+<form method="get" action="@Url.Action("MovimientoTeletrabajo", "ModuloJefatura")">
+    <label for="periodo">Periodo (opcional):</label>
+    <input type="text" id="periodo" name="periodo" />
+    <button type="submit">Buscar</button>
+</form>
+
+<hr />
+
+<!-- Validar si la lista 'solicitudes' del VM tiene datos -->
+@if (Model.solicitudes != null && Model.solicitudes.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Solicitud</th>
+                <th>Fecha Solicitud</th>
+                <th>Razones</th>
+                <th>Comentario Aval</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var solicitud in Model.solicitudes)
+            {
+                <tr>
+                    <td>@solicitud.IdEntidad</td>
+                    <td>
+                        @* Muestra la fecha si existe, asumiendo que en tu DTO tengas FechaSolicitud nullable *@
+                        @if (solicitud.FechaSolicitud.HasValue)
+                        {
+                            @solicitud.FechaSolicitud.Value.ToString("dd/MM/yyyy")
+                        }
+                        else
+                        {
+                            <text>-</text>
+                        }
+                    </td>
+                    <td>@solicitud.Razones</td>
+                    <td>@solicitud.ComentarioAval</td>
+                    <td>
+                        @if (solicitud.AprobadoJefaturaInmediata)
+                        {
+                            <span style="color:green;">Aprobado (Jefatura Inmediata)</span>
+                        }
+                        else
+                        {
+                            <span style="color:red;">Pendiente o Rechazado (Jefatura Inmediata)</span>
+                        }
+
+                        <br />
+
+                        @* Aprobación Jefatura Superior (si fuera bool? en tu DTO) *@
+                        @if (solicitud.AprobadoJefaturaSuperior)
+                        {
+                            <span style="color:green;">Aprobado (Jefatura Superior)</span>
+                        }
+                        else
+                        {
+                            <span style="color:red;">Pendiente o Rechazado (Jefatura Superior)</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay movimientos de teletrabajo registrados.</p>
+}
