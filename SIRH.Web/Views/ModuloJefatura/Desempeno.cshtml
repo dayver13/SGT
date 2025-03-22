@@ -85,6 +85,12 @@
                                 <table class="table table-hover">
                                     <tbody>
                                         <tr>
+                                            <th>Año en Curso:</th>
+                                            <td>
+                                                <span id="anoActual"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th>Periodo:</th>
                                             <td>
                                                 <select name="mes" id="mes">
@@ -147,6 +153,12 @@
                                                 </select>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Observaciones:</th>
+                                            <td>
+                                                <textarea name="observaciones" id="observaciones" class="form-control" rows="3" placeholder="Ingrese observaciones aquí"></textarea>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -157,10 +169,8 @@
                                 </button>
                             </div>
                         </form>
-                        <div id="alert">
-                        </div>
+                        <div id="alert"></div>
                     </div>
-
                 </section>
             </main>
 
@@ -183,12 +193,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+    // Obtener año actual y mostrarlo en la página
+    document.getElementById("anoActual").innerText = new Date().getFullYear();
 
     function fueExitoso() {
         var dvalert = document.getElementById("alert");
         var divsucc = document.createElement("div");
         divsucc.className = "success";
-        divsucc.innerText = "Envio de solicitud fue exitosa";
+        divsucc.innerText = "Envío de solicitud fue exitoso";
         dvalert.appendChild(divsucc);
         setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
     }
@@ -197,14 +209,8 @@
         var dvalert = document.getElementById("alert");
         var divsucc = document.createElement("div");
         divsucc.className = "failure";
-        divsucc.innerText = "Envio de solicitud fallo, revise que toda la informacin este correcta.";
+        divsucc.innerText = "Envío de solicitud falló, revise que toda la información esté correcta.";
         dvalert.appendChild(divsucc);
         setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
     }
-
 </script>
-
-
-
-
-

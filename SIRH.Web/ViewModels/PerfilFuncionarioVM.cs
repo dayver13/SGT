@@ -103,6 +103,7 @@ namespace SIRH.Web.ViewModels
 
         public List<SolicitudTeletrabajoDTO> ListaSolicitudesPendientes { get; set; }
 
+        public List<SelectListItem> TiposSalida { get; set; }
 
     }
 }

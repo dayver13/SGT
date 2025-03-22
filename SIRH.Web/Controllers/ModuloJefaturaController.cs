@@ -45,6 +45,7 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
                 modelo.personal = funcionarios();
+                modelo.TiposSalida = ObtenerTiposSalida();
                 return View(modelo);
             }
             catch (Exception error)
@@ -63,6 +64,61 @@ namespace SIRH.Web.Controllers
             }
         }
 
+        // Método para calcular la fecha final evitando sábados y domingos
+        private DateTime CalcularFechaFinal(DateTime fechaInicio, double cantidadDias)
+        {
+            int diasLaborales = 0;
+            DateTime fechaFinal = fechaInicio;
+
+            while (diasLaborales < cantidadDias)
+            {
+                fechaFinal = fechaFinal.AddDays(1);
+
+                if (fechaFinal.DayOfWeek != DayOfWeek.Saturday && fechaFinal.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    diasLaborales++;
+                }
+            }
+
+            return fechaFinal;
+        }
+
+        // Método para obtener los tipos de salida (por ahora quemado)
+        private List<SelectListItem> ObtenerTiposSalida()
+        {
+            // Temporalmente quemado, cambiar a BD cuando esté lista
+            List<SelectListItem> tiposSalida = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Vacaciones" },
+                new SelectListItem { Value = "2", Text = "Incapacidad" }
+            };
+
+            /* Cargar desde la base de datos
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Id, Clasificacion FROM TipoSalida";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tiposSalida.Add(new SelectListItem
+                            {
+                                Value = reader["Id"].ToString(),
+                                Text = reader["Clasificacion"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            */
+
+            return tiposSalida;
+        }
         public ActionResult Desempeno()
         {
             Session["errorF"] = null;
@@ -275,22 +331,22 @@ namespace SIRH.Web.Controllers
 
         /// <summary>
         /// Acción para mostrar el histórico de solicitudes (aceptadas, rechazadas, etc.)
-   
+
         public ActionResult MovimientoTeletrabajo(string periodo = null)
         {
-            
+
             string cedula = "0876543210";
 
-            
+
             var vm = new PerfilFuncionarioVM();
 
-            
+
             var historicoSolicitudes = ObtenerHistoricoTeletrabajo(cedula, periodo);
 
-            
+
             vm.solicitudes = historicoSolicitudes;
 
-            
+
             return View(vm);
         }
 
@@ -368,7 +424,7 @@ namespace SIRH.Web.Controllers
                 }
             }
 
-            
+
 
             return lista;
         }
