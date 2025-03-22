@@ -64,25 +64,6 @@ namespace SIRH.Web.Controllers
             }
         }
 
-        // Método para calcular la fecha final evitando sábados y domingos
-        private DateTime CalcularFechaFinal(DateTime fechaInicio, double cantidadDias)
-        {
-            int diasLaborales = 0;
-            DateTime fechaFinal = fechaInicio;
-
-            while (diasLaborales < cantidadDias)
-            {
-                fechaFinal = fechaFinal.AddDays(1);
-
-                if (fechaFinal.DayOfWeek != DayOfWeek.Saturday && fechaFinal.DayOfWeek != DayOfWeek.Sunday)
-                {
-                    diasLaborales++;
-                }
-            }
-
-            return fechaFinal;
-        }
-
         // Método para obtener los tipos de salida (por ahora quemado)
         private List<SelectListItem> ObtenerTiposSalida()
         {

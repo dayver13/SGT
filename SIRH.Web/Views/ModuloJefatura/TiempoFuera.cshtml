@@ -98,14 +98,16 @@
                                         </tr>
                                         <tr>
                                             <th>Tipo de salida:</th>
+                                            @*
                                             <td>
                                                @Html.DropDownListFor(model => model.TiposSalida,
-                                               Model.TiposSalida, new 
-                                               { 
+                                               Model.TiposSalida, new
+                                               {
                                                    @class = "form-control",
-                                                   @id = "salida" 
+                                                   @id = "salida"
                                                })
                                             </td>
+                                            *@
                                         </tr>
                                     </tbody>
                                 </table>
@@ -181,22 +183,28 @@
     document.getElementById("btnEnviar").addEventListener("click", validarFechas);
 
     document.getElementById("cantidadDias").addEventListener("input", function () {
-        let startDate = new Date(document.getElementById("StartDate").value);
-        let days = parseFloat(this.value);
+        let fechaInicio = new Date(document.getElementById("StartDate").value);
+        let dias = parseFloat(this.value);
 
-        if (!isNaN(startDate.getTime()) && !isNaN(days)) {
-            let workDays = 0;
-            let endDate = new Date(startDate);
-
-            while (workDays < days) {
-                endDate.setDate(endDate.getDate() + 1);
-                if (endDate.getDay() !== 6 && endDate.getDay() !== 0) {
-                    workDays++;
-                }
-            }
-
-            document.getElementById("EndDate").value = endDate.toISOString().split("T")[0];
+        if (!isNaN(fechaInicio.getTime()) && !isNaN(dias)) {
+            let fechaFin = calcularFechaFinal(fechaInicio, dias);
+            document.getElementById("EndDate").value = fechaFin.toISOString().split("T")[0];
         }
     });
+
+    function calcularFechaFinal(fechaInicio, dias) {
+        let fechaFinal = new Date(fechaInicio);
+        while (dias > 0) {
+            if (dias >= 1) {
+                fechaFinal.setDate(fechaFinal.getDate() + 1);
+                if (fechaFinal.getDay() !== 5 && fechaFinal.getDay() !== 6) { // Skip Sundays (0) and Saturdays (6)
+                    dias -= 1;
+                }
+            } else {
+                break;
+            }
+        }
+        return fechaFinal;
+    }
 
 </script>
