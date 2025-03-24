@@ -98,16 +98,15 @@
                                         </tr>
                                         <tr>
                                             <th>Tipo de salida:</th>
-                                            @*
                                             <td>
-                                               @Html.DropDownListFor(model => model.TiposSalida,
-                                               Model.TiposSalida, new
-                                               {
-                                                   @class = "form-control",
-                                                   @id = "salida"
-                                               })
-                                            </td>
-                                            *@
+                                                @Html.DropDownListFor(model => model.TipoSalidaSeleccionada,
+                                                Model.TiposSalida, Model.TipoSalidaSeleccionada, new
+                                                {
+                                                    @class = "form-control",
+                                                    @readonly = "readonly",
+                                                    @id = "TipoSalidaSeleccionada"
+                                                })
+                                            </td> 
                                         </tr>
                                     </tbody>
                                 </table>

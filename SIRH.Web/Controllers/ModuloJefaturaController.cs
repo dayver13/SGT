@@ -45,7 +45,7 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
                 modelo.personal = funcionarios();
-                modelo.TiposSalida = ObtenerTiposSalida();
+                modelo.TiposSalida = new SelectList(ObtenerTiposSalida(), "Value", "Text");
                 return View(modelo);
             }
             catch (Exception error)
@@ -126,8 +126,9 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult NuevoRegistro(PerfilFuncionarioVM model, string StartDate, string EndDate, int salida, string SubmitButton)
+        public ActionResult NuevoRegistro(PerfilFuncionarioVM model, string StartDate, string EndDate, string SubmitButton)
         {
+            int salida = int.Parse(model.TipoSalidaSeleccionada);
             Session["errorF"] = null;
             try
             {
