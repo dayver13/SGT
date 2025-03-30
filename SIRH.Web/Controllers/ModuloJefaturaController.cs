@@ -392,8 +392,8 @@ namespace SIRH.Web.Controllers
 
                                 // Suponiendo que en la posición 19 está FechaSolicitud (DateTime)
                                 // Ajusta si tu columna está en otra posición o usa reader["FechaSolicitud"]
-                                if (reader.FieldCount > 19 && !reader.IsDBNull(19))
-                                    solicitud.FechaSolicitud = reader.GetDateTime(19);
+                               // if (reader.FieldCount > 19 && !reader.IsDBNull(19))
+                                   // solicitud.FechaSolicitud = reader.GetDateTime(19);
 
                                 lista.Add(solicitud);
                             }
