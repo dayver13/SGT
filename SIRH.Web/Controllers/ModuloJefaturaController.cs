@@ -311,6 +311,38 @@ namespace SIRH.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult BuscarPorCedula(string cedula)
+        {
+            CFuncionarioDTO funcionario = ObtenerFuncionario(cedula);
+            bool tieneSolicitudTeletrabajo = false;
+
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string queryTeletrabajo = "SELECT COUNT(*) FROM SolicitudTeletrabajo WHERE FK_Funcionario = @idFuncionario";
+                    SqlCommand cmdTeletrabajo = new SqlCommand(queryTeletrabajo, connection);
+                    cmdTeletrabajo.Parameters.AddWithValue("@idFuncionario", funcionario.IdEntidad);
+
+                    tieneSolicitudTeletrabajo = (int)cmdTeletrabajo.ExecuteScalar() > 0;
+                }
+                catch (Exception)
+                {
+                    return PartialView("_ErrorContrato", "Ocurrió un error en la búsqueda.");
+                }
+            }
+
+            if (!tieneSolicitudTeletrabajo)
+            {
+                return PartialView("_ErrorContrato", "Este funcionario no tiene una solicitud de teletrabajo registrada.");
+            }
+
+            return PartialView("_DetalleFuncionario", funcionario);
+        }
+
         /// <summary>
         /// Acción para mostrar el histórico de solicitudes (aceptadas, rechazadas, etc.)
 
