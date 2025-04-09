@@ -6,3 +6,9 @@ C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIR
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DTO\bin\Release\SIRH.DTO.pdb
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DTO\obj\Release\SIRH.DTO.dll
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.DTO\obj\Release\SIRH.DTO.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\bin\Release\SIRH.DTO.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\bin\Release\SIRH.DTO.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\obj\Release\SIRH.DTO.csproj.AssemblyReference.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\obj\Release\SIRH.DTO.csproj.CoreCompileInputs.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\obj\Release\SIRH.DTO.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.DTO\obj\Release\SIRH.DTO.pdb

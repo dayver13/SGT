@@ -30,3 +30,24 @@ C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIR
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Servicios\obj\Release\SIRH.Servicios.csprojResolveAssemblyReference.cache
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Servicios\obj\Release\SIRH.Servicios.dll
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Servicios\obj\Release\SIRH.Servicios.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Servicios.dll.config
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Servicios.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Servicios.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.DTO.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Logica.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Datos.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.DatosMarcasReloj.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\EntityFramework.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.DTO.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Logica.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Logica.dll.config
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Datos.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.Datos.dll.config
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.DatosMarcasReloj.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\SIRH.DatosMarcasReloj.dll.config
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\bin\Release\EntityFramework.xml
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\obj\Release\SIRH.Servicios.csproj.AssemblyReference.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\obj\Release\SIRH.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\obj\Release\SIRH.Ser.5B06B4E1.Up2Date
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\obj\Release\SIRH.Servicios.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Servicios\obj\Release\SIRH.Servicios.pdb

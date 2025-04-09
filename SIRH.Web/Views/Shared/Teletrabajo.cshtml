@@ -8,14 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/sidebar.css">
-
-
 </head>
 <body>
     @{
         System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(System.Security.Principal.WindowsIdentity.GetCurrent());
     }
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <div class="row">
             <img class="embed-responsive" src="~/Content/Images/encabezadodiseno.jpg" width="100%" />
         </div>
@@ -39,10 +37,12 @@
                 <li>
                     @Html.ActionLink("Notificaciones", "Index", "ActualizarContrato", null, new { @class = "colorlink" })
                 </li>
-                @if ((int)Session["FamiliaPuesto"] != 3) {
-                <li>
-                    @Html.ActionLink("Modulo Jefatura", "Index", "ModuloJefatura", null, new { @class = "colorlink" })
-                </li>}
+                @if ((int)Session["FamiliaPuesto"] != 3)
+                {
+                    <li>
+                        @Html.ActionLink("Modulo Jefatura", "Index", "ModuloJefatura", null, new { @class = "colorlink" })
+                    </li>
+}
             </ul>
         </nav>
 
@@ -58,7 +58,15 @@
                         <i class="fas fa-align-justify"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul class="nav navbar-nav ml-auto align-items-center">
+                            <li class="nav-item mr-3">
+                                <div class="input-group">
+                                    <input type="text" id="cedula" class="form-control form-control-sm" placeholder="Cédula">
+                                    <div class="input-group-append">
+                                        <button id="btnBuscar" class="btn btn-primary btn-sm">Buscar</button>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="nav-item active">
                                 <a class="colorlink" href="@Url.Action("Perfil", "PerfilUsuario", new { @username = Session["NombreUsuario"] })">
                                     <i class="fa fa-user"></i> @(Session["NombreUsuario"])
@@ -71,13 +79,35 @@
             @RenderBody()
         </div>
     </div>
-    <div class="container-fluid ">
+
+    <div class="container-fluid">
         <div class="row">
             <img class="embed-responsive" src="~/Content/Images/pie-gris.png" />
         </div>
     </div>
+
     <script src="~/Scripts/sidebar.js" type="text/javascript"></script>
+    <script>
+        $("#btnBuscar").click(function () {
+            var cedula = $("#cedula").val();
+
+            if (!cedula) {
+                alert("Ingrese una cédula");
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("BuscarPorCedula", "ModuloJefatura")',
+                type: "POST",
+                data: { cedula: cedula },
+                success: function (data) {
+                    $("#resultadoBusqueda").html(data);
+                },
+                error: function () {
+                    $("#resultadoBusqueda").html("<div class='alert alert-danger'>Error al buscar funcionario.</div>");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-

@@ -2625,14 +2625,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\VacacionesService\SIRH1.disco" />
-    <Content Include="Web.config">
+    <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+      <DependentUpon>web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+      <DependentUpon>web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />

@@ -16,3 +16,14 @@ C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIR
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Datos\obj\Release\SIRH.Datos.csprojResolveAssemblyReference.cache
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Datos\obj\Release\SIRH.Datos.dll
 C:\Users\orlando.sandoval\Documents\Visual Studio 2015\Projects\SIRH_CALIDAD\SIRH.Datos\obj\Release\SIRH.Datos.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\SIRH.Datos.dll.config
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\SIRH.Datos.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\SIRH.Datos.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\EntityFramework.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\SIRH.DTO.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\bin\Release\SIRH.DTO.pdb
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Release\SIRH.Datos.csproj.AssemblyReference.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Release\SIRH.Datos.csproj.CoreCompileInputs.cache
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Release\SIRH.Datos.csproj.Up2Date
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Release\SIRH.Datos.dll
+C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Release\SIRH.Datos.pdb
