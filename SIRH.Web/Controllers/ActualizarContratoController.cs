@@ -47,7 +47,7 @@ namespace SIRH.Web.Controllers
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
 
-                Session["CedulaUsuario"] = "0876543210";
+                Session["CedulaUsuario"] = "3214567370";
                 var data = getUsuario(Session["CedulaUsuario"].ToString());
                 modelo.Funcionario = (CFuncionarioDTO)data;
                 modelo = ConstruirModeloPuestoSQL(modelo);
@@ -1391,6 +1391,9 @@ namespace SIRH.Web.Controllers
                             puesto.NivelOcupacional = reader.GetInt32(6);
                             puesto.UbicacionAdministrativa = funcubicacion(fkubicacion);
                             puesto.EstadoPuesto = funcestadopuesto(fkestadop);
+                            puesto.FamiliaPuesto = funcfamiliapuesto(reader.GetInt32(7));
+                            Session["FamiliaPuesto"] = puesto.FamiliaPuesto.IdEntidad;
+
                         }
                     }
                 }
@@ -1400,6 +1403,44 @@ namespace SIRH.Web.Controllers
                 }
             }
             return puesto;
+        }
+
+        CFamiliaPuestoDTO funcfamiliapuesto(int fkfamilia)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CFamiliaPuestoDTO familia = new CFamiliaPuestoDTO();
+           
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM FamiliaPuestos WHERE PK_Familia=" + fkfamilia; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            familia.IdEntidad = reader.GetInt32(0);
+                            familia.DesFamilia = reader.GetString(1);
+                            familia.DesObservaciones = reader.GetString(2);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"13-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return familia;
         }
 
         SolicitudTeletrabajoDTO descargarsolicitud(string cedula, PerfilFuncionarioVM model)

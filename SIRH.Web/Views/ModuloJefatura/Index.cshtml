@@ -72,25 +72,33 @@
 
 <h2>Actualizar Aval de Solicitud de Teletrabajo</h2>
 
-@using (Html.BeginForm("Index", "ModuloJefatura", FormMethod.Get))
+ @if ((int)Session["FamiliaPuesto"] == 3)
+ {
+<div>
+    Acceso Restringido
+</div>
+ }
+ else
+ {
+using (Html.BeginForm("Index", "ModuloJefatura", FormMethod.Get))
 {
     <div class="form-group">
         <label for="idSolicitud">Solicitudes Pendientes</label>
         @Html.DropDownList(
-            "idSolicitud",
-            new SelectList(Model.ListaSolicitudesPendientes, "IdEntidad", "DireccionExactaSecundaria", Model.IdSolicitudSeleccionada),
-            "Seleccione la solicitud pendiente",
-            new { @class = "form-control", @onchange = "this.form.submit();" }
-        )
+                  "idSolicitud",
+                  new SelectList(Model.ListaSolicitudesPendientes, "IdEntidad", "DireccionExactaSecundaria", Model.IdSolicitudSeleccionada),
+                  "Seleccione la solicitud pendiente",
+                  new { @class = "form-control", @onchange = "this.form.submit();" }
+              )
     </div>
 }
 
-@if (ViewBag.Message != null)
+if (ViewBag.Message != null)
 {
     <div class="success">@ViewBag.Message</div>
 }
 
-@using (Html.BeginForm("ActualizarAval", "ModuloJefatura", FormMethod.Post, new { id = "formAval" }))
+using (Html.BeginForm("ActualizarAval", "ModuloJefatura", FormMethod.Post, new { id = "formAval" }))
 {
     <div class="form-area">
         <h3>Datos del Colaborador</h3>
@@ -151,6 +159,7 @@
         </div>
     </div>
 </div>
+ }
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

@@ -39,9 +39,10 @@
                 <li>
                     @Html.ActionLink("Notificaciones", "Index", "ActualizarContrato", null, new { @class = "colorlink" })
                 </li>
+                @if ((int)Session["FamiliaPuesto"] != 3) {
                 <li>
                     @Html.ActionLink("Modulo Jefatura", "Index", "ModuloJefatura", null, new { @class = "colorlink" })
-                </li>
+                </li>}
             </ul>
         </nav>
 

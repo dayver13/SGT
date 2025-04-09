@@ -51,166 +51,175 @@
 </style>
 
 @{
-    using (Ajax.BeginForm("RegistroDesempeno", "ModuloJefatura", new AjaxOptions
+    if ((int)Session["FamiliaPuesto"] == 3)
     {
-        UpdateTargetId = "dvResultadoBusqueda",
-        HttpMethod = "POST",
-        OnSuccess = "fueExitoso",
-        OnFailure = "fuefallido",
-        OnBegin = ""
-    }))
-    {
-        <h2>Registrar Rendimiento Periodo</h2>
-        <div class="jumbotron">
-            <div class="sidebar"></div>
-            <main>
-                <section class="main-content">
-                    <div class="user-information">
-                        <h2>Seleccione Colaborador</h2>
-                        <ul>
-                            @Html.DropDownListFor(model => model.personalseleccionado,
-                                Model.personal, Model.personalseleccionado,
-                                new
-                                {
-                                    @class = "form-control",
-                                    @readonly = "readonly",
-                                    @id = "personalseleccionado"
-                                })
-                        </ul>
-                    </div>
-                    <div class="form-area">
-                        <h2>Datos de Salida</h2>
-                        <form action="">
-                            <div id="tiempo" class="section">
-                                <table class="table table-hover">
-                                    <tbody>
-                                        <tr>
-                                            <th>Año en Curso:</th>
-                                            <td>
-                                                <span id="anoActual"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Periodo:</th>
-                                            <td>
-                                                <select name="mes" id="mes">
-                                                    <option value=1>Enero</option>
-                                                    <option value=2>Febrero</option>
-                                                    <option value=3>Marzo</option>
-                                                    <option value=4>Abril</option>
-                                                    <option value=5>Mayo</option>
-                                                    <option value=6>Junio</option>
-                                                    <option value=7>Julio</option>
-                                                    <option value=8>Agosto</option>
-                                                    <option value=9>Septiembre</option>
-                                                    <option value=10>Octubre</option>
-                                                    <option value=11>Noviembre</option>
-                                                    <option value=12>Diciembre</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Cumplimiento métricas:</th>
-                                            <td>
-                                                <select name="metricas" id="metricas">
-                                                    <option value=1>Cumplió</option>
-                                                    <option value=2>Cumplió Parcialmente</option>
-                                                    <option value=3>No Cumplió</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Cumplimiento Horario:</th>
-                                            <td>
-                                                <select name="horario" id="horario">
-                                                    <option value=1>Cumplió</option>
-                                                    <option value=2>Cumplió Parcialmente</option>
-                                                    <option value=3>No Cumplió</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tardías:</th>
-                                            <td>
-                                                <select name="tardias" id="tardias">
-                                                    <option value=1>1</option>
-                                                    <option value=2>2</option>
-                                                    <option value=3>3</option>
-                                                    <option value=4>4</option>
-                                                    <option value=5>5</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Abandonos:</th>
-                                            <td>
-                                                <select name="abandonos" id="abandonos">
-                                                    <option value=1>1</option>
-                                                    <option value=2>2</option>
-                                                    <option value=3>3</option>
-                                                    <option value=4>4</option>
-                                                    <option value=5>5</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Observaciones:</th>
-                                            <td>
-                                                <textarea name="observaciones" id="observaciones" class="form-control" rows="3" placeholder="Ingrese observaciones aquí"></textarea>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-2">
-                                <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" value="Registrar Desempeño">
-                                    <i class="fa fa-save"></i>
-                                    Registrar Desempeño
-                                </button>
-                            </div>
-                        </form>
-                        <div id="alert"></div>
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-                <div>
-                    <div class="footer-content"></div>
-                </div>
-            </footer>
+        <div>
+            Acceso Restringido
         </div>
-    }
-}
+     }
+                else
+                {
+                    using (Ajax.BeginForm("RegistroDesempeno", "ModuloJefatura", new AjaxOptions
+                    {
+                        UpdateTargetId = "dvResultadoBusqueda",
+                        HttpMethod = "POST",
+                        OnSuccess = "fueExitoso",
+                        OnFailure = "fuefallido",
+                        OnBegin = ""
+                    }))
+                    {
+            <h2>Registrar Rendimiento Periodo</h2>
+            <div class="jumbotron">
+                <div class="sidebar"></div>
+                <main>
+                    <section class="main-content">
+                        <div class="user-information">
+                            <h2>Seleccione Colaborador</h2>
+                            <ul>
+                                @Html.DropDownListFor(model => model.personalseleccionado,
+                                     Model.personal, Model.personalseleccionado,
+                                     new
+                                     {
+                                         @class = "form-control",
+                                         @readonly = "readonly",
+                                         @id = "personalseleccionado"
+                                     })
+                            </ul>
+                        </div>
+                        <div class="form-area">
+                            <h2>Datos de Salida</h2>
+                            <form action="">
+                                <div id="tiempo" class="section">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th>Año en Curso:</th>
+                                                <td>
+                                                    <span id="anoActual"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Periodo:</th>
+                                                <td>
+                                                    <select name="mes" id="mes">
+                                                        <option value=1>Enero</option>
+                                                        <option value=2>Febrero</option>
+                                                        <option value=3>Marzo</option>
+                                                        <option value=4>Abril</option>
+                                                        <option value=5>Mayo</option>
+                                                        <option value=6>Junio</option>
+                                                        <option value=7>Julio</option>
+                                                        <option value=8>Agosto</option>
+                                                        <option value=9>Septiembre</option>
+                                                        <option value=10>Octubre</option>
+                                                        <option value=11>Noviembre</option>
+                                                        <option value=12>Diciembre</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cumplimiento métricas:</th>
+                                                <td>
+                                                    <select name="metricas" id="metricas">
+                                                        <option value=1>Cumplió</option>
+                                                        <option value=2>Cumplió Parcialmente</option>
+                                                        <option value=3>No Cumplió</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cumplimiento Horario:</th>
+                                                <td>
+                                                    <select name="horario" id="horario">
+                                                        <option value=1>Cumplió</option>
+                                                        <option value=2>Cumplió Parcialmente</option>
+                                                        <option value=3>No Cumplió</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tardías:</th>
+                                                <td>
+                                                    <select name="tardias" id="tardias">
+                                                        <option value=1>1</option>
+                                                        <option value=2>2</option>
+                                                        <option value=3>3</option>
+                                                        <option value=4>4</option>
+                                                        <option value=5>5</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Abandonos:</th>
+                                                <td>
+                                                    <select name="abandonos" id="abandonos">
+                                                        <option value=1>1</option>
+                                                        <option value=2>2</option>
+                                                        <option value=3>3</option>
+                                                        <option value=4>4</option>
+                                                        <option value=5>5</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Observaciones:</th>
+                                                <td>
+                                                    <textarea name="observaciones" id="observaciones" class="form-control" rows="3" placeholder="Ingrese observaciones aquí"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" value="Registrar Desempeño">
+                                        <i class="fa fa-save"></i>
+                                        Registrar Desempeño
+                                    </button>
+                                </div>
+                            </form>
+                            <div id="alert"></div>
+                        </div>
+                    </section>
+                </main>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+                <footer>
+                    <div>
+                        <div class="footer-content"></div>
+                    </div>
+                </footer>
+            </div>
+            }
+         }
+  }
 
-<script src="~/Scripts/sidebar.js" type="text/javascript"></script>
-<script src="~/Scripts/Pages/DetailsFuncionario.js" type="text/javascript"></script>
-<script src="~/Scripts/Pages/FormularioSolicitudTeletrabajo.js" type="text/javascript"></script>
-<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
-<script>
-    // Obtener año actual y mostrarlo en la página
-    document.getElementById("anoActual").innerText = new Date().getFullYear();
+    <script src="~/Scripts/sidebar.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/DetailsFuncionario.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/FormularioSolicitudTeletrabajo.js" type="text/javascript"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    function fueExitoso() {
-        var dvalert = document.getElementById("alert");
-        var divsucc = document.createElement("div");
-        divsucc.className = "success";
-        divsucc.innerText = "Envío de solicitud fue exitoso";
-        dvalert.appendChild(divsucc);
-        setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
-    }
+    <script>
+        // Obtener año actual y mostrarlo en la página
+        document.getElementById("anoActual").innerText = new Date().getFullYear();
 
-    function fuefallido() {
-        var dvalert = document.getElementById("alert");
-        var divsucc = document.createElement("div");
-        divsucc.className = "failure";
-        divsucc.innerText = "Envío de solicitud falló, revise que toda la información esté correcta.";
-        dvalert.appendChild(divsucc);
-        setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
-    }
-</script>
+        function fueExitoso() {
+            var dvalert = document.getElementById("alert");
+            var divsucc = document.createElement("div");
+            divsucc.className = "success";
+            divsucc.innerText = "Envío de solicitud fue exitoso";
+            dvalert.appendChild(divsucc);
+            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+        }
+
+        function fuefallido() {
+            var dvalert = document.getElementById("alert");
+            var divsucc = document.createElement("div");
+            divsucc.className = "failure";
+            divsucc.innerText = "Envío de solicitud falló, revise que toda la información esté correcta.";
+            dvalert.appendChild(divsucc);
+            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+        }
+    </script>

@@ -14,11 +14,12 @@ namespace SIRH.Web.Controllers
         // GET: ModuloJefatura
         public ActionResult Index(int? idSolicitud)
         {
-            string cedula = "0876543210";
+            string cedula = "3214567370";
 
             // Crear el modelo de vista
             PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
             modelo.Funcionario = ObtenerFuncionario(cedula);
+          
             // Cargar todas las solicitudes pendientes para la jefatura
             modelo.ListaSolicitudesPendientes = ObtenerSolicitudesPendientes(cedula);
 
@@ -534,7 +535,7 @@ namespace SIRH.Web.Controllers
                         WHERE FK_Funcionario IN (
                             SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula
                         )
-                        AND AprobadoJefaturaInmediata = 0 
+                        AND IndAprobadoJefatura = 0 
                         ORDER BY PK_SolicitudTeletrabajo DESC";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@cedula", cedula);
@@ -559,10 +560,10 @@ namespace SIRH.Web.Controllers
                             solicitud.Razones = reader.GetString(13);
                             solicitud.DeclaracionJurada = reader.GetBoolean(14);
                             solicitud.Sistemas = reader.GetString(15);
-                            solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(16);
+                            solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(17);
 
-                            if (!reader.IsDBNull(17))
-                                solicitud.ComentarioAval = reader.GetString(17);
+                            if (!reader.IsDBNull(20))
+                                solicitud.ComentarioAval = reader.GetString(20);
 
                             if (reader.FieldCount > 18 && !reader.IsDBNull(18))
                                 solicitud.AprobadoJefaturaSuperior = reader.GetBoolean(18);
