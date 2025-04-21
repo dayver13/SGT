@@ -127,7 +127,7 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult NuevoRegistro(PerfilFuncionarioVM model, string StartDate, string EndDate, string SubmitButton)
+        public ActionResult NuevoRegistro(PerfilFuncionarioVM model, string StartDate, string EndDate, double cantidadDias, string SubmitButton)
         {
             int salida = int.Parse(model.TipoSalidaSeleccionada);
             Session["errorF"] = null;
@@ -158,8 +158,10 @@ namespace SIRH.Web.Controllers
                         int count = (int)checkCommand.ExecuteScalar();
                         if (count > 0)
                         {
-                            ModelState.AddModelError("ConflictoFechas", "Conflicto de fechas detectado o registro ya existente. Verifique las fechas antes de guardar.");
-                            return View();
+                            
+                            var respuesta1 = new { mensaje = "Conflicto de fechas detectado o registro ya existente. Verifique las fechas antes de guardar.", estado = false };
+
+                            return Json(respuesta1);
                         }
                     }
 
@@ -168,14 +170,16 @@ namespace SIRH.Web.Controllers
                             FK_Funcionario,
                             Tipo,
                             Inicio,
-                            Final
+                            Final,
+                            cantidad
                         )
                         OUTPUT INSERTED.TiempoFuera_PK
                         VALUES (
                             @Funcionario,
                             @Tipo,
                             @Inicio,
-                            @Final
+                            @Final,
+                            @cantidad
                         );";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -184,22 +188,25 @@ namespace SIRH.Web.Controllers
                         command.Parameters.AddWithValue("@Tipo", salida);
                         command.Parameters.AddWithValue("@Inicio", StartDate);
                         command.Parameters.AddWithValue("@Final", EndDate);
+                        command.Parameters.AddWithValue("@cantidad", cantidadDias);
                         command.ExecuteNonQuery();
                     }
                 }
-                return View();
+                var respuesta = new { mensaje = "Guardado correctamente", estado = true };
+
+                return Json(respuesta);
             }
             catch (Exception error)
             {
                 Session["errorF"] = "error";
                 System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {error.Message}");
-                ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-                return View();
+                var respuesta2 = new { mensaje = "Ha ocurrido un error al conectar con la base de datos", estado = false };
+                return Json(respuesta2);
             }
         }
 
         [HttpPost]
-        public ActionResult RegistroDesempeno(PerfilFuncionarioVM model, int mes, int metricas, int horario, int tardias, int abandonos, string SubmitButton)
+        public ActionResult RegistroDesempeno(PerfilFuncionarioVM model, int mes, int metricas, int horario, int tardias, int abandonos, string observaciones, string SubmitButton)
         {
             Session["errorF"] = null;
             try
@@ -225,8 +232,10 @@ namespace SIRH.Web.Controllers
                         int count = (int)checkCommand.ExecuteScalar();
                         if (count > 0)
                         {
-                            ModelState.AddModelError("RegistroDuplicado", "Ya existe un registro para este colaborador en el mismo mes y año.");
-                            return View();
+                           
+                            var respuesta1 = new { mensaje = "Ya existe un registro para este colaborador en el mismo mes y año.", estado = false };
+
+                            return Json(respuesta1);
                         }
                     }
 
@@ -238,7 +247,8 @@ namespace SIRH.Web.Controllers
                             Abandono,
                             CHorario,
                             Periodo,
-                            Ano
+                            Ano,
+                            Observaciones
                         )
                         OUTPUT INSERTED.RegistroRendimiento_PK
                         VALUES (
@@ -248,7 +258,8 @@ namespace SIRH.Web.Controllers
                             @Abandono,
                             @CHorario,
                             @Periodo,
-                            @Ano
+                            @Ano,
+                            @Observaciones
                         );";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -260,18 +271,21 @@ namespace SIRH.Web.Controllers
                         command.Parameters.AddWithValue("@CHorario", horario);
                         command.Parameters.AddWithValue("@Periodo", mes);
                         command.Parameters.AddWithValue("@Ano", 2025);
-
+                        command.Parameters.AddWithValue("@Observaciones", observaciones);
                         command.ExecuteNonQuery();
                     }
                 }
-                return View();
+                var respuesta = new { mensaje = "Guardado correctamente", estado = true };
+
+                return Json(respuesta);
             }
             catch (Exception error)
             {
                 Session["errorF"] = "error";
                 System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {error.Message}");
-                ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
-                return View();
+                var respuesta2 = new { mensaje = "Ha ocurrido un error al conectar con la base de datos", estado = false };
+
+                return Json(respuesta2);
             }
         }
 

@@ -205,20 +205,20 @@
         // Obtener año actual y mostrarlo en la página
         document.getElementById("anoActual").innerText = new Date().getFullYear();
 
-        function fueExitoso() {
+        function fueExitoso(response) {
             var dvalert = document.getElementById("alert");
             var divsucc = document.createElement("div");
             divsucc.className = "success";
-            divsucc.innerText = "Envío de solicitud fue exitoso";
+            divsucc.innerText = response.mensaje;
             dvalert.appendChild(divsucc);
-            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+            setTimeout(function () { window.location.href = "/ModuloJefatura/Desempeno"; }, 4000);
         }
 
-        function fuefallido() {
+        function fuefallido(response) {
             var dvalert = document.getElementById("alert");
             var divsucc = document.createElement("div");
             divsucc.className = "failure";
-            divsucc.innerText = "Envío de solicitud falló, revise que toda la información esté correcta.";
+            divsucc.innerText = response.mensaje;
             dvalert.appendChild(divsucc);
             setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
         }

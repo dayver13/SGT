@@ -98,11 +98,11 @@
                                             </tr>
                                             <tr>
                                                 <th>Cantidad de Días:</th>
-                                                <td><input name="cantidadDias" id="cantidadDias" type="number" step="0.5" class="form-control" min="0.5" /></td>
+                                                <td><input name="cantidadDias" id="cantidadDias" type="number" step="0.5" class="form-control" min="0.5" oninput=calcularFechaFinal() /></td>
                                             </tr>
                                             <tr>
                                                 <th>Fecha Final:</th>
-                                                <td><input id="EndDate" type="date" class="form-control" readonly /></td>
+                                                <td><input type="date" id="EndDate" name="EndDate" class="form-control" readonly /></td>
                                             </tr>
                                             <tr>
                                                 <th>Tipo de salida:</th>
@@ -112,6 +112,7 @@
                      {
                          @class = "form-control",
                          @readonly = "readonly",
+                         @id = "tipo"
 
                      })
                                                 </td>
@@ -154,20 +155,20 @@
 
     <script>
 
-        function fueExitoso() {
+        function fueExitoso(response) {
             var dvalert = document.getElementById("alert");
             var divsucc = document.createElement("div");
             divsucc.className = "success";
-            divsucc.innerText = "Envio de solicitud fue exitosa";
+            divsucc.innerText = response.mensaje;
             dvalert.appendChild(divsucc);
-            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+            setTimeout(function () { window.location.href = "/ModuloJefatura/TiempoFuera"; }, 4000);
         }
 
-        function fuefallido() {
+        function fuefallido(response) {
             var dvalert = document.getElementById("alert");
             var divsucc = document.createElement("div");
             divsucc.className = "failure";
-            divsucc.innerText = "Envio de solicitud fallo, revise que toda la informacin este correcta.";
+            divsucc.innerText = response.mensaje;
             dvalert.appendChild(divsucc);
             setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
         }
@@ -175,6 +176,13 @@
         function validarFechas(event) {
             var fechaInicio = document.getElementById("StartDate").value;
             var fechaFin = document.getElementById("EndDate").value;
+            var tipo = document.getElementById("tipo").value;
+
+            if (tipo != 1 && tipo != 2) { 
+                alert("Debe seleccionar tipo de salida.");
+                event.preventDefault();
+                return;
+            }
 
             if (!fechaInicio || !fechaFin) {
                 alert("Debe seleccionar ambas fechas.");
@@ -182,7 +190,7 @@
                 return;
             }
 
-            if (new Date(fechaInicio) >= new Date(fechaFin)) {
+            if (new Date(fechaInicio) > new Date(fechaFin)) {
                 alert("La fecha de inicio debe ser menor que la fecha final.");
                 event.preventDefault();
             }
@@ -190,29 +198,31 @@
 
         document.getElementById("btnEnviar").addEventListener("click", validarFechas);
 
-        document.getElementById("cantidadDias").addEventListener("input", function () {
-            let fechaInicio = new Date(document.getElementById("StartDate").value);
-            let dias = parseFloat(this.value);
 
-            if (!isNaN(fechaInicio.getTime()) && !isNaN(dias)) {
-                let fechaFin = calcularFechaFinal(fechaInicio, dias);
-                document.getElementById("EndDate").value = fechaFin.toISOString().split("T")[0];
-            }
-        });
+        function calcularFechaFinal() {
+                let fechaInicio = document.getElementById("StartDate").value;
+                let dias = parseFloat(document.getElementById("cantidadDias").value);
 
-        function calcularFechaFinal(fechaInicio, dias) {
-            let fechaFinal = new Date(fechaInicio);
-            while (dias > 0) {
-                if (dias >= 1) {
+                if (!fechaInicio || isNaN(dias)) return;
+
+                let fechaFinal = new Date(fechaInicio);
+
+                // Sumar días completos
+                while (dias >= 1) {
                     fechaFinal.setDate(fechaFinal.getDate() + 1);
-                    if (fechaFinal.getDay() !== 5 && fechaFinal.getDay() !== 6) { // Skip Sundays (0) and Saturdays (6)
+                    if (fechaFinal.getDay() !== 0 && fechaFinal.getDay() !== 6) {
                         dias -= 1;
                     }
-                } else {
-                    break;
                 }
-            }
-            return fechaFinal;
+
+                // Si queda medio día (menos de 1 día completo), sumar medio día (12 horas)
+                if (dias > 0) {
+                    fechaFinal.setHours(fechaFinal.getHours() + Math.floor(24 * dias)); // Redondeo hacia abajo
+                }
+
+                // Formatear para el input tipo date (solo fecha, sin hora)
+                const fechaFormateada = fechaFinal.toISOString().split("T")[0];
+                document.getElementById("EndDate").value = fechaFormateada;
         }
 
     </script>
