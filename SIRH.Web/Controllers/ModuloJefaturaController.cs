@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SIRH.DTO;
 using Microsoft.Data.SqlClient;
 using SIRH.Web.ViewModels;
+using System.Drawing.Printing;
 
 namespace SIRH.Web.Controllers
 {
@@ -14,29 +15,27 @@ namespace SIRH.Web.Controllers
         // GET: ModuloJefatura
         public ActionResult Index(int? idSolicitud)
         {
-            string cedula = "3214567370";
-
-            // Crear el modelo de vista
-            PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
-            modelo.Funcionario = ObtenerFuncionario(cedula);
-          
-            // Cargar todas las solicitudes pendientes para la jefatura
-            modelo.ListaSolicitudesPendientes = ObtenerSolicitudesPendientes(cedula);
-
-            // Si se envió un id de solicitud, se carga esa solicitud; de lo contrario, se carga la primera de la lista (si existe)
-            if (idSolicitud.HasValue)
+            Session["errorF"] = null;
+            try
             {
-                modelo.SolicitudTeletrabajo = ObtenerSolicitudPorId(idSolicitud.Value);
-                modelo.IdSolicitudSeleccionada = idSolicitud.Value;
+                PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
+                modelo.personal = funcionarios();
+                return View(modelo);
             }
-            else if (modelo.ListaSolicitudesPendientes != null && modelo.ListaSolicitudesPendientes.Count > 0)
+            catch (Exception error)
             {
-                // Por defecto se carga la primera solicitud pendiente
-                modelo.SolicitudTeletrabajo = modelo.ListaSolicitudesPendientes[0];
-                modelo.IdSolicitudSeleccionada = modelo.ListaSolicitudesPendientes[0].IdEntidad;
-            }
+                Session["errorF"] = "error";
 
-            return View(modelo);
+                if (error.Message != "modelo")
+                {
+                    ModelState.AddModelError("Busqueda", "Ha ocurrido un error a la hora de ver el perfil del funcionario, ponerse en contacto con el personal autorizado. \n" + error.Message);
+                }
+                else
+                {
+                    ModelState.AddModelError("modelo", "No existen datos del lugar de contrato ni el lugar de trabajo.\n\n Pongase en contacto con el personal autorizado.");
+                }
+                return View();
+            }
         }
 
         public ActionResult TiempoFuera()
@@ -213,6 +212,7 @@ namespace SIRH.Web.Controllers
             {
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
 
+                System.Diagnostics.Debug.Print(model.personalseleccionado);
                 // Validar si ya existe un registro para el periodo
                 string checkQuery = @"
                     SELECT COUNT(*) FROM RegistroRendimiento
@@ -290,17 +290,19 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ActualizarAval(PerfilFuncionarioVM modelo, string SubmitButton)
+        public ActionResult ActualizarAval(PerfilFuncionarioVM modelo, string aval, string comentarios, string SubmitButton)
         {
+            bool avals = false;
             try
             {
+                if (aval == "1") { avals = true; }
                 // Actualiza campos de la solicitud
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                     UPDATE SolicitudTeletrabajo 
                     SET 
-                        AprobadoJefaturaInmediata = @AvalJefatura,
-                        AprobadoJefaturaSuperior = @AprobadoJefaturaSuperior,
+                        IndAprobadoJefatura = @AvalJefatura,
+                        IndAprobadoSuperior = @AprobadoJefaturaSuperior,
                         ComentarioAval = @ComentarioAval
                     WHERE PK_SolicitudTeletrabajo = @SolicitudId;";
 
@@ -308,21 +310,33 @@ namespace SIRH.Web.Controllers
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@AvalJefatura", modelo.SolicitudTeletrabajo.AprobadoJefaturaInmediata);
-                        command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", modelo.SolicitudTeletrabajo.AprobadoJefaturaSuperior);
-                        command.Parameters.AddWithValue("@ComentarioAval", modelo.SolicitudTeletrabajo.ComentarioAval ?? "");
-                        command.Parameters.AddWithValue("@SolicitudId", modelo.SolicitudTeletrabajo.IdEntidad);
+                        if ((int)Session["FamiliaPuesto"] == 2)
+                        {
+                            command.Parameters.AddWithValue("@AvalJefatura", avals);
+                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
+                        }
+                        if ((int)Session["FamiliaPuesto"] == 1)
+                        {
+                            command.Parameters.AddWithValue("@AvalJefatura", false);
+                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", avals);
+                        }
+                        command.Parameters.AddWithValue("@ComentarioAval", comentarios ?? "");
+                        command.Parameters.AddWithValue("@SolicitudId", Int32.Parse(Session["SolicitudID"].ToString()));
                         connection.Open();
                         command.ExecuteNonQuery();
                     }
                 }
-                ViewBag.Message = "El aval de la solicitud ha sido actualizado exitosamente.";
-                return RedirectToAction("Index", new { idSolicitud = modelo.SolicitudTeletrabajo.IdEntidad });
+               
+                var respuesta = new { mensaje = "El aval de la solicitud ha sido actualizado exitosamente.", estado = true };
+
+                return Json(respuesta);
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("Error", "Ha ocurrido un error al actualizar el aval: " + ex.Message);
-                return View("Index", modelo);
+                
+                var respuesta = new { mensaje = "Ha ocurrido un error al actualizar el aval: " + ex.Message, estado = false };
+
+                return Json(respuesta);
             }
         }
 
@@ -557,6 +571,7 @@ namespace SIRH.Web.Controllers
                     {
                         while (reader.Read())
                         {
+                     
                             var solicitud = new SolicitudTeletrabajoDTO();
                             solicitud.IdEntidad = reader.GetInt32(0);
                             solicitud.Escolaridad = reader.GetInt32(1);
@@ -594,18 +609,26 @@ namespace SIRH.Web.Controllers
             return lista;
         }
 
-        private SolicitudTeletrabajoDTO ObtenerSolicitudPorId(int idSolicitud)
+        private SolicitudTeletrabajoDTO ObtenerSolicitudPorId(int idfuncionario)
         {
             SolicitudTeletrabajoDTO solicitud = new SolicitudTeletrabajoDTO();
             string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            string query;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "SELECT * FROM SolicitudTeletrabajo WHERE PK_SolicitudTeletrabajo = @idSolicitud";
+                    if ((int)Session["FamiliaPuesto"] == 2)
+                    {
+                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 0 ORDER BY PK_SolicitudTeletrabajo DESC";
+                    }
+                    else
+                    {
+                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 1 ORDER BY PK_SolicitudTeletrabajo DESC";
+                    }
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@idSolicitud", idSolicitud);
+                    command.Parameters.AddWithValue("@idfuncionario", idfuncionario);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -626,10 +649,11 @@ namespace SIRH.Web.Controllers
                             solicitud.Razones = reader.GetString(13);
                             solicitud.DeclaracionJurada = reader.GetBoolean(14);
                             solicitud.Sistemas = reader.GetString(15);
-                            solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(16);
+                            solicitud.TiempoLaborarDependencia = reader.GetString(19);
+                            solicitud.AprobadoJefaturaInmediata = reader.GetBoolean(17);
 
-                            if (!reader.IsDBNull(17))
-                                solicitud.ComentarioAval = reader.GetString(17);
+                            if (!reader.IsDBNull(20))
+                                solicitud.ComentarioAval = reader.GetString(20);
 
                             if (reader.FieldCount > 18 && !reader.IsDBNull(18))
                                 solicitud.AprobadoJefaturaSuperior = reader.GetBoolean(18);
@@ -644,11 +668,40 @@ namespace SIRH.Web.Controllers
             return solicitud;
         }
 
+        [HttpPost]
+        public ActionResult GetSolicitud(int idfuncionario)
+        {
+            
+            try
+            {
+                SolicitudTeletrabajoDTO solicitud = ObtenerSolicitudPorId(idfuncionario);
+                Session["SolicitudID"] = solicitud.IdEntidad;
+
+                return Json(new
+                {
+                    success = true,
+                    cedula = "",
+                    distrito = solicitud.DistritoSecundario,
+                    direccion = solicitud.DireccionExactaSecundaria,
+                    dias = solicitud.CantidadDiasTeletrabajo,
+                    detalle = solicitud.DetalleDiasTeletrabajo,
+                    aprjefe = solicitud.AprobadoJefaturaInmediata,
+                    aprsup = solicitud.AprobadoJefaturaSuperior,
+                    comentarios = solicitud.ComentarioAval
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception error)
+            {
+                return Json(new { success = false, mensaje = error.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         SelectList funcionarios()
         {
             List<SelectListItem> lista = new List<SelectListItem>();
             SelectList listado;
             CFuncionarioDTO aux;
+            string querynom;
 
             string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             try
@@ -658,16 +711,25 @@ namespace SIRH.Web.Controllers
                     connectionfake.Open();
                     System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
 
-                    // Ejemplo: Tomar funcionarios con IndAprobadoSuperior = 0
-                    string querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 0";
+                    if ((int)Session["FamiliaPuesto"] == 1)
+                    {
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 0 AND FK_Funcionario IN (" +
+                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion)  AND IdCedulaFuncionario != @cedula )";
+                    }
+                    else {
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoJefatura = 0 AND FK_Funcionario IN (" +
+                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion) AND IdCedulaFuncionario != @cedula )";
+                    }
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@ubicacion", Int32.Parse(Session["Ubicacion"].ToString()));
+                    command.Parameters.AddWithValue("@cedula", Session["CedulaUsuario"].ToString());
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             aux = getfuncionario(reader.GetInt32(16));
-                            if (!lista.Any(p => p.Value == aux.Cedula))
+                            if (!lista.Any(p => p.Value == aux.IdEntidad.ToString()))
                             {
                                 lista.Add(new SelectListItem
                                 {

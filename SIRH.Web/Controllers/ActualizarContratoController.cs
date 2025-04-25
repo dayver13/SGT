@@ -1311,8 +1311,10 @@ namespace SIRH.Web.Controllers
                         while (reader.Read())
                         {
                             fkdepartamento = reader.GetInt32(3);
+                            ubicacion.IdEntidad = reader.GetInt32(0);
                             ubicacion.DesObservaciones = reader.GetString(6);
                             ubicacion.Departamento = funcdepartamento(fkdepartamento);
+                            Session["Ubicacion"] = ubicacion.IdEntidad;
                         }
                     }
                 }
