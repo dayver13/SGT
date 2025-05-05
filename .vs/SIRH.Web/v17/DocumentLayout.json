@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\WPC\\source\\repos\\SGT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\teletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\shared\\perfilusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\perfilusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\modulojefatura\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\modulojefatura\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\shared\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\gestioncontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\perfilusuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\perfilusuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\actualizarcontrato\\nuevasolicitudteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\nuevasolicitudteletrabajo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\WPC\\source\\repos\\SGT\\sirh.web\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\WPC\\source\\repos\\SGT\\sirh.web\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\WPC\\source\\repos\\SGT\\sirh.web\\applicationinsights.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\applicationinsights.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\actualizarcontrato\\versolicitud.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\actualizarcontrato\\versolicitud.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,138 +38,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Teletrabajo.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwDIAAAAUAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Notificacion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\Index.cshtml*",
+              "RelativeToolTip": "SIRH.Web\\Views\\Notificacion\\Index.cshtml*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:33:31.049Z",
+              "WhenOpened": "2025-05-05T01:22:20.419Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PerfilUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\PerfilUsuario.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\PerfilUsuario.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\PerfilUsuario.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\PerfilUsuario.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Teletrabajo.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Teletrabajo.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:33:22.835Z",
+              "WhenOpened": "2025-05-05T01:18:15.148Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Home.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\Home.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAHAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ModuloJefatura\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:30:59.39Z",
+              "WhenOpened": "2025-05-05T01:17:03.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\PerfilUsuario\\Index.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\PerfilUsuario\\Index.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\PerfilUsuario\\Index.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\PerfilUsuario\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\GestionContrato\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:30:30.416Z",
+              "WhenOpened": "2025-05-05T01:16:53.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:29:52.496Z",
+              "WhenOpened": "2025-05-05T01:16:39.957Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "SIRH.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "Title": "NuevaSolicitudTeletrabajo.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\NuevaSolicitudTeletrabajo.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-09T20:29:39.269Z",
+              "WhenOpened": "2025-05-05T01:16:38.714Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Web.config",
-              "RelativeDocumentMoniker": "SIRH.Web\\Views\\Web.config",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Web.config",
-              "RelativeToolTip": "SIRH.Web\\Views\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-09T20:26:17.66Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationInsights.config",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\ApplicationInsights.config",
-              "RelativeDocumentMoniker": "SIRH.Web\\ApplicationInsights.config",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\ApplicationInsights.config",
-              "RelativeToolTip": "SIRH.Web\\ApplicationInsights.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-09T20:26:16.686Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "web.config",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\web.config",
-              "RelativeDocumentMoniker": "SIRH.Web\\web.config",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\web.config",
-              "RelativeToolTip": "SIRH.Web\\web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-09T20:25:33.93Z",
+              "Title": "VerSolicitud.cshtml",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "RelativeDocumentMoniker": "SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "RelativeToolTip": "SIRH.Web\\Views\\ActualizarContrato\\VerSolicitud.cshtml",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T01:16:28.403Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Web.Debug.config",
-              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\web.Debug.config",
-              "RelativeDocumentMoniker": "SIRH.Web\\web.Debug.config",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\web.Debug.config",
-              "RelativeToolTip": "SIRH.Web\\web.Debug.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-09T20:25:33.459Z"
             }
           ]
         }

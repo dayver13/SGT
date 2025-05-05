@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SIRH.DTO.CNotificacionUsuarioDTO>
+
+@{
+    ViewBag.Title = "Notificaciones";
+    Layout = "~/Views/Shared/Teletrabajo.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/sidebar.css">
+
+<style>
+    .notification-box {
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .notification {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+        .notification.unread {
+            background-color: #f0f8ff;
+        }
+
+        .notification.read {
+            background-color: #ffffff;
+        }
+
+    .notification-header {
+        font-weight: bold;
+    }
+
+    .notification-date {
+        font-size: small;
+        color: gray;
+    }
+</style>
+
+<div class="container">
+    <div class="notification-box">
+        <h2>Lista de Notificaciones</h2>
+
+
+    </div>
+</div>
