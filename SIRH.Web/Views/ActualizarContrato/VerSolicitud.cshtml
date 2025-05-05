@@ -306,7 +306,6 @@
                                                                 new
                                                                 {
                                                                     @class = "form-control",
-                                                                    @readonly = "readonly",
                                                                     @id = "provinciaSecundario",
                                                                     @onchange = "ObtenerCantones(this.value)"
                                                                 })
@@ -318,7 +317,6 @@
                                                                         new
                                                                         {
                                                                             @class = "form-control",
-                                                                            @readonly = "readonly",
                                                                             @id = "cantonSecundario",
                                                                             @onchange = "ObtenerDistritos(this.value)"
                                                                         })
@@ -332,7 +330,6 @@
                                                                         new
                                                                         {
                                                                             @class = "form-control",
-                                                                            @readonly = "readonly",
                                                                             @id = "distritoSecundario"
                                                                         })
                                     </td>
@@ -983,6 +980,7 @@
             success: function (data) {
                 if (data.success) {
                     $list.empty();
+                    $list.append('<option value=0> Selecione... </option>');
                     for (var i = 0; i < data.listado.length; i++) {
                         $list.append('<option value="' + data.listado[i].IdEntidad + '"> ' + data.listado[i].NomCanton + ' </option>');
                     }
@@ -1010,6 +1008,7 @@
             success: function (data) {
                 if (data.success) {
                     $list.empty();
+                    $list.append('<option value=0> Selecione... </option>');
                     for (var i = 0; i < data.listado.length; i++) {
                         $list.append('<option value="' + data.listado[i].IdEntidad + '"> ' + data.listado[i].NomDistrito + ' </option>');
                     }

@@ -1609,3 +1609,4 @@ C:\Users\WPC\Source\Repos\SGT\SIRH.Web\obj\Debug\SIRH.Web.csproj.CoreCompileInpu
 C:\Users\WPC\Source\Repos\SGT\SIRH.Web\obj\Debug\SIRH.Web.csproj.Up2Date
 C:\Users\WPC\Source\Repos\SGT\SIRH.Web\obj\Debug\SIRH.Web.dll
 C:\Users\WPC\Source\Repos\SGT\SIRH.Web\obj\Debug\SIRH.Web.pdb
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.Web\bin\stdole.dll

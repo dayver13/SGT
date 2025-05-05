@@ -72,94 +72,122 @@
 
 <h2>Actualizar Aval de Solicitud de Teletrabajo</h2>
 
- @if ((int)Session["FamiliaPuesto"] == 3)
- {
-<div>
-    Acceso Restringido
-</div>
- }
- else
- {
-using (Html.BeginForm("Index", "ModuloJefatura", FormMethod.Get))
+@if ((int)Session["FamiliaPuesto"] == 3)
 {
-    <div class="form-group">
-        <label for="idSolicitud">Solicitudes Pendientes</label>
-        @Html.DropDownList(
-                  "idSolicitud",
-                  new SelectList(Model.ListaSolicitudesPendientes, "IdEntidad", "DireccionExactaSecundaria", Model.IdSolicitudSeleccionada),
-                  "Seleccione la solicitud pendiente",
-                  new { @class = "form-control", @onchange = "this.form.submit();" }
-              )
+    <div>
+        Acceso Restringido
     </div>
 }
-
-if (ViewBag.Message != null)
+else
 {
-    <div class="success">@ViewBag.Message</div>
-}
-
-using (Html.BeginForm("ActualizarAval", "ModuloJefatura", FormMethod.Post, new { id = "formAval" }))
-{
-    <div class="form-area">
-        <h3>Datos del Colaborador</h3>
-        <ul>
-            <li>
-                N° Cédula: @Html.DisplayFor(model => model.Funcionario.Cedula) -
-                @Html.DisplayFor(model => model.Funcionario.Nombre)
-                @Html.DisplayFor(model => model.Funcionario.PrimerApellido)
-                @Html.DisplayFor(model => model.Funcionario.SegundoApellido)
-            </li>
-        </ul>
-
-        <h3>Detalles de la Solicitud</h3>
-        <table class="table table-hover">
-            <tr>
-                <th>Dirección Secundaria</th>
-                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.DireccionExactaSecundaria)</td>
-            </tr>
-            <tr>
-                <th>Cantidad de Días de Teletrabajo</th>
-                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo)</td>
-            </tr>
-            <tr>
-                <th>Detalle de Días</th>
-                <td>@Html.DisplayFor(model => model.SolicitudTeletrabajo.DetalleDiasTeletrabajo)</td>
-            </tr>
-        </table>
-
-        <h3>Actualizar Aval</h3>
+    using (Html.BeginForm("Index", "ModuloJefatura", FormMethod.Get))
+    {
         <div class="form-group">
-            <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
-            @Html.CheckBoxFor(model => model.SolicitudTeletrabajo.AprobadoJefaturaInmediata)
+            <label for="idSolicitud">Solicitudes Pendientes</label>
+            <ul>
+                @Html.DropDownListFor(model => model.personalseleccionado,
+                     Model.personal, "Seleccione Funcionario",
+                     new
+                     {
+                         @class = "form-control",
+                         @readonly = "readonly",
+                         @id = "personalseleccionado",
+                         @onchange = "cargarsolicitud(this.value)"
+                     })
+            </ul>
         </div>
-        <div class="form-group">
-            <label for="AvalSuperior">Aval de Jefatura Superior (Aprobar Solicitud):</label>
-            @Html.CheckBoxFor(model => model.SolicitudTeletrabajo.AprobadoJefaturaSuperior)
-        </div>
-        <div class="form-group d-none">
-            @Html.TextAreaFor(model => model.SolicitudTeletrabajo.ComentarioAval, new { @class = "form-control", rows = "4" })
-        </div>
-        @Html.HiddenFor(model => model.SolicitudTeletrabajo.IdEntidad)
+    }
 
-        <button type="submit" class="btn btn-success">Aprobar Aval</button>
-        <button type="button" class="btn btn-danger" id="btnRechazo">Rechazar Aval</button>
+    if (ViewBag.Message != null)
+    {
+        <div class="success">@ViewBag.Message</div>
+    }
+
+    using (Ajax.BeginForm("ActualizarAval", "ModuloJefatura", new AjaxOptions
+    {
+        UpdateTargetId = "dvResultadoBusqueda",
+        HttpMethod = "POST",
+        OnSuccess = "fueExitoso",
+        OnFailure = "fuefallido",
+        OnBegin = ""
+    }))
+    {
+        <div class="form-area">
+            <h3>Datos del Colaborador</h3>
+            <ul>
+                <li>
+                    <label id="cedula">N° Cédula:</label>
+                </li>
+            </ul>
+
+            <h3>Detalles de la Solicitud</h3>
+            <table class="table table-hover">
+                <tr>
+                    <th>Dirección Secundaria</th>
+                    <td><label id="distrito"></label></td>
+                    <td><label id="dir"></label>
+                    <td>
+                </tr>
+                <tr>
+                    <th>Cantidad de Días de Teletrabajo</th>
+                    <td><label id="cantd"></label></td>
+                </tr>
+                <tr>
+                    <th>Detalle de Días</th>
+                    <td><label id="detalled"></label></td>
+                </tr>
+            </table>
+
+            <h3>Actualizar Aval</h3>
+            <div class="form-group">
+                @if ((int)Session["FamiliaPuesto"] == 1)
+                {
+                    <label for="AvalInmediata">Aval de Jefatura Superior (Aprobar Solicitud):</label>
+                    <input type="checkbox" name="aval" id=" aval" value="1">
+                }
+                @if ((int)Session["FamiliaPuesto"] == 2)
+                {
+                    <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
+                    <input type="checkbox" name="aval" id="aval" value="1">
+                }
+            </div>
+          
+            <div class="form-group">
+                <label>Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+            </div>
+           
+
+
+            <button type="submit" class="btn btn-success">Aprobar Aval</button>
+            <button type="submit" class="btn btn-danger">Rechazar Aval</button>
+        </div>
+        <div id="alert"></div>
+    }
+
+    <div class="modal-overlay" id="modalRechazo">
+        <div class="modal-content">
+            <button class="close-button" id="cerrarModal">&times;</button>
+            <h3>Rechazar Aval</h3>
+            <label for="comentarioRechazo">Comentarios de Corrección (obligatorio):</label>
+            <textarea id="comentarioRechazo" class="form-control" rows="4" placeholder="Ingrese el motivo de rechazo..."></textarea>
+            <div class="error-message" id="comentarioError">El comentario es obligatorio para rechazar.</div>
+            <div class="modal-footer">
+                <button type="button" id="cancelarModal" class="btn">Cancelar</button>
+                <button type="button" id="guardarRechazo" class="btn btn-danger">Guardar Rechazo</button>
+            </div>
+        </div>
     </div>
 }
 
-<div class="modal-overlay" id="modalRechazo">
-    <div class="modal-content">
-        <button class="close-button" id="cerrarModal">&times;</button>
-        <h3>Rechazar Aval</h3>
-        <label for="comentarioRechazo">Comentarios de Corrección (obligatorio):</label>
-        <textarea id="comentarioRechazo" class="form-control" rows="4" placeholder="Ingrese el motivo de rechazo..."></textarea>
-        <div class="error-message" id="comentarioError">El comentario es obligatorio para rechazar.</div>
-        <div class="modal-footer">
-            <button type="button" id="cancelarModal" class="btn">Cancelar</button>
-            <button type="button" id="guardarRechazo" class="btn btn-danger">Guardar Rechazo</button>
-        </div>
-    </div>
-</div>
- }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script src="~/Scripts/sidebar.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/DetailsFuncionario.js" type="text/javascript"></script>
+<script src="~/Scripts/Pages/FormularioSolicitudTeletrabajo.js" type="text/javascript"></script>
+<script src="~/scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -203,5 +231,57 @@ using (Html.BeginForm("ActualizarAval", "ModuloJefatura", FormMethod.Post, new {
             modal.style.display = 'none';
             document.getElementById('formAval').submit();
         });
+
+
     });
+
+    function cargarsolicitud(idfuncionario) {
+        $.ajax({
+            type: "post",
+            url: "/ModuloJefatura/GetSolicitud",
+            data: { idfuncionario: idfuncionario },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                if (data.success) {
+                    document.getElementById("cedula").innerText = data.cedula + " - " + data.nombre;
+                    document.getElementById("distrito").innerText = data.distrito;
+                    document.getElementById("dir").innerText = data.direccion;
+                    document.getElementById("cantd").innerText = data.dias;
+                    document.getElementById("detalled").innerText = data.detalle;
+                    if (data.aprjefe) {
+                        document.getElementById("aval").checked = true;
+                    }
+                    if (data.aprsup) {
+                        document.getElementById("aval").checked = true;
+                    }
+                    document.getElementById("comentarios").value = data.comentarios;
+                }
+                else {
+                    alert(data.mensaje);
+                }
+            },
+            error: function (err) {
+                alert("Error");
+            }
+        });
+    }
+
+    function fueExitoso(response) {
+        var dvalert = document.getElementById("alert");
+        var divsucc = document.createElement("div");
+        divsucc.className = "success";
+        divsucc.innerText = response.mensaje;
+        dvalert.appendChild(divsucc);
+        setTimeout(function () { window.location.href = "/ModuloJefatura/"; }, 4000);
+    }
+
+    function fuefallido(response) {
+        var dvalert = document.getElementById("alert");
+        var divsucc = document.createElement("div");
+        divsucc.className = "failure";
+        divsucc.innerText = response.mensaje;
+        dvalert.appendChild(divsucc);
+        setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+    }
 </script>

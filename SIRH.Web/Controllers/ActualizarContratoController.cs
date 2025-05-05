@@ -151,7 +151,6 @@ namespace SIRH.Web.Controllers
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
 
                 List<SolicitudTeletrabajoDTO> solicitudes = (List<SolicitudTeletrabajoDTO>)Session["Solicitudes"];
-                Session["CedulaUsuario"] = "0876543210";
                 var data = getUsuario(Session["CedulaUsuario"].ToString());
                 modelo.Funcionario = (CFuncionarioDTO)data;
                 modelo = ConstruirModeloPuestoSQL(modelo);
@@ -279,19 +278,19 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton)
+        public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes)
         {
             Session["errorF"] = null;
             try
             {
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
 
-                if(model.SolicitudTeletrabajo.DistritoSecundario != 0) { 
+                if(Int32.Parse(model.DistritoSeleccionado) != 0) { 
                     solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                    solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+                    solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
                 }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
-                //solicitud.DetalleDiasTeletrabajo = model.SolicitudTeletrabajo.DetalleDiasTeletrabajo;
+                solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
 
 
                 int solicitudId = 0;
@@ -391,22 +390,23 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ActualizarSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton)
+        public ActionResult ActualizarSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes)
         {
             Session["errorF"] = null;
             try
             {
+                
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
-                if (model.SolicitudTeletrabajo.DistritoSecundario != 0)
+                if (Int32.Parse(model.DistritoSeleccionado) != 0)
                 {
                     solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                    solicitud.DistritoSecundario = model.SolicitudTeletrabajo.DistritoSecundario;
+                    solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
                 }
-                if (model.SolicitudTeletrabajo.Escolaridad != 0) {
-                    solicitud.Escolaridad = model.SolicitudTeletrabajo.Escolaridad;
+                if (Int32.Parse(model.EscolaridadSeleccionada) != 0) {
+                    solicitud.Escolaridad = Int32.Parse(model.EscolaridadSeleccionada);
                 }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
-                //solicitud.DetalleDiasTeletrabajo = model.SolicitudTeletrabajo.DetalleDiasTeletrabajo;
+                solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
 
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
@@ -1201,6 +1201,7 @@ namespace SIRH.Web.Controllers
                     {
                         while (reader.Read())
                         {
+                            Distrito.IdEntidad = reader.GetInt32(0);
                             Distrito.NomDistrito = reader.GetString(2);
                             Distrito.CodPostalDistrito = reader.GetString(3);
                             Distrito.Canton = getCanton(reader.GetInt32(1));
@@ -1310,8 +1311,10 @@ namespace SIRH.Web.Controllers
                         while (reader.Read())
                         {
                             fkdepartamento = reader.GetInt32(3);
+                            ubicacion.IdEntidad = reader.GetInt32(0);
                             ubicacion.DesObservaciones = reader.GetString(6);
                             ubicacion.Departamento = funcdepartamento(fkdepartamento);
+                            Session["Ubicacion"] = ubicacion.IdEntidad;
                         }
                     }
                 }
