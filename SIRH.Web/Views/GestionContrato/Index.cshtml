@@ -66,17 +66,18 @@
                     const nuevacelda2 = document.createElement("td");
                     id = filas[i];
                     nuevaCelda.appendChild(document.createTextNode(id));
-                    if (filas[i + 1].includes("V")) {
+                    if (filas[i + 1].includes("V1")) {
                         nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion jefatura"));
                     } if (filas[i + 1].includes("F1")){
                         nuevacelda2.appendChild(document.createTextNode("Pendiente aprobacion superior"));
-                    }
-                    if (filas[i + 1].includes("F2")) {
+                    } if (filas[i + 1].includes("F2")) {
                         nuevacelda2.appendChild(document.createTextNode("Aprobado"));
+                    } if (filas[i + 1].includes("V2")) {
+                        nuevacelda2.appendChild(document.createTextNode("Descartado"));
                     }
                     nuevaFila.appendChild(nuevaCelda);
                     nuevaFila.appendChild(nuevacelda2);
-                    if (filas[i + 1].includes("V")) {
+                    if (filas[i + 1].includes("V1")) {
                         const celdaboton = document.createElement("td");
                         const boton = document.createElement("button");
                         boton.type = "button";

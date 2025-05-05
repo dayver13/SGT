@@ -112,56 +112,95 @@ else
         OnBegin = ""
     }))
     {
-        <div class="form-area">
-            <h3>Datos del Colaborador</h3>
-            <ul>
-                <li>
-                    <label id="cedula">N° Cédula:</label>
-                </li>
-            </ul>
+<div class="form-area">
 
-            <h3>Detalles de la Solicitud</h3>
-            <table class="table table-hover">
-                <tr>
-                    <th>Dirección Secundaria</th>
-                    <td><label id="distrito"></label></td>
-                    <td><label id="dir"></label>
-                    <td>
-                </tr>
-                <tr>
-                    <th>Cantidad de Días de Teletrabajo</th>
-                    <td><label id="cantd"></label></td>
-                </tr>
-                <tr>
-                    <th>Detalle de Días</th>
-                    <td><label id="detalled"></label></td>
-                </tr>
-            </table>
+        <h3>Detalles de la Solicitud</h3>
+        <table class="table table-hover">
+            <tr>
+                <th>Datos del Colaborador</th>
+                <td><label id="cedu"></label></td>
+            </tr>
+            <tr>
+                <th>Dirección Primaria</th>
+                <td><label id="distritop"></label></td>
+                <td><label id="dirp"></label>
+                <td>
+            </tr>
+            <tr>
+                <th>Personas en Dirección Primaria</th>
+                <td><label id="perp"></label></td>
 
-            <h3>Actualizar Aval</h3>
-            <div class="form-group">
-                @if ((int)Session["FamiliaPuesto"] == 1)
-                {
-                    <label for="AvalInmediata">Aval de Jefatura Superior (Aprobar Solicitud):</label>
-                    <input type="checkbox" name="aval" id=" aval" value="1">
-                }
-                @if ((int)Session["FamiliaPuesto"] == 2)
-                {
-                    <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
-                    <input type="checkbox" name="aval" id="aval" value="1">
-                }
-            </div>
-          
-            <div class="form-group">
-                <label>Comentarios:</label>
-                <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
-            </div>
-           
+                <td>
+            </tr>
+            <tr>
+                <th>Dirección Secundaria</th>
+                <td><label id="distrito"></label></td>
+                <td><label id="dir"></label>
+                <td>
+            </tr>
+            <tr>
+                <th>Personas en Dirección Secundaria</th>
+                <td><label id="pers"></label></td>
+                <td>
+            </tr>
+            <tr>
+                <th>Tiempo Laboral MOPT</th>
+                <td><label id="tiempm"></label></td>
+            </tr>
+            <tr>
+                <th>Tiempo Laboral Dependencia</th>
+                <td><label id="tiempd"></label></td>
+            </tr>
+            <tr>
+                <th>Cantidad de Días de Teletrabajo</th>
+                <td><label id="cantd"></label></td>
+            </tr>
+            <tr>
+                <th>Detalle de Días</th>
+                <td><label id="detalled"></label></td>
+            </tr>
+            <tr>
+                <th>Horario</th>
+                <td><label id="hora"></label></td>
+            </tr>
+            <tr>
+                <th>Funciones</th>
+                <td><label id="func"></label></td>
+            </tr>
+            <tr>
+                <th>Sistemas</th>
+                <td><label id="sist"></label></td>
+            </tr>
+            <tr>
+                <th>Razones</th>
+                <td><label id="raz"></label></td>
+            </tr>
+        </table>
 
-
-            <button type="submit" class="btn btn-success">Aprobar Aval</button>
-            <button type="submit" class="btn btn-danger">Rechazar Aval</button>
+        <h3>Actualizar Aval</h3>
+        <div class="form-group">
+            @if ((int)Session["FamiliaPuesto"] == 2)
+            {
+                <label for="AvalInmediata">Aval de Jefatura Superior (Aprobar Solicitud):</label>
+                <input type="checkbox" name="aval" id=" aval" value="1">
+            }
+            @if ((int)Session["FamiliaPuesto"] == 1)
+            {
+                <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
+                <input type="checkbox" name="aval" id="aval" value="1">
+            }
         </div>
+
+        <div class="form-group">
+            <label>Comentarios:</label>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success">Enviar</button>
+        
+</div>
         <div id="alert"></div>
     }
 
@@ -190,6 +229,7 @@ else
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+    /*
     document.addEventListener('DOMContentLoaded', function () {
         const btnRechazo = document.getElementById('btnRechazo');
         const modal = document.getElementById('modalRechazo');
@@ -233,7 +273,7 @@ else
         });
 
 
-    });
+    });*/
 
     function cargarsolicitud(idfuncionario) {
         $.ajax({
@@ -244,11 +284,21 @@ else
             traditional: true,
             success: function (data) {
                 if (data.success) {
-                    document.getElementById("cedula").innerText = data.cedula + " - " + data.nombre;
+                    document.getElementById("cedu").innerText = data.cedula;
                     document.getElementById("distrito").innerText = data.distrito;
                     document.getElementById("dir").innerText = data.direccion;
+                    document.getElementById("distritop").innerText = data.distritop;
+                    document.getElementById("dirp").innerText = data.direccionp;
                     document.getElementById("cantd").innerText = data.dias;
                     document.getElementById("detalled").innerText = data.detalle;
+                    document.getElementById("perp").innerText = data.perpri;
+                    document.getElementById("pers").innerText = data.persecu;
+                    document.getElementById("tiempm").innerText = data.tiempom;
+                    document.getElementById("tiempd").innerText = data.tiempod;
+                    document.getElementById("hora").innerText = data.hora;
+                    document.getElementById("func").innerText = data.funciones;
+                    document.getElementById("sist").innerText = data.sistemas;
+                    document.getElementById("raz").innerText = data.razones;
                     if (data.aprjefe) {
                         document.getElementById("aval").checked = true;
                     }

@@ -44,9 +44,13 @@ namespace SIRH.Web.Controllers
             {
 
                 csv.AppendLine($"{solicitudes[i].IdEntidad}");
-                if (!solicitudes[i].AprobadoJefaturaInmediata && !solicitudes[i].AprobadoJefaturaSuperior)
+                if (!solicitudes[i].AprobadoJefaturaInmediata && !solicitudes[i].AprobadoJefaturaSuperior && i == 0)
                 {
-                    csv.AppendLine($"{"V"}");
+                    csv.AppendLine($"{"V1"}");
+                }
+                if (!solicitudes[i].AprobadoJefaturaInmediata && !solicitudes[i].AprobadoJefaturaSuperior && i != 0)
+                {
+                    csv.AppendLine($"{"V2"}");
                 }
                 if (solicitudes[i].AprobadoJefaturaInmediata && !solicitudes[i].AprobadoJefaturaSuperior)
                 {

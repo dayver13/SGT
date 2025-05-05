@@ -7,6 +7,9 @@ using SIRH.DTO;
 using Microsoft.Data.SqlClient;
 using SIRH.Web.ViewModels;
 using System.Drawing.Printing;
+using SIRH.Web.AntecedentesPenalesService;
+using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace SIRH.Web.Controllers
 {
@@ -19,7 +22,7 @@ namespace SIRH.Web.Controllers
             try
             {
                 PerfilFuncionarioVM modelo = new PerfilFuncionarioVM();
-                modelo.personal = funcionarios();
+                modelo.personal = funcionariospendientes();
                 return View(modelo);
             }
             catch (Exception error)
@@ -313,12 +316,12 @@ namespace SIRH.Web.Controllers
                         if ((int)Session["FamiliaPuesto"] == 2)
                         {
                             command.Parameters.AddWithValue("@AvalJefatura", avals);
-                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
+                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", avals);
                         }
                         if ((int)Session["FamiliaPuesto"] == 1)
                         {
-                            command.Parameters.AddWithValue("@AvalJefatura", false);
-                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", avals);
+                            command.Parameters.AddWithValue("@AvalJefatura", avals);
+                            command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
                         }
                         command.Parameters.AddWithValue("@ComentarioAval", comentarios ?? "");
                         command.Parameters.AddWithValue("@SolicitudId", Int32.Parse(Session["SolicitudID"].ToString()));
@@ -514,7 +517,7 @@ namespace SIRH.Web.Controllers
             return func;
         }
 
-        private CFuncionarioDTO ObtenerFuncionario(string cedula)
+        private CFuncionarioDTO ObtenerFuncionario(string id)
         {
             CFuncionarioDTO funcionario = new CFuncionarioDTO();
             string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
@@ -525,7 +528,41 @@ namespace SIRH.Web.Controllers
                     connection.Open();
                     string query = "SELECT * FROM Funcionario WHERE IdCedulaFuncionario = @cedula";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@cedula", id);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            funcionario.IdEntidad = reader.GetInt32(0);
+                            funcionario.Cedula = reader.GetString(8);
+                            funcionario.Nombre = reader.GetString(3);
+                            funcionario.PrimerApellido = reader.GetString(4);
+                            funcionario.SegundoApellido = reader.GetString(5);
+                            funcionario.FechaNacimiento = reader.GetDateTime(6);
+                            funcionario.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum), reader.GetString(7));
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error al obtener funcionario: " + ex.Message);
+                }
+            }
+            return funcionario;
+        }
+
+        private CFuncionarioDTO ObtenerFuncionarioid(int id)
+        {
+            CFuncionarioDTO funcionario = new CFuncionarioDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM Funcionario WHERE PK_Funcionario = @id";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -619,13 +656,13 @@ namespace SIRH.Web.Controllers
                 try
                 {
                     connection.Open();
-                    if ((int)Session["FamiliaPuesto"] == 2)
+                    if ((int)Session["FamiliaPuesto"] == 1)
                     {
-                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 0 ORDER BY PK_SolicitudTeletrabajo DESC";
+                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE (FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 0) ORDER BY PK_SolicitudTeletrabajo DESC";
                     }
                     else
                     {
-                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 1 ORDER BY PK_SolicitudTeletrabajo DESC";
+                        query = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE (FK_Funcionario = @idfuncionario AND IndAprobadoJefatura = 1) ORDER BY PK_SolicitudTeletrabajo DESC";
                     }
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@idfuncionario", idfuncionario);
@@ -675,16 +712,29 @@ namespace SIRH.Web.Controllers
             try
             {
                 SolicitudTeletrabajoDTO solicitud = ObtenerSolicitudPorId(idfuncionario);
+                CFuncionarioDTO funcionario = ObtenerFuncionarioid(idfuncionario);
                 Session["SolicitudID"] = solicitud.IdEntidad;
-
+                CDistritoDTO distrito = getDistrito(solicitud.DistritoSecundario);
+                CDireccionDTO dir = getDireccion(idfuncionario);
+                System.Diagnostics.Debug.Print(funcionario.Cedula);
                 return Json(new
                 {
                     success = true,
-                    cedula = "",
-                    distrito = solicitud.DistritoSecundario,
+                    cedula = funcionario.Cedula + " - " + funcionario.Nombre + " " + funcionario.PrimerApellido + " " + funcionario.SegundoApellido,
+                    distritop = dir.Distrito.NomDistrito + ", " + dir.Distrito.Canton.NomCanton + ", " + dir.Distrito.Canton.Provincia.NomProvincia,
+                    direccionp = dir.DirExacta,
+                    distrito = distrito.NomDistrito + ", " + distrito.Canton.NomCanton + ", " +distrito.Canton.Provincia.NomProvincia,
                     direccion = solicitud.DireccionExactaSecundaria,
                     dias = solicitud.CantidadDiasTeletrabajo,
-                    detalle = solicitud.DetalleDiasTeletrabajo,
+                    perpri = solicitud.CantidadPersonasDireccionPrimaria,
+                    persecu = solicitud.CantidadPersonasDireccionSecundaria,
+                    tiempom = solicitud.TiempoLaborarMOPT + " ano(s)",
+                    tiempod = solicitud.TiempoLaborarDependencia + " ano(s)",
+                    hora = solicitud.Horario,
+                    funciones = solicitud.Funciones,
+                    sistemas = solicitud.Sistemas,
+                    razones = solicitud.Razones,
+                    detalle = Regex.Replace(solicitud.DetalleDiasTeletrabajo, "([A-Z])", ", $1").TrimStart(' ', ','),
                     aprjefe = solicitud.AprobadoJefaturaInmediata,
                     aprsup = solicitud.AprobadoJefaturaSuperior,
                     comentarios = solicitud.ComentarioAval
@@ -692,6 +742,7 @@ namespace SIRH.Web.Controllers
             }
             catch (Exception error)
             {
+                System.Diagnostics.Debug.Print(error.Message);
                 return Json(new { success = false, mensaje = error.Message }, JsonRequestBehavior.AllowGet);
             }
         }
@@ -713,11 +764,11 @@ namespace SIRH.Web.Controllers
 
                     if ((int)Session["FamiliaPuesto"] == 1)
                     {
-                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 0 AND FK_Funcionario IN (" +
-                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion)  AND IdCedulaFuncionario != @cedula )";
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 1 AND FK_Funcionario IN (" +
+                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion AND FK_FamiliaPuesto = 3)  AND IdCedulaFuncionario != @cedula )";
                     }
                     else {
-                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoJefatura = 0 AND FK_Funcionario IN (" +
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoSuperior = 1 AND FK_Funcionario IN (" +
                             "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion) AND IdCedulaFuncionario != @cedula )";
                     }
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
@@ -749,5 +800,254 @@ namespace SIRH.Web.Controllers
             listado = new SelectList(lista, "Value", "Text");
             return listado;
         }
+
+        SelectList funcionariospendientes()
+        {
+            List<SelectListItem> lista = new List<SelectListItem>();
+            SelectList listado;
+            CFuncionarioDTO aux;
+            string querynom;
+
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    if ((int)Session["FamiliaPuesto"] == 1)
+                    {
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE FK_Funcionario IN (" +
+                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion AND FK_FamiliaPuesto = 3)  AND IdCedulaFuncionario != @cedula )";
+                    }
+                    else
+                    {
+                        querynom = "SELECT * FROM SolicitudTeletrabajo WHERE IndAprobadoJefatura = 1 AND FK_Funcionario IN (" +
+                            "SELECT PK_Funcionario FROM Funcionario WHERE FK_Puesto IN ( SELECT PK_Puesto FROM Puesto WHERE FK_UbicacionAdministrativa = @ubicacion) AND IdCedulaFuncionario != @cedula )";
+                    }
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@ubicacion", Int32.Parse(Session["Ubicacion"].ToString()));
+                    command.Parameters.AddWithValue("@cedula", Session["CedulaUsuario"].ToString());
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            aux = getfuncionario(reader.GetInt32(16));
+                            if (!lista.Any(p => p.Value == aux.IdEntidad.ToString()) && !topaprobado(aux.IdEntidad))
+                            {
+                                lista.Add(new SelectListItem
+                                {
+                                    Text = aux.Nombre + " " + aux.PrimerApellido + " " + aux.SegundoApellido,
+                                    Value = aux.IdEntidad.ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"4-Error al conectar a la base de datos: {ex.Message}");
+            }
+
+            listado = new SelectList(lista, "Value", "Text");
+            return listado;
+        }
+
+        Boolean topaprobado(int idfuncionario) {
+            bool aprobado = false;
+
+            string querynom;
+
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+
+                    querynom = "SELECT TOP 1 * FROM SolicitudTeletrabajo WHERE FK_Funcionario = " + idfuncionario + " ORDER BY PK_SolicitudTeletrabajo DESC";
+                            
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            if (reader.GetBoolean(17) && (int)Session["FamiliaPuesto"] == 1)
+                            {
+                                aprobado = true;
+                            }
+                            if (reader.GetBoolean(18) && (int)Session["FamiliaPuesto"] == 2)
+                            {
+                                aprobado = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"4-Error al conectar a la base de datos: {ex.Message}");
+            }
+
+            
+            return aprobado;
+
+        }
+
+        CDistritoDTO getDistrito(int idDistrito)
+        {
+            CDistritoDTO Distrito = new CDistritoDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Distrito WHERE PK_Distrito=" + idDistrito; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Distrito.IdEntidad = reader.GetInt32(0);
+                            Distrito.NomDistrito = reader.GetString(2);
+                            Distrito.CodPostalDistrito = reader.GetString(3);
+                            Distrito.Canton = getCanton(reader.GetInt32(1));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"8-Error al conectar a la base de datos: {ex.Message}");
+            }
+            return Distrito;
+        }
+
+        CProvinciaDTO getProvincia(int idProvincia)
+        {
+            CProvinciaDTO provincia = new CProvinciaDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Provincia WHERE PK_Provincia=" + idProvincia; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            provincia.NomProvincia = reader.GetString(1);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"6-Error al conectar a la base de datos: {ex.Message}");
+            }
+            return provincia;
+        }
+
+        CCantonDTO getCanton(int idCanton)
+        {
+            CCantonDTO canton = new CCantonDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Canton WHERE PK_Canton=" + idCanton; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            canton.NomCanton = reader.GetString(2);
+                            canton.CodPostalCanton = reader.GetString(3);
+                            canton.Provincia = getProvincia(reader.GetInt32(1));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"7-Error al conectar a la base de datos: {ex.Message}");
+            }
+            return canton;
+        }
+
+        CDireccionDTO getDireccion(int id)
+        {
+            CDireccionDTO direccion = new CDireccionDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Direccion WHERE FK_Funcionario=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            direccion.IdEntidad = reader.GetInt32(0);
+                            direccion.Distrito = getDistrito(reader.GetInt32(1));
+                            direccion.DirExacta = reader.GetString(3);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"8-Error al conectar a la base de datos: {ex.Message}");
+            }
+            return direccion;
+        }
+
     }
 }

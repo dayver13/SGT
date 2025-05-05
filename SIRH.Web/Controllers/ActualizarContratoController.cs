@@ -154,6 +154,8 @@ namespace SIRH.Web.Controllers
                 var data = getUsuario(Session["CedulaUsuario"].ToString());
                 modelo.Funcionario = (CFuncionarioDTO)data;
                 modelo = ConstruirModeloPuestoSQL(modelo);
+                modelo.EstadoCivil = historial(Session["CedulaUsuario"].ToString());
+                modelo.InformacionContacto = contactos(Session["CedulaUsuario"].ToString());
 
                 modelo.SolicitudTeletrabajo = solicitudes.FirstOrDefault(item => item.IdEntidad == Convert.ToInt32(id));
                 Session["SolicitudActual"] = solicitudes.FirstOrDefault(item => item.IdEntidad == Convert.ToInt32(id));
@@ -278,7 +280,7 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes)
+        public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes, string secundario)
         {
             Session["errorF"] = null;
             try
@@ -291,6 +293,7 @@ namespace SIRH.Web.Controllers
                 }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
                 solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
+                
 
 
                 int solicitudId = 0;
@@ -344,10 +347,18 @@ namespace SIRH.Web.Controllers
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Escolaridad", solicitud.Escolaridad);
-                        command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
-                        command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
-                        command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", solicitud.CantidadPersonasDireccionSecundaria);
+                        command.Parameters.AddWithValue("@Escolaridad", solicitud.Escolaridad); if (secundario == "1")
+                        {
+                            command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
+                            command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
+                            command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria);
+                        }
+                        if (secundario == "0")
+                        {
+                            command.Parameters.AddWithValue("@DistritoSecundario", 13);
+                            command.Parameters.AddWithValue("@DireccionExactaSecundaria", "");
+                            command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", 0);
+                        }
                         command.Parameters.AddWithValue("@CantidadPersonasDireccionPrimaria", solicitud.CantidadPersonasDireccionPrimaria);
                         command.Parameters.AddWithValue("@TiempoLaborarMOPT", solicitud.TiempoLaborarMOPT);
                         command.Parameters.AddWithValue("@Teletrabajable", solicitud.Teletrabajable);
@@ -390,23 +401,34 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ActualizarSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes)
+        public ActionResult ActualizarSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes, string secundario)
         {
             Session["errorF"] = null;
             try
             {
                 
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
-                if (Int32.Parse(model.DistritoSeleccionado) != 0)
+                System.Diagnostics.Debug.Print(secundario);
+
+                if (model.DistritoSeleccionado != null)
                 {
-                    solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                    solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+                    if (Int32.Parse(model.DistritoSeleccionado) != 0)
+                    {
+
+                        solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+                    }
                 }
-                if (Int32.Parse(model.EscolaridadSeleccionada) != 0) {
-                    solicitud.Escolaridad = Int32.Parse(model.EscolaridadSeleccionada);
+                if (model.EscolaridadSeleccionada != null)
+                {
+                    if (Int32.Parse(model.EscolaridadSeleccionada) != 0)
+                    {
+                        solicitud.Escolaridad = Int32.Parse(model.EscolaridadSeleccionada);
+                    }
                 }
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
+                solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
                 solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
+                
 
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
@@ -439,24 +461,32 @@ namespace SIRH.Web.Controllers
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Escolaridad", solicitud.Escolaridad);
-                        command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
-                        command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
-                        command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", solicitud.CantidadPersonasDireccionSecundaria);
-                        command.Parameters.AddWithValue("@CantidadPersonasDireccionPrimaria", solicitud.CantidadPersonasDireccionPrimaria);
-                        command.Parameters.AddWithValue("@TiempoLaborarMOPT", solicitud.TiempoLaborarMOPT);
-                        command.Parameters.AddWithValue("@Teletrabajable", solicitud.Teletrabajable);
-                        command.Parameters.AddWithValue("@CantidadDiasTeletrabajo", solicitud.CantidadDiasTeletrabajo);
+                        if (secundario == "1") { 
+                            command.Parameters.AddWithValue("@DistritoSecundario", solicitud.DistritoSecundario);
+                            command.Parameters.AddWithValue("@DireccionExactaSecundaria", solicitud.DireccionExactaSecundaria);
+                            command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria);
+                        }
+                        if (secundario == "0")
+                        {
+                            command.Parameters.AddWithValue("@DistritoSecundario", 13);
+                            command.Parameters.AddWithValue("@DireccionExactaSecundaria", "");
+                            command.Parameters.AddWithValue("@CantidadPersonasDireccionSecundaria", 0);
+                        }
+                        command.Parameters.AddWithValue("@CantidadPersonasDireccionPrimaria", model.SolicitudTeletrabajo.CantidadPersonasDireccionPrimaria);
+                        command.Parameters.AddWithValue("@TiempoLaborarMOPT", model.SolicitudTeletrabajo.TiempoLaborarMOPT);
+                        command.Parameters.AddWithValue("@Teletrabajable", model.SolicitudTeletrabajo.Teletrabajable);
+                        command.Parameters.AddWithValue("@CantidadDiasTeletrabajo", model.SolicitudTeletrabajo.CantidadDiasTeletrabajo);
                         command.Parameters.AddWithValue("@DetalleDiasTeletrabajo", solicitud.DetalleDiasTeletrabajo);
-                        command.Parameters.AddWithValue("@Horario", solicitud.Horario);
+                        command.Parameters.AddWithValue("@Horario", model.SolicitudTeletrabajo.Horario);
                         command.Parameters.AddWithValue("@Funciones", solicitud.Funciones);
                         command.Parameters.AddWithValue("@TiempoFunciones", solicitud.TiempoFunciones);
-                        command.Parameters.AddWithValue("@Razones", solicitud.Razones);
+                        command.Parameters.AddWithValue("@Razones", model.SolicitudTeletrabajo.Razones);
                         command.Parameters.AddWithValue("@DeclaracionJurada", solicitud.DeclaracionJurada);
                         command.Parameters.AddWithValue("@Sistemas", solicitud.Sistemas);
                         command.Parameters.AddWithValue("@FuncionarioTeletrabajoID", Convert.ToInt32(Session["Identidad"]));
                         command.Parameters.AddWithValue("@AprobadoJefaturaInmediata", false);
                         command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
-                        command.Parameters.AddWithValue("@TiempoLaborarDependencia", solicitud.TiempoLaborarDependencia);
+                        command.Parameters.AddWithValue("@TiempoLaborarDependencia", model.SolicitudTeletrabajo.TiempoLaborarDependencia);
                         command.Parameters.AddWithValue("SolicitudTeletrabajoID", solicitud.IdEntidad);
 
                         connection.Open();
@@ -741,11 +771,10 @@ namespace SIRH.Web.Controllers
         {
             string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
             CNombramientoDTO nombramiento = new CNombramientoDTO();
-            int fkestado;
+            CDetallePuestoDTO puestodeta = new CDetallePuestoDTO();           int fkestado;
             int fkpuesto;
             CPuestoDTO puesto = new CPuestoDTO();
             CEstadoPuestoDTO estadopdto = new CEstadoPuestoDTO();
-            CDetalleContratacionDTO contratacion = new CDetalleContratacionDTO();
             CDistritoDTO distrito = new CDistritoDTO();
             int fkdistrito;
             CCantonDTO canton = new CCantonDTO();
@@ -782,92 +811,27 @@ namespace SIRH.Web.Controllers
                             nombramiento.EstadoNombramiento = funcEstado(fkestado);
                             nombramiento.Puesto = funcpuesto(fkpuesto);
                         }
+                        reader.Close();
                     }
 
-                    /*string querycontra = "SELECT * FROM DetalleContratacion WHERE FK_Funcionario IN (SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal =" + modelo.Funcionario.Cedula + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
-                    command = new SqlCommand(querycontra, connectionfake);
 
-
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            contratacion.FechaIngreso = reader.GetDateTime(2);
-                            contratacion.FechaCese = reader.GetDateTime(3);
-                            contratacion.NumeroAnualidades = reader.GetInt32(4);
-                            contratacion.NumeroAnniosServicioPublico = reader.GetInt32(5);
-                            contratacion.FechaMesAumento = reader.GetString(6);
-                            contratacion.CodigoPolicial = reader.GetInt32(7);
-                            contratacion.EstadoMarcacion = reader.GetBoolean(8);
-                            contratacion.UbicacionReal = reader.GetString(9);
-                            contratacion.FechaRegimenPolicial = reader.GetDateTime(11);
-                            contratacion.FechaVacaciones = reader.GetDateTime(12);
-                        }
-                        
-                    }
-
-                    string querydireccion = "SELECT * FROM Direccion WHERE FK_Funcionario IN (SELECT PK_Funcionario FROM Funcionario WHERE CedulaReal =" + modelo.Funcionario.Cedula + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    string querydireccion = "SELECT * FROM Direccion WHERE FK_Funcionario IN (SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario =" + modelo.Funcionario.Cedula + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
                     command = new SqlCommand(querydireccion, connectionfake);
 
-                    
+
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
+                            direccion.IdEntidad = reader.GetInt32(0);
                             direccion.DirExacta = reader.GetString(3);
                             direccion.IndEstDireccion = reader.GetInt32(4);
-                            fkdistrito = reader.GetInt32(1);
+                            direccion.Distrito = getDistrito(reader.GetInt32(1));
+                        } 
+                    }
 
-                            string querydistrito = "SELECT * FROM Distrito WHERE PK_Distrito=" + fkdistrito; // Cambia 'tu_tabla' por el nombre de tu tabla
-                            command = new SqlCommand(querydistrito, connectionfake);
-
-
-                            reader.Close();
-                            using (SqlDataReader readerd = command.ExecuteReader())
-                            {
-                                while (readerd.Read())
-                                {
-                                    distrito.NomDistrito = readerd.GetString(2);
-                                    distrito.CodPostalDistrito = readerd.GetString(3);
-                                    fkcanton = readerd.GetInt32(1);
-
-                                    string querycanton = "SELECT * FROM Canton WHERE PK_Canton=" + fkcanton; // Cambia 'tu_tabla' por el nombre de tu tabla
-                                    command = new SqlCommand(querycanton, connectionfake);
-                                    readerd.Read();
-
-
-                                    using (SqlDataReader readerc = command.ExecuteReader())
-                                    {
-                                        while (readerc.Read())
-                                        {
-                                            canton.NomCanton = readerc.GetString(2);
-                                            canton.CodPostalCanton = reader.GetString(3);
-                                            fkprovincia = readerc.GetInt32(1);
-
-                                            string queryprovincia = "SELECT * FROM Provincia WHERE PK_Provincia=" + fkprovincia; // Cambia 'tu_tabla' por el nombre de tu tabla
-                                            command = new SqlCommand(queryprovincia, connectionfake);
-
-
-                                            readerc.Close();
-                                            using (SqlDataReader readerp = command.ExecuteReader())
-                                            {
-                                                while (readerp.Read())
-                                                {
-                                                    provincia.NomProvincia = reader.GetString(1);
-                                                }
-                                                readerp.Close();
-                                            }
-                                            canton.Provincia = provincia;
-                                        }
-                                    }
-                                    distrito.Canton = canton;
-                                }
-                                direccion.Distrito = distrito;
-                            }
-                        }
-                    }*/
+                            
                 }
                 catch (Exception ex)
                 {
@@ -877,9 +841,11 @@ namespace SIRH.Web.Controllers
             }
 
             modelo.Nombramiento = nombramiento;
-            //modelo.DetalleContrato = contratacion;
+            modelo.DetalleContrato = contratacion(modelo.Funcionario.Cedula);
             modelo.Puesto = nombramiento.Puesto;
-            //modelo.Direccion = direccion;
+            modelo.Direccion = direccion;
+            modelo.DetallePuesto = detallePuesto(nombramiento.Puesto.IdEntidad);
+            modelo.UbicacionTrabajo = ubicacionpuesto(nombramiento.Puesto.IdEntidad); 
 
             /*if (datos.ElementAt(5).Count() > 0)
             {
@@ -973,6 +939,7 @@ namespace SIRH.Web.Controllers
 
                 foreach (CCantonDTO canton in localizacion)
                 {
+                    System.Diagnostics.Debug.Print(canton.NomCanton);
                     listado.Add(new CCantonDTO
                     {
                         IdEntidad = canton.IdEntidad,
@@ -1036,7 +1003,7 @@ namespace SIRH.Web.Controllers
                     System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
 
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consult
-                    string querynom = "SELECT * FROM Canton WHERE FK_Provincia IN(SELECT PK_Provincia FROM Provincia WHERE PK_Provincia = " + idProvincia + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    string querynom = "SELECT * FROM Canton WHERE FK_Provincia = " + idProvincia; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
 
 
@@ -1045,6 +1012,7 @@ namespace SIRH.Web.Controllers
                     {
                         while (reader.Read())
                         {
+                            canton = new CCantonDTO();
                             canton.IdEntidad = reader.GetInt32(0);
                             canton.NomCanton = reader.GetString(2);
                             canton.CodPostalCanton = reader.GetString(3);
@@ -1077,7 +1045,7 @@ namespace SIRH.Web.Controllers
                     System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
 
                     // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
-                    string querynom = "SELECT * FROM Distrito WHERE FK_Canton IN(SELECT PK_Canton FROM Canton WHERE PK_Canton = " + idCanton + ");"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    string querynom = "SELECT * FROM Distrito WHERE FK_Canton = " + idCanton; // Cambia 'tu_tabla' por el nombre de tu tabla
                     SqlCommand command = new SqlCommand(querynom, connectionfake);
 
 
@@ -1087,7 +1055,9 @@ namespace SIRH.Web.Controllers
                         while (reader.Read())
                         {
 
+                            distrito = new CDistritoDTO();
                             distrito.IdEntidad = reader.GetInt32(0);
+                            System.Diagnostics.Debug.Print(reader.GetString(2));
 
                             distrito.NomDistrito = reader.GetString(2);
 
@@ -1314,6 +1284,9 @@ namespace SIRH.Web.Controllers
                             ubicacion.IdEntidad = reader.GetInt32(0);
                             ubicacion.DesObservaciones = reader.GetString(6);
                             ubicacion.Departamento = funcdepartamento(fkdepartamento);
+                            ubicacion.Seccion = seccion(reader.GetInt32(2));
+                            ubicacion.DireccionGeneral = direccion(reader.GetInt32(4));
+                            ubicacion.Division = division(reader.GetInt32(5));
                             Session["Ubicacion"] = ubicacion.IdEntidad;
                         }
                     }
@@ -1388,6 +1361,7 @@ namespace SIRH.Web.Controllers
                         {
                             fkubicacion = reader.GetInt32(1);
                             fkestadop = reader.GetInt32(2);
+                            puesto.IdEntidad = reader.GetInt32(0);
                             puesto.CodPuesto = reader.GetString(3);
                             puesto.PuestoConfianza = reader.GetBoolean(4);
                             puesto.ObservacionesPuesto = reader.GetString(5);
@@ -1636,6 +1610,394 @@ namespace SIRH.Web.Controllers
             }
            
             return historial;
+        }
+
+        List<CInformacionContactoDTO> contactos(string cedula)
+        {
+            List<CInformacionContactoDTO> contacto = new List<CInformacionContactoDTO>();
+            CInformacionContactoDTO info;
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = @"SELECT *
+                    FROM InformacionContacto
+                    WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            info = new CInformacionContactoDTO();
+                            info.IdEntidad = reader.GetInt32(0);
+                            info.TipoContacto = tipocontacto(reader.GetInt32(1));
+                            info.DesContenido = reader.GetString(3);
+                            info.DesAdicional = reader.GetString(4);
+                            contacto.Add(info);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"16-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+
+            return contacto;
+        }
+
+        CTipoContactoDTO tipocontacto(int id)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CTipoContactoDTO tipo = new CTipoContactoDTO();
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM TipoContacto WHERE PK_TipoContacto=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tipo.IdEntidad = reader.GetInt32(0);
+                            tipo.DesTipoContacto = reader.GetString(1);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"17-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return tipo;
+
+        }
+
+        CDetallePuestoDTO detallePuesto(int id)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CDetallePuestoDTO detalle = new CDetallePuestoDTO();
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM DetallePuesto WHERE FK_Puesto=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            detalle.IdEntidad = reader.GetInt32(0);
+                            detalle.Especialidad = especialidad(reader.GetInt32(4));
+                            detalle.Clase = clase(reader.GetInt32(5));
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"18-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return detalle;
+
+        }
+
+        CEspecialidadDTO especialidad(int id)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CEspecialidadDTO detalle = new CEspecialidadDTO();
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Especialidad WHERE PK_Especialidad=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            detalle.IdEntidad = reader.GetInt32(0);
+                            detalle.DesEspecialidad = reader.GetString(1);
+                            detalle.IndEstEspecialidad = reader.GetInt32(2);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"19-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return detalle;
+
+        }
+
+        CClaseDTO clase(int id)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CClaseDTO detalle = new CClaseDTO();
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Clase WHERE PK_Clase=" + id; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            detalle.IdEntidad = reader.GetInt32(0);
+                            detalle.DesClase = reader.GetString(1);
+                            detalle.IndEstClase = reader.GetInt32(2);
+                            detalle.IndCategoria = reader.GetInt32(3);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"20-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return detalle;
+
+        }
+
+        CDetalleContratacionDTO contratacion(string cedula)
+        {
+            CDetalleContratacionDTO contratacion = new CDetalleContratacionDTO();
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connectionfake = new SqlConnection(connectionString))
+                {
+
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM DetalleContratacion WHERE FK_Funcionario IN(SELECT PK_Funcionario FROM Funcionario WHERE IdCedulaFuncionario = @cedula)"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            contratacion.IdEntidad = reader.GetInt32(0);
+                            contratacion.FechaIngreso = reader.GetDateTime(2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"21-Error al conectar a la base de datos: {ex.Message}");
+            }
+            return contratacion;
+        }
+
+        CSeccionDTO seccion(int fkseccion)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CSeccionDTO seccion = new CSeccionDTO();
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Seccion WHERE PK_Seccion=" + fkseccion; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            seccion.NomSeccion = reader.GetString(1);
+                            seccion.IndEstSeccion = reader.GetInt32(2);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return seccion;
+        }
+
+        CDireccionGeneralDTO direccion(int fkdireccion)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CDireccionGeneralDTO direccion = new CDireccionGeneralDTO();
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM DireccionGeneral WHERE PK_DireccionGeneral=" + fkdireccion; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            direccion.IdEntidad = reader.GetInt32(0);
+                            direccion.NomDireccion = reader.GetString(1);
+                           
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return direccion;
+        }
+
+        CDivisionDTO division(int fkdivision)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CDivisionDTO division = new CDivisionDTO();
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Division WHERE PK_Division=" + fkdivision; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            division.IdEntidad = reader.GetInt32(0);
+                            division.NomDivision= reader.GetString(1);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return division;
+        }
+
+        CUbicacionPuestoDTO ubicacionpuesto(int fkpuesto)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            CUbicacionPuestoDTO puesto = new CUbicacionPuestoDTO();
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM UbicacionPuesto WHERE PK_UbicacionPuesto IN(SELECT FK_UbicacionPuesto FROM RelPuestoUbicacion WHERE FK_Puesto = @fkpuesto)"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@fkpuesto", fkpuesto);
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            puesto.Distrito = getDistrito(reader.GetInt32(2));
+                            puesto.ObsUbicacionPuesto = reader.GetString(3);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return puesto;
         }
 
     }

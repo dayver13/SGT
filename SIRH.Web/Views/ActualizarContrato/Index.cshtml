@@ -79,7 +79,7 @@
                         <form action="">
                             <div id="direccion" class="section">
                                 <details>
-                                    <summary>Dirección</summary>
+                                    <summary>Dirección Secundaria</summary>
                                     <table class="table table-hover">
                                         <tbody>
                                             <tr>
@@ -154,6 +154,15 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div><label>¿Desea agregar un lugar de Teletrabajo Secundario? </label></div>
+                                    <div>
+                                        <input type="radio" name="secundario" value="1" checked onclick="toggleTextBox()" /> <label style="margin-right: 10px;">Sí</label>
+                                        <input type="radio" name="secundario" value="0" onclick="toggleTextBox()" /> <label>No</label>
+                                    </div>
+                                    <div>
+                                        @Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria)
+                                        @Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria, new { @id = "personasSecundario", @type = "number" })
+                                    </div>
 
                                 </details>
                             </div>
@@ -456,8 +465,8 @@
     }
 
     function limitCheckboxes() {
-        const maxCheckboxes = document.getElementById('cantDias').value;
-        const checkboxes = document.querySelectorAll('.limited-dias');
+        let maxCheckboxes = document.getElementById('cantDias').value;
+        let checkboxes = document.querySelectorAll('.limited-dias');
         let checkedCount = 0;
 
         checkboxes.forEach(checkbox => {
@@ -466,16 +475,27 @@
             }
         });
 
-        if (checkedCount >= maxCheckboxes) {
-            checkboxes.forEach(checkbox => {
-                if (!checkbox.checked) {
-                    checkbox.disabled = true;
-                }
-            });
-        } else {
+        if (checkedCount < maxCheckboxes) {
             checkboxes.forEach(checkbox => {
                 checkbox.disabled = false;
             });
+        } else {
+            if (checkedCount > maxCheckboxes) {
+                checkboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                    if (checkbox.checked) {
+                        checkbox.checked = false;
+                    }
+                });
+            } else {
+                if (checkedCount = maxCheckboxes) {
+                    checkboxes.forEach(checkbox => {
+                        if (!checkbox.checked) {
+                            checkbox.disabled = true;
+                        }
+                    });
+                }
+            }
         }
     }
 
@@ -603,6 +623,7 @@
                     $list.append('<option value=0> Selecione... </option>');
                     for (var i = 0; i < data.listado.length; i++) {
                         $list.append('<option value=' + data.listado[i].IdEntidad + '> ' + data.listado[i].NomCanton + ' </option>');
+                        console.log(data.listado[i].NomCanton + i);
                     }
                     ObtenerDistritos(data.listado[0].IdEntidad);
                 }

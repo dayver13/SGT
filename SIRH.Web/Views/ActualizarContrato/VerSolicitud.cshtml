@@ -201,10 +201,6 @@
                                     <tr>
                                         <th>@Html.LabelFor(model => model.DetalleContrato.FechaIngreso) </th>
                                         <td>@Html.DisplayFor(model => model.DetalleContrato.FechaIngreso)</td>
-                                        <th>
-                                            Última evaluación de desempeño
-                                        </th>
-                                        @* <td>@Html.DisplayFor(model => model.Calificaciones.OrderBy(Q => Q.Periodo.IdEntidad).LastOrDefault().CalificacionDTO.DesCalificacion)</td>*@
                                     </tr>
                                     <tr>
                                         <th>@Html.LabelFor(model => model.Puesto.CodPuesto) </th>
@@ -356,33 +352,33 @@
                                     <td>
                                         @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Lunes"))
                                         {
-                                            <input type="checkbox" id="lunes" name="dias" value="Lunes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            <input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()" checked>}
                                         else
-                                        {<input type="checkbox" id="lunes" name="dias" value="Lunes" class="limited-dias" onclick="limitCheckboxes()">}
+                                        {<input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()">}
                                         <label for="lunes">Lunes</label><br>
                                         @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Martes"))
                                         {
-                                            <input type="checkbox" id="martes" name="dias" value="Martes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            <input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()" checked>}
                                         else
-                                        {<input type="checkbox" id="martes" name="dias" value="Martes" class="limited-dias" onclick="limitCheckboxes()">}
+                                        {<input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()">}
                                         <label for="martes">Martes</label><br>
                                         @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Miercoles"))
                                         {
-                                            <input type="checkbox" id="miercoles" name="dias" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            <input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()" checked>}
                                         else
-                                        {<input type="checkbox" id="miercoles" name="dias" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()">}
+                                        {<input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()">}
                                         <label for="miercoles">Miércoles</label><br>
                                         @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Jueves"))
                                         {
-                                            <input type="checkbox" id="jueves" name="dias" value="Jueves" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            <input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()" checked>}
                                         else
-                                        {<input type="checkbox" id="jueves" name="dias" value="Jueves" class="limited-dias" onclick="limitCheckboxes()">}
+                                        {<input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()">}
                                         <label for="jueves">Jueves</label><br>
                                         @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Viernes"))
                                         {
-                                            <input type="checkbox" id="viernes" name="dias" value="Viernes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            <input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()" checked>}
                                         else
-                                        {<input type="checkbox" id="viernes" name="dias" value="Viernes" class="limited-dias" onclick="limitCheckboxes()">}
+                                        {<input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()">}
                                         <label for="viernes">Viernes</label><br>
                                     </td>
                                     <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Horario)</th>
@@ -839,8 +835,8 @@
     }
 
     function limitCheckboxes() {
-        const maxCheckboxes = document.getElementById('cantDias').value;
-        const checkboxes = document.querySelectorAll('.limited-dias');
+        let maxCheckboxes = document.getElementById('cantDias').value;
+        let checkboxes = document.querySelectorAll('.limited-dias');
         let checkedCount = 0;
 
         checkboxes.forEach(checkbox => {
@@ -849,19 +845,31 @@
             }
         });
 
-        if (checkedCount >= maxCheckboxes) {
-            checkboxes.forEach(checkbox => {
-                if (!checkbox.checked) {
-                    checkbox.disabled = true;
-                }
-            });
-        } else {
+        if (checkedCount < maxCheckboxes) {
             checkboxes.forEach(checkbox => {
                 checkbox.disabled = false;
             });
+        } else {
+            if (checkedCount > maxCheckboxes) {
+                checkboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                    if (checkbox.checked) {
+                        checkbox.checked = false;
+                    }
+                });
+            } else {
+                if (checkedCount = maxCheckboxes) {
+                    checkboxes.forEach(checkbox => {
+                        if (!checkbox.checked) {
+                            checkbox.disabled = true;
+                        }
+                    });
+                }
+            }
         }
     }
 
+    window.addEventListener('load', limitCheckboxes());
 
     // Ensure the correct state on page load
     document.addEventListener("DOMContentLoaded", function () {
@@ -983,6 +991,7 @@
                     $list.append('<option value=0> Selecione... </option>');
                     for (var i = 0; i < data.listado.length; i++) {
                         $list.append('<option value="' + data.listado[i].IdEntidad + '"> ' + data.listado[i].NomCanton + ' </option>');
+                        console.log(data.listado[i].NomCanton + i);
                     }
                     ObtenerDistritos(data.listado[0].IdEntidad);
                 }
