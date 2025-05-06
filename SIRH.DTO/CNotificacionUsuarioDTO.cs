@@ -46,5 +46,13 @@ namespace SIRH.DTO
         [DataMember]
         [DisplayName("Remitente")]
         public CUsuarioDTO Usuario { get; set; }
+
+        public int Id { get; set; }
+
+        [DataMember]
+        [DisplayName("Leído")]
+        public bool Leido { get; set; }
+
+
     }
 }
