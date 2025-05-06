@@ -40,10 +40,9 @@ namespace SIRH.Web.Controllers
                             Id = Convert.ToInt32(reader["id"]),
                             Asunto = "Notificación",
                             Contenido = reader["notificacion"].ToString(),
-                            FechaEnvio = DateTime.Now, // No fecha exacta en tabla
+                            FechaEnvio = DateTime.Now,
                             CedulaReferencia = reader["fk_funcionario"].ToString(),
                             Destinatario = reader["fk_funcionario"].ToString(),
-                            Usuario = new CUsuarioDTO { NombreUsuario = "Sistema" }, // Placeholder
                             Leido = Convert.ToBoolean(reader["leido"])
                         };
                         notificaciones.Add(notificacion);

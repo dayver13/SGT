@@ -1051,3 +1051,33 @@ namespace SIRH.Web.Controllers
 
     }
 }
+
+
+
+
+
+
+//public void GenerarNotificacion(string mensaje, string cedulaFuncionario)
+//{
+//    try
+//    {
+//        using (SqlConnection connection = new SqlConnection(connectionString))
+//        {
+//            string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
+//                                     VALUES (@notificacion, @leido, @fk_funcionario)";
+
+//            SqlCommand command = new SqlCommand(query, connection);
+//            command.Parameters.AddWithValue("@notificacion", mensaje);
+//            command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
+//            command.Parameters.AddWithValue("@fk_funcionario", cedulaFuncionario);
+
+//            connection.Open();
+//            command.ExecuteNonQuery();
+//        }
+//    }
+//    catch (Exception ex)
+//    {
+
+//        System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
+//    }
+//}

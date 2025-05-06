@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\WPC\\source\\repos\\SGT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.dto\\cnotificacionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|solutionrelative:sirh.dto\\cnotificacionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\modulojefaturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|C:\\Users\\WPC\\source\\repos\\SGT\\sirh.web\\controllers\\notificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\controllers\\notificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\notificacion\\listanotificaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\notificacion\\listanotificaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{296D0C94-1C4C-4699-866B-6C34BB796EEF}|SIRH.Web\\SIRH.Web.csproj|solutionrelative:sirh.web\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|c:\\users\\wpc\\source\\repos\\sgt\\sirh.dto\\cnotificacionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8458C6CA-6642-4CB2-A361-D065534B57FB}|SIRH.DTO\\SIRH.DTO.csproj|solutionrelative:sirh.dto\\cnotificacionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,38 +35,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ModuloJefaturaController.cs",
+              "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
+              "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
+              "RelativeToolTip": "SIRH.Web\\Controllers\\ModuloJefaturaController.cs",
+              "ViewState": "AgIAAAEEAAAAAAAAAAAQwDIEAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T02:19:21.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CNotificacionUsuarioDTO.cs",
               "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.DTO\\CNotificacionUsuarioDTO.cs",
               "RelativeDocumentMoniker": "SIRH.DTO\\CNotificacionUsuarioDTO.cs",
-              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.DTO\\CNotificacionUsuarioDTO.cs*",
-              "RelativeToolTip": "SIRH.DTO\\CNotificacionUsuarioDTO.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.DTO\\CNotificacionUsuarioDTO.cs",
+              "RelativeToolTip": "SIRH.DTO\\CNotificacionUsuarioDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-06T02:02:53.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ListaNotificaciones.cshtml",
               "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\ListaNotificaciones.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\Notificacion\\ListaNotificaciones.cshtml",
               "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\ListaNotificaciones.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\Notificacion\\ListaNotificaciones.cshtml",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAACYAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-06T00:59:51.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\Index.cshtml",
               "RelativeDocumentMoniker": "SIRH.Web\\Views\\Notificacion\\Index.cshtml",
               "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Views\\Notificacion\\Index.cshtml",
               "RelativeToolTip": "SIRH.Web\\Views\\Notificacion\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-06T00:50:21.068Z",
               "EditorCaption": ""
@@ -75,7 +92,7 @@
               "RelativeDocumentMoniker": "SIRH.Web\\Controllers\\NotificacionController.cs",
               "ToolTip": "C:\\Users\\WPC\\source\\repos\\SGT\\SIRH.Web\\Controllers\\NotificacionController.cs",
               "RelativeToolTip": "SIRH.Web\\Controllers\\NotificacionController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAQwGkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T23:59:45.168Z",
               "EditorCaption": ""
