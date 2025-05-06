@@ -23,14 +23,6 @@
         border-radius: 5px;
     }
 
-        .notification.unread {
-            background-color: #f0f8ff;
-        }
-
-        .notification.read {
-            background-color: #ffffff;
-        }
-
     .notification-header {
         font-weight: bold;
     }
@@ -45,6 +37,26 @@
     <div class="notification-box">
         <h2>Lista de Notificaciones</h2>
 
-
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                <strong>Error:</strong> @ViewBag.Error
+            </div>
+        }
+        else if (!Model.Any())
+        {
+            <p>No hay notificaciones disponibles.</p>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="notification">
+                    <div class="notification-header">@item.Asunto</div>
+                    <div class="notification-date">@item.FechaEnvio.ToString("dd/MM/yyyy HH:mm")</div>
+                    <div class="notification-body">@item.Contenido</div>
+                </div>
+            }
+        }
     </div>
 </div>

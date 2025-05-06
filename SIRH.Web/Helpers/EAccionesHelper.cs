@@ -47,7 +47,8 @@ namespace SIRH.Web.Helpers
         Planificacion = 22,
         ManualCargos = 23,
         Consultorio = 24,
-        SeleccionPersonal = 25
+        SeleccionPersonal = 25,
+        Notificaciones = 26
     }
 
     public enum ENivelesVacantes
