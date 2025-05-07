@@ -30,6 +30,7 @@ using System.Windows.Forms;
 using System.Text;
 using System.Web.Services.Description;
 using SIRH.Web.AntecedentesPenalesService;
+using System.ServiceModel.Channels;
 
 namespace SIRH.Web.Controllers
 {
@@ -282,19 +283,25 @@ namespace SIRH.Web.Controllers
         [HttpPost]
         public ActionResult NuevaSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes, string secundario)
         {
+            
+            string mensaje;
             Session["errorF"] = null;
             try
             {
                 SolicitudTeletrabajoDTO solicitud = (SolicitudTeletrabajoDTO)Session["SolicitudActual"];
-
-                if(Int32.Parse(model.DistritoSeleccionado) != 0) { 
-                    solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
-                    solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+                if (model.DistritoSeleccionado != null)
+                {
+                    if (Int32.Parse(model.DistritoSeleccionado) != 0)
+                    {
+                        solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
+                        solicitud.DistritoSecundario = Int32.Parse(model.DistritoSeleccionado);
+                    }
                 }
+               
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
-                solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
-                
+                solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes; 
 
+                
 
                 int solicitudId = 0;
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
@@ -381,7 +388,8 @@ namespace SIRH.Web.Controllers
                     }
                 }
 
-
+                mensaje = Session["Nombre"].ToString() + " ha eviado una nueva solicitud de trabajo. Solicitud: " + solicitudId;
+                GenerarNotificacion(mensaje, getIDJefatura(Int32.Parse(Session["Identidad"].ToString())));
 
 
                 return View();
@@ -403,6 +411,7 @@ namespace SIRH.Web.Controllers
         [HttpPost]
         public ActionResult ActualizarSolicitudTeletrabajo(PerfilFuncionarioVM model, string SubmitButton, string lunes, string miercoles, string martes, string jueves, string viernes, string secundario)
         {
+            string mensaje;
             Session["errorF"] = null;
             try
             {
@@ -428,8 +437,8 @@ namespace SIRH.Web.Controllers
                 solicitud.CantidadDiasTeletrabajo = model.SolicitudTeletrabajo.CantidadDiasTeletrabajo;
                 solicitud.DireccionExactaSecundaria = model.SolicitudTeletrabajo.DireccionExactaSecundaria;
                 solicitud.DetalleDiasTeletrabajo = lunes + martes + miercoles + jueves + viernes;
-                
 
+                
                 string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
                 string query = @"
                             UPDATE SolicitudTeletrabajo
@@ -491,10 +500,12 @@ namespace SIRH.Web.Controllers
 
                         connection.Open();
                         command.ExecuteNonQuery();
+                        guardaractividades(solicitud.IdEntidad);
                     }
                 }
 
-
+                mensaje = Session["Nombre"].ToString() + " ha actualizado una solicitud de trabajo. Solicitud: " + solicitud.IdEntidad;
+                GenerarNotificacion(mensaje, getIDJefatura(Int32.Parse(Session["Identidad"].ToString())));
 
 
                 return View();
@@ -693,6 +704,7 @@ namespace SIRH.Web.Controllers
                             func.Sexo = (GeneroEnum)Enum.Parse(typeof(GeneroEnum), reader.GetString(7));
                             System.Diagnostics.Debug.WriteLine(func.Cedula + func.FechaNacimiento.ToString());
                             Session["Identidad"] = reader.GetInt32(0);
+                            Session["Nombre"] = func.Nombre + " " + func.PrimerApellido + " " + func.SegundoApellido;
                         }
                     }
                 }
@@ -1998,6 +2010,77 @@ namespace SIRH.Web.Controllers
                 }
             }
             return puesto;
+        }
+
+        public void GenerarNotificacion(string mensaje, int idFuncionario)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
+                                             VALUES (@notificacion, @leido, @fk_funcionario)";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@notificacion", mensaje);
+                    command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
+                    command.Parameters.AddWithValue("@fk_funcionario", idFuncionario);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
+            }
+        }
+
+        int getIDJefatura(int id)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            int idjefe = 0;
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = "SELECT * FROM Funcionario WHERE FK_Puesto IN(SELECT PK_Puesto FROM Puesto WHERE (FK_UbicacionAdministrativa = @ubicacion AND FK_FamiliaPuesto = @familia))"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@ubicacion", Int32.Parse(Session["Ubicacion"].ToString()));
+                    if (Int32.Parse(Session["FamiliaPuesto"].ToString()) == 3)
+                    {
+                        command.Parameters.AddWithValue("@familia", 1);
+                    }
+                    if (Int32.Parse(Session["FamiliaPuesto"].ToString()) == 1)
+                    {
+                        command.Parameters.AddWithValue("@familia", 2);
+                    }
+
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            idjefe = reader.GetInt32(0);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"10-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            return idjefe;
         }
 
     }

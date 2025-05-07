@@ -52,14 +52,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto align-items-center">
-                            <li class="nav-item mr-3">
-                                <div class="input-group">
-                                    <input type="text" id="cedula" class="form-control form-control-sm" placeholder="Cédula">
-                                    <div class="input-group-append">
-                                        <button id="btnBuscar" class="btn btn-primary btn-sm">Buscar</button>
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item active">
                                 <a class="colorlink" href="@Url.Action("Perfil", "PerfilUsuario", new { @username = Session["NombreUsuario"] })">
                                     <i class="fa fa-user"></i> @(Session["NombreUsuario"])

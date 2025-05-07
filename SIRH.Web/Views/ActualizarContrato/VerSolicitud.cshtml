@@ -75,7 +75,10 @@
                     <a id="tab3" class="nav-link" href="#tabs-3" data-toggle="tab" role="tab" aria-controls="tabs-3" aria-selected="false">Detalle de Ubicación</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab4" class="nav-link alert-warning" href="#tabs-4" data-toggle="tab" role="tab" aria-controls="tabs-4" aria-selected="false">Formulario solicitud</a>
+                    <a id="tab4" class="nav-link" href="#tabs-4" data-toggle="tab" role="tab" aria-controls="tabs-4" aria-selected="false">Actividades</a>
+                </li>
+                <li class="nav-item">
+                    <a id="tab5" class="nav-link alert-warning" href="#tabs-5" data-toggle="tab" role="tab" aria-controls="tabs-5" aria-selected="false">Formulario solicitud</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -265,171 +268,199 @@
                 </div>
 
                 <div id="tabs-4" class="tab-pane fade" role="tabpanel" aria-labelledby="tab4">
-                    <div class="card">
-                        <h5 class="card-header">Formulario</h5>
+                    <div id="funciones" class="card">
+                        <h5 class="card-header">Actividades</h5>
                         <div class="card-body">
                             <table class="table table-hover">
-                                <tr>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Escolaridad) </th>
-                                    <td>
-                                        @Html.DropDownListFor(model => model.EscolaridadSeleccionada,
-                                                                        Model.ListaEscolaridad, Model.EscolaridadSeleccionada,
-                                                                        new
-                                                                        {
-                                                                            @class = "form-control",
-                                                                            @readonly = "readonly"
-                                                                        })
-                                    </td>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionPrimaria)</th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionPrimaria, new { @type = "number" })</td>
-                                </tr>
-                                <tr>
-                                    <th>¿Desea agregar un lugar de Teletrabajo Secundario?</th>
-                                    <td>
-                                        <fieldset>
-                                            <input type="radio" name="secundario" value="1" checked onclick="toggleTextBox()" /> <label style="margin-right: 10px;">Sí</label>
-                                            <input type="radio" name="secundario" value="0" onclick="toggleTextBox()" /> <label>No</label>
-                                         </fieldset>
-</td>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria)</th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria, new { @id = "personasSecundario", @type = "number" })</td>
-                                </tr>
-                                <tr>
-                                    <th>Provincia de Lugar de Teletrabajo Secundario</th>
-                                    <td>
-                                        @Html.DropDownListFor(model => model.ProvinciaSeleccionada,
-                                                                Model.ListaProvincia, Model.ProvinciaSeleccionada,
-                                                                new
-                                                                {
-                                                                    @class = "form-control",
-                                                                    @id = "provinciaSecundario",
-                                                                    @onchange = "ObtenerCantones(this.value)"
-                                                                })
-                                    </td>
-                                    <th>Cantón de Lugar de Teletrabajo Secundario</th>
-                                    <td>
-                                        @Html.DropDownListFor(model => model.CantonSeleccionado,
-                                                                        Model.ListaCantones, Model.CantonSeleccionado,
-                                                                        new
-                                                                        {
-                                                                            @class = "form-control",
-                                                                            @id = "cantonSecundario",
-                                                                            @onchange = "ObtenerDistritos(this.value)"
-                                                                        })
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Distrito de Lugar de Teletrabajo Secundario</th>
-                                    <td>
-                                        @Html.DropDownListFor(model => model.DistritoSeleccionado,
-                                                                        Model.ListaDistritos, Model.DistritoSeleccionado,
-                                                                        new
-                                                                        {
-                                                                            @class = "form-control",
-                                                                            @id = "distritoSecundario"
-                                                                        })
-                                    </td>
-                                    <th>Dirección exacta de lugar de Teletrabajo Secundario</th>
-                                    <td>@Html.TextAreaFor(model => model.SolicitudTeletrabajo.DireccionExactaSecundaria, new { style = "width: 100%;", rows = "5", @id = "senasSecundario" })</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoLaborarDependencia) </th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoLaborarDependencia, new { @type = "number" })</td>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoLaborarMOPT)</th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoLaborarMOPT, new { @type = "number" })</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Teletrabajable) </th>
-                                    <td>
-                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, true)  <label style="margin-right: 10px;">Sí</label>
-                                        @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, false) <label>No</label>
-                                    </td>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo)</th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo, new { @type = "number", @min = "1", @max = "4", @id = "cantDias", @onchange = "updateMaxCheckboxes()" })</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.DetalleDiasTeletrabajo) </th>
-                                    <td>
-                                        @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Lunes"))
-                                        {
-                                            <input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()" checked>}
-                                        else
-                                        {<input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()">}
-                                        <label for="lunes">Lunes</label><br>
-                                        @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Martes"))
-                                        {
-                                            <input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()" checked>}
-                                        else
-                                        {<input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()">}
-                                        <label for="martes">Martes</label><br>
-                                        @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Miercoles"))
-                                        {
-                                            <input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()" checked>}
-                                        else
-                                        {<input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()">}
-                                        <label for="miercoles">Miércoles</label><br>
-                                        @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Jueves"))
-                                        {
-                                            <input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()" checked>}
-                                        else
-                                        {<input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()">}
-                                        <label for="jueves">Jueves</label><br>
-                                        @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Viernes"))
-                                        {
-                                            <input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()" checked>}
-                                        else
-                                        {<input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()">}
-                                        <label for="viernes">Viernes</label><br>
-                                    </td>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Horario)</th>
-                                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.Horario)</td>
-                                </tr>
-                                @*<tr>
-                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Sistemas) </th>
-                    <td colspan="3">
-                        <button class="btn btn-info" id="DialogEstCivil" style="vertical-align:middle;">
-                            <i class="fa fa-pie-chart"> Seleccionar sistemas</i>
-                        </button>
-                    </td>
-                </tr>*@
-                                @*<tr>
-                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Funciones) </th>
-                    <td colspan="3">@Html.TextAreaFor(model => model.SolicitudTeletrabajo.Funciones, new { style = "width: 100%;", rows = "5" })</td>
-                </tr>*@
-                                @*<tr>
-                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoFunciones) </th>
-                    <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoFunciones, new { @type = "number" })</td>
-                    <th></th>
-                    <td></td>
-                </tr>*@
-                                <tr>
-                                    <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Razones)</th>
-                                    <td colspan="3">@Html.TextAreaFor(model => model.SolicitudTeletrabajo.Razones, new { style = "width: 100%;", rows = "5" })</td>
-                                </tr>
-
+                                <thead>
+                                    <tr>
+                                        <th>Actividades</th>
+                                        <th>Accion</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaDatos">
+                                </tbody>
                             </table>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" value="Enviar solicitud">
-                                <i class="fa fa-save"></i>
-                                Enviar solicitud
-                            </button>
-                        </div>
-                        <div id="alert">
-                        </div>
-                        <div class="row">
-                            <div class="col-10">
+                            <div class="card-body">
+                                <div id="registros">
+                                </div>
                                 <center>
-                                    <div id="preloader" class="loader" hidden></div>
+                                    <button type="button" id="AgregarCompetencia" class="btn btn-outline-info" onclick=cargarcampofuncion()><i class="fa fa-plus-circle"></i> Agregar Actividad</button>
                                 </center>
+                                <div id="activate">
+
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-            </div>
 
-        </div>
+                    <div id="tabs-5" class="tab-pane fade" role="tabpanel" aria-labelledby="tab5">
+                        <div class="card">
+                            <h5 class="card-header">Formulario</h5>
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Escolaridad) </th>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.EscolaridadSeleccionada,
+                                                                            Model.ListaEscolaridad, Model.EscolaridadSeleccionada,
+                                                                            new
+                                                                            {
+                                                                                @class = "form-control",
+                                                                                @readonly = "readonly"
+                                                                            })
+                                        </td>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionPrimaria)</th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionPrimaria, new { @type = "number" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th>¿Desea agregar un lugar de Teletrabajo Secundario?</th>
+                                        <td>
+                                            <fieldset>
+                                                <input type="radio" name="secundario" value="1" checked onclick="toggleTextBox()" /> <label style="margin-right: 10px;">Sí</label>
+                                                <input type="radio" name="secundario" value="0" onclick="toggleTextBox()" /> <label>No</label>
+                                            </fieldset>
+                                        </td>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria)</th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadPersonasDireccionSecundaria, new { @id = "personasSecundario", @type = "number" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Provincia de Lugar de Teletrabajo Secundario</th>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.ProvinciaSeleccionada,
+                                                                    Model.ListaProvincia, Model.ProvinciaSeleccionada,
+                                                                    new
+                                                                    {
+                                                                        @class = "form-control",
+                                                                        @id = "provinciaSecundario",
+                                                                        @onchange = "ObtenerCantones(this.value)"
+                                                                    })
+                                        </td>
+                                        <th>Cantón de Lugar de Teletrabajo Secundario</th>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.CantonSeleccionado,
+                                                                            Model.ListaCantones, Model.CantonSeleccionado,
+                                                                            new
+                                                                            {
+                                                                                @class = "form-control",
+                                                                                @id = "cantonSecundario",
+                                                                                @onchange = "ObtenerDistritos(this.value)"
+                                                                            })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Distrito de Lugar de Teletrabajo Secundario</th>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.DistritoSeleccionado,
+                                                                            Model.ListaDistritos, Model.DistritoSeleccionado,
+                                                                            new
+                                                                            {
+                                                                                @class = "form-control",
+                                                                                @id = "distritoSecundario"
+                                                                            })
+                                        </td>
+                                        <th>Dirección exacta de lugar de Teletrabajo Secundario</th>
+                                        <td>@Html.TextAreaFor(model => model.SolicitudTeletrabajo.DireccionExactaSecundaria, new { style = "width: 100%;", rows = "5", @id = "senasSecundario" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoLaborarDependencia) </th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoLaborarDependencia, new { @type = "number" })</td>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoLaborarMOPT)</th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoLaborarMOPT, new { @type = "number" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Teletrabajable) </th>
+                                        <td>
+                                            @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, true)  <label style="margin-right: 10px;">Sí</label>
+                                            @Html.RadioButtonFor(model => model.SolicitudTeletrabajo.Teletrabajable, false) <label>No</label>
+                                        </td>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo)</th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.CantidadDiasTeletrabajo, new { @type = "number", @min = "1", @max = "4", @id = "cantDias", @onchange = "updateMaxCheckboxes()" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.DetalleDiasTeletrabajo) </th>
+                                        <td>
+                                            @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Lunes"))
+                                            {
+                                                <input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            else
+                                            {<input type="checkbox" id="lunes" name="lunes" value="Lunes" class="limited-dias" onclick="limitCheckboxes()">}
+                                            <label for="lunes">Lunes</label><br>
+                                            @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Martes"))
+                                            {
+                                                <input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            else
+                                            {<input type="checkbox" id="martes" name="martes" value="Martes" class="limited-dias" onclick="limitCheckboxes()">}
+                                            <label for="martes">Martes</label><br>
+                                            @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Miercoles"))
+                                            {
+                                                <input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            else
+                                            {<input type="checkbox" id="miercoles" name="miercoles" value="Miercoles" class="limited-dias" onclick="limitCheckboxes()">}
+                                            <label for="miercoles">Miércoles</label><br>
+                                            @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Jueves"))
+                                            {
+                                                <input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            else
+                                            {<input type="checkbox" id="jueves" name="jueves" value="Jueves" class="limited-dias" onclick="limitCheckboxes()">}
+                                            <label for="jueves">Jueves</label><br>
+                                            @if (Model.SolicitudTeletrabajo.DetalleDiasTeletrabajo.Contains("Viernes"))
+                                            {
+                                                <input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()" checked>}
+                                            else
+                                            {<input type="checkbox" id="viernes" name="viernes" value="Viernes" class="limited-dias" onclick="limitCheckboxes()">}
+                                            <label for="viernes">Viernes</label><br>
+                                        </td>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Horario)</th>
+                                        <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.Horario)</td>
+                                    </tr>
+                                    @*<tr>
+                                <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Sistemas) </th>
+                                <td colspan="3">
+                                    <button class="btn btn-info" id="DialogEstCivil" style="vertical-align:middle;">
+                                        <i class="fa fa-pie-chart"> Seleccionar sistemas</i>
+                                    </button>
+                                </td>
+                            </tr>*@
+                                    @*<tr>
+                                <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Funciones) </th>
+                                <td colspan="3">@Html.TextAreaFor(model => model.SolicitudTeletrabajo.Funciones, new { style = "width: 100%;", rows = "5" })</td>
+                            </tr>*@
+                                    @*<tr>
+                                <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.TiempoFunciones) </th>
+                                <td>@Html.TextBoxFor(model => model.SolicitudTeletrabajo.TiempoFunciones, new { @type = "number" })</td>
+                                <th></th>
+                                <td></td>
+                            </tr>*@
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.SolicitudTeletrabajo.Razones)</th>
+                                        <td colspan="3">@Html.TextAreaFor(model => model.SolicitudTeletrabajo.Razones, new { style = "width: 100%;", rows = "5" })</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-success " id="btnEnviar" name="SubmitButton" type="submit" value="Enviar solicitud">
+                                    <i class="fa fa-save"></i>
+                                    Enviar solicitud
+                                </button>
+                            </div>
+                            <div id="alert">
+                            </div>
+                            <div class="row">
+                                <div class="col-10">
+                                    <center>
+                                        <div id="preloader" class="loader" hidden></div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
     }
 
     <!-- Modal -->
@@ -1048,6 +1079,168 @@
         divsucc.innerText = "Envio de solicitud fallo, revise que toda la informacin este correcta.";
         dvalert.appendChild(divsucc);
         setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+    }
+
+    function cargaractividades() {
+        $.ajax({
+            type: "get",
+            url: "/ActualizarContrato/DescargarActividades", // Ruta al archivo CSV
+            dataType: "text", // Indicar que se espera texto
+        }).done(function (data) {
+            console.error(data)
+            const filas = data.split('\n'); // Dividir en líneas
+            const tbody = document.getElementById('tablaDatos');
+            tbody.innerHTML = "";
+            var i;
+
+            // Iterar sobre las filas y agregar datos a la tabla
+            if (filas.length > 1) {
+                for (i = 1; i < filas.length - 1; i++) {
+                    let id;
+                    // Saltar la primera fila (encabezados) y líneas vacías
+                    const nuevaFila = document.createElement("tr") // Crear nueva fila
+                    const nuevaCelda = document.createElement("td");
+                    const celdaboton = document.createElement("td");
+                    const boton = document.createElement("button");
+                    boton.type = "button";
+                    boton.innerText = "Eliminar";
+                    boton.className = "btn btn-success ";
+                    id = filas[i];
+                    boton.addEventListener('click', function () { eliminarElemento(id); });
+                    nuevaCelda.appendChild(document.createTextNode(filas[i]));
+                    nuevaFila.appendChild(nuevaCelda);
+                    celdaboton.appendChild(boton);
+                    nuevaFila.appendChild(celdaboton);
+                    tbody.appendChild(nuevaFila); // Agregar fila al tbody
+                }
+            };
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Error al cargar el archivo CSV:', textStatus, errorThrown);
+        }
+        );
+    };
+
+    window.addEventListener('load', cargaractividades());
+
+
+    function eliminarElemento(id) {
+        $.ajax({
+            type: "post",
+            url: `/ActualizarContrato/EliminarActividad?actividad=${id}`,
+            datatype: "text",
+            success: function (response) {
+                console.error('Elemento eliminado con éxito');
+                cargaractividades();
+
+            },
+            error: function (xhr) {
+                console.error('Error al eliminar el elemento: ' + xhr.responseText);
+            }
+        });
+    };
+
+    function cargarcampofuncion() {
+        const divplace = document.getElementById("activate");
+        divplace.innerHTML = "";
+        const table = document.createElement("table");
+        const tbody = document.createElement("tbody");
+        const trtable = document.createElement("tr");
+        const tddescrip = document.createElement("td");
+        tddescrip.innerText = "Actividad:";
+        const tdtext = document.createElement("td");
+        const textarea = document.createElement("textarea");
+        textarea.style.width = "100%";
+        textarea.rows = 5;
+        textarea.id = "detallecampo";
+        tdtext.appendChild(textarea);
+        trtable.appendChild(tddescrip);
+        trtable.appendChild(tdtext);
+        tbody.appendChild(trtable);
+        const trchck = document.createElement("tr");
+        const trchck2 = document.createElement("tr");
+        const tdmedios = document.createElement("td");
+        const chckmedios = document.createElement("input");
+        chckmedios.type = "checkbox";
+        chckmedios.id = "medioscampos";
+        tdmedios.innerText = "¿Se realiza por medios telemáticos?";
+        tdmedios.appendChild(chckmedios);
+        const tdmedible = document.createElement("td");
+        const chckmedible = document.createElement("input");
+        chckmedible.type = "checkbox";
+        chckmedible.id = "mediblecampos";
+        tdmedible.innerText = "¿Es medible?";
+        const tdsupervision = document.createElement("td");
+        const chcksupervision = document.createElement("input");
+        chcksupervision.type = "checkbox";
+        chcksupervision.id = "supervisioncampos";
+        tdsupervision.innerText = "¿Se puede realizar con supervisión indirecta, no presencial?";
+        tdmedible.appendChild(chckmedible);
+        tdsupervision.appendChild(chcksupervision);
+        trchck.appendChild(tdmedios);
+        trchck.appendChild(tdmedible);
+        trchck2.appendChild(tdsupervision);
+        const trbotones = document.createElement("tr");
+        const celdaboton1 = document.createElement("td");
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.innerText = "Cancelar";
+        boton.className = "btn btn-success ";
+        boton.addEventListener('click', function () { document.getElementById("activate").innerHTML = ""; });
+        celdaboton1.appendChild(boton);
+        const celdaboton2 = document.createElement("td");
+        const boton2 = document.createElement("button");
+        boton2.type = "button";
+        boton2.innerText = "Agregar";
+        boton2.className = "btn btn-success ";
+        boton2.addEventListener('click', function () { AgregarElemento(); });
+        celdaboton2.appendChild(boton2);
+        trbotones.appendChild(celdaboton2);
+        trbotones.appendChild(celdaboton1);
+        tbody.appendChild(trchck);
+        tbody.appendChild(trchck2);
+        tbody.appendChild(trbotones);
+        table.className = "table table-hover";
+        table.appendChild(tbody);
+        divplace.appendChild(table);
+        var divalert = document.createElement("div");
+        divalert.id = "alertF";
+        divplace.appendChild(divalert);
+
+    }
+
+    function AgregarElemento() {
+        var desc = document.getElementById("detallecampo").value;
+        var medible = document.getElementById("mediblecampos").checked;
+        var medios = document.getElementById("medioscampos").checked;
+        var supervision = document.getElementById("supervisioncampos").checked;
+        if (medible && medios && supervision) {
+            $.ajax({
+                type: "post",
+                url: `/ActualizarContrato/AgregarActividad?actividad=${desc}&medios=${medios}&medible=${medible}&supervision=${supervision}`,
+                datatype: "text",
+                success: function (response) {
+                    console.error('Elemento agregado con éxito');
+                    cargaractividades();
+                    const divplace = document.getElementById("activate");
+                    divplace.innerHTML = "";
+
+                },
+                error: function (xhr) {
+                    console.error('Error al eliminar el elemento: ' + xhr.responseText);
+                }
+            });
+        } else {
+            fuefallidof()
+        }
+    };
+
+    function fuefallidof() {
+        var dvalert = document.getElementById("alertF");
+        var divsucc = document.createElement("div");
+        divsucc.className = "failure";
+        divsucc.innerText = "La actividad debe cumplir con los 3 requisitos para ser teletrabajable";
+        dvalert.appendChild(divsucc);
+        setTimeout(function () { document.getElementById("alertF").innerHTML = ""; }, 3000);
     }
 
 

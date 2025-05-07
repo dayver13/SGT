@@ -10,6 +10,7 @@ using System.Drawing.Printing;
 using SIRH.Web.AntecedentesPenalesService;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace SIRH.Web.Controllers
 {
@@ -293,9 +294,10 @@ namespace SIRH.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ActualizarAval(PerfilFuncionarioVM modelo, string aval, string comentarios, string SubmitButton)
+        public ActionResult ActualizarAval( string aval, string comentarios)
         {
             bool avals = false;
+            string notificacion = "";
             try
             {
                 if (aval == "1") { avals = true; }
@@ -329,17 +331,48 @@ namespace SIRH.Web.Controllers
                         command.ExecuteNonQuery();
                     }
                 }
-               
-                var respuesta = new { mensaje = "El aval de la solicitud ha sido actualizado exitosamente.", estado = true };
+                
+                if (aval == "1") {
+                    if ((int)Session["FamiliaPuesto"] == 1) {
+                        notificacion = "Su jefatura ha aprobado su solicitud. Comentarios: " + comentarios;
+                    }
+                    if ((int)Session["FamiliaPuesto"] == 2)
+                    {
+                        notificacion = "Su superior ha aprobado su solicitud. Comentarios: " + comentarios;
+                    }
+                }
+                else
+                {
+                    if ((int)Session["FamiliaPuesto"] == 1)
+                    {
+                        notificacion = "Su jefatura ha rechazado su solicitud. Comentarios: " + comentarios;
+                    }
+                    if ((int)Session["FamiliaPuesto"] == 2)
+                    {
+                        notificacion = "Su superior ha rechazado su solicitud. Comentarios: " + comentarios;
+                    }
+                }
 
-                return Json(respuesta);
+                GenerarNotificacion(notificacion, Int32.Parse(Session["FuncionarioID"].ToString()));
+               
+                var respuesta = "El aval de la solicitud ha sido actualizado exitosamente.";
+
+                return Json(new
+                {
+                    success = true,
+                    respuesta = respuesta
+                }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 
-                var respuesta = new { mensaje = "Ha ocurrido un error al actualizar el aval: " + ex.Message, estado = false };
+                var respuesta = "Ha ocurrido un error al actualizar el aval: " + ex.Message ;
 
-                return Json(respuesta);
+                return Json(new
+                {
+                    success = false,
+                    respuesta = respuesta
+                }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -713,6 +746,7 @@ namespace SIRH.Web.Controllers
             {
                 SolicitudTeletrabajoDTO solicitud = ObtenerSolicitudPorId(idfuncionario);
                 CFuncionarioDTO funcionario = ObtenerFuncionarioid(idfuncionario);
+                Session["FuncionarioID"] = idfuncionario;
                 Session["SolicitudID"] = solicitud.IdEntidad;
                 CDistritoDTO distrito = getDistrito(solicitud.DistritoSecundario);
                 CDireccionDTO dir = getDireccion(idfuncionario);
@@ -737,6 +771,7 @@ namespace SIRH.Web.Controllers
                     detalle = Regex.Replace(solicitud.DetalleDiasTeletrabajo, "([A-Z])", ", $1").TrimStart(' ', ','),
                     aprjefe = solicitud.AprobadoJefaturaInmediata,
                     aprsup = solicitud.AprobadoJefaturaSuperior,
+                    id = solicitud.IdEntidad,
                     comentarios = solicitud.ComentarioAval
                 }, JsonRequestBehavior.AllowGet);
             }
@@ -1049,6 +1084,96 @@ namespace SIRH.Web.Controllers
             return direccion;
         }
 
+        [HttpPost]
+        public ActionResult DescargarActividades(int id)
+        {
+            try {
+                List<CActividadSolicitudTeletrabajoDTO> activList = actividades(id);
+                
+
+                return Json(new
+                {
+                    success = true,
+                    listado = activList
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception error)
+            {
+                return Json(new { success = false, mensaje = error.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        List<CActividadSolicitudTeletrabajoDTO> actividades(int ind)
+        {
+            List<CActividadSolicitudTeletrabajoDTO> actividad = new List<CActividadSolicitudTeletrabajoDTO>();
+            CActividadSolicitudTeletrabajoDTO actv;
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+
+
+            using (SqlConnection connectionfake = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Abrir la conexión
+                    connectionfake.Open();
+                    System.Diagnostics.Debug.WriteLine("Conexión exitosa a la base de datos.");
+
+                    // Aquí puedes ejecutar comandos SQL, por ejemplo, una consulta
+                    string querynom = @"SELECT *
+                    FROM ActividadSolicitudTeletrabajo
+                    WHERE FK_SolicitudTeletrabajo = @ind"; // Cambia 'tu_tabla' por el nombre de tu tabla
+                    SqlCommand command = new SqlCommand(querynom, connectionfake);
+                    command.Parameters.AddWithValue("@ind", ind);
+
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            actv = new CActividadSolicitudTeletrabajoDTO();
+                            actv.DescripcionActividad = reader.GetString(1);
+                            actv.Medios = reader.GetBoolean(2);
+                            actv.Medible = reader.GetBoolean(3);
+                            actv.Supervision = reader.GetBoolean(4);
+                            actividad.Add(actv);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"14-Error al conectar a la base de datos: {ex.Message}");
+                }
+            }
+            Session["Actividades"] = actividad;
+            return actividad;
+        }
+
+        public void GenerarNotificacion(string mensaje, int idFuncionario)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+           {
+               using (SqlConnection connection = new SqlConnection(connectionString))
+               {
+                   string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
+                                             VALUES (@notificacion, @leido, @fk_funcionario)";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                   command.Parameters.AddWithValue("@notificacion", mensaje);
+                    command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
+                    command.Parameters.AddWithValue("@fk_funcionario", idFuncionario);
+
+                   connection.Open();
+                   command.ExecuteNonQuery();
+               }
+           }
+           catch (Exception ex)
+           {
+
+                System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
+           }
+        }
+
     }
 }
 
@@ -1057,27 +1182,5 @@ namespace SIRH.Web.Controllers
 
 
 
-//public void GenerarNotificacion(string mensaje, string cedulaFuncionario)
-//{
-//    try
-//    {
-//        using (SqlConnection connection = new SqlConnection(connectionString))
-//        {
-//            string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
-//                                     VALUES (@notificacion, @leido, @fk_funcionario)";
 
-//            SqlCommand command = new SqlCommand(query, connection);
-//            command.Parameters.AddWithValue("@notificacion", mensaje);
-//            command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
-//            command.Parameters.AddWithValue("@fk_funcionario", cedulaFuncionario);
 
-//            connection.Open();
-//            command.ExecuteNonQuery();
-//        }
-//    }
-//    catch (Exception ex)
-//    {
-
-//        System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
-//    }
-//}

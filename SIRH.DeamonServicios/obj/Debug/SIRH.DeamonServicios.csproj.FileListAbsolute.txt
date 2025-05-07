@@ -398,3 +398,4 @@ C:\Users\WPC\Source\Repos\SGT\SIRH.DeamonServicios\obj\Debug\SIRH.DeamonServicio
 C:\Users\WPC\Source\Repos\SGT\SIRH.DeamonServicios\obj\Debug\SIRH.Dea.3C38DE15.Up2Date
 C:\Users\WPC\Source\Repos\SGT\SIRH.DeamonServicios\obj\Debug\SIRH.DeamonServicios.exe
 C:\Users\WPC\Source\Repos\SGT\SIRH.DeamonServicios\obj\Debug\SIRH.DeamonServicios.pdb
+C:\Users\dayverfx\Documents\GitHub\SGT\SIRH.DeamonServicios\bin\Debug\stdole.dll

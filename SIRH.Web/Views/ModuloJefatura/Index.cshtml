@@ -16,6 +16,17 @@
         width: 100%;
     }
 
+    .failure {
+        padding: 20px;
+        background-color: red; /* Red */
+        color: white;
+        margin-bottom: 15px;
+        opacity: 1;
+        transition: opacity 0.6s;
+        width: 100%;
+    }
+
+
     .form-area {
         margin: 20px;
     }
@@ -114,92 +125,98 @@ else
     {
 <div class="form-area">
 
-        <h3>Detalles de la Solicitud</h3>
+    <h3>Detalles de la Solicitud</h3>
+    <table class="table table-hover">
+        <tr>
+            <th>Datos del Colaborador</th>
+            <td><label id="cedu"></label></td>
+            <td><label id="solid"></label></td>
+        </tr>
+        <tr>
+            <th>Dirección Primaria</th>
+            <td><label id="distritop"></label></td>
+            <td><label id="dirp"></label>
+            <td>
+        </tr>
+        <tr>
+            <th>Personas en Dirección Primaria</th>
+            <td><label id="perp"></label></td>
+
+            <td>
+        </tr>
+        <tr>
+            <th>Dirección Secundaria</th>
+            <td><label id="distrito"></label></td>
+            <td><label id="dir"></label>
+            <td>
+        </tr>
+        <tr>
+            <th>Personas en Dirección Secundaria</th>
+            <td><label id="pers"></label></td>
+            <td>
+        </tr>
+        <tr>
+            <th>Tiempo Laboral MOPT</th>
+            <td><label id="tiempm"></label></td>
+        </tr>
+        <tr>
+            <th>Tiempo Laboral Dependencia</th>
+            <td><label id="tiempd"></label></td>
+        </tr>
+        <tr>
+            <th>Cantidad de Días de Teletrabajo</th>
+            <td><label id="cantd"></label></td>
+        </tr>
+        <tr>
+            <th>Detalle de Días</th>
+            <td><label id="detalled"></label></td>
+        </tr>
+        <tr>
+            <th>Horario</th>
+            <td><label id="hora"></label></td>
+        </tr>
+        <tr>
+            <th>Funciones</th>
+            <td><label id="func"></label></td>
+        </tr>
+        <tr>
+            <th>Sistemas</th>
+            <td><label id="sist"></label></td>
+        </tr>
+        <tr>
+            <th>Razones</th>
+            <td><label id="raz"></label></td>
+        </tr>
+    </table>
+
+    <div id="funciones">
         <table class="table table-hover">
-            <tr>
-                <th>Datos del Colaborador</th>
-                <td><label id="cedu"></label></td>
-            </tr>
-            <tr>
-                <th>Dirección Primaria</th>
-                <td><label id="distritop"></label></td>
-                <td><label id="dirp"></label>
-                <td>
-            </tr>
-            <tr>
-                <th>Personas en Dirección Primaria</th>
-                <td><label id="perp"></label></td>
-
-                <td>
-            </tr>
-            <tr>
-                <th>Dirección Secundaria</th>
-                <td><label id="distrito"></label></td>
-                <td><label id="dir"></label>
-                <td>
-            </tr>
-            <tr>
-                <th>Personas en Dirección Secundaria</th>
-                <td><label id="pers"></label></td>
-                <td>
-            </tr>
-            <tr>
-                <th>Tiempo Laboral MOPT</th>
-                <td><label id="tiempm"></label></td>
-            </tr>
-            <tr>
-                <th>Tiempo Laboral Dependencia</th>
-                <td><label id="tiempd"></label></td>
-            </tr>
-            <tr>
-                <th>Cantidad de Días de Teletrabajo</th>
-                <td><label id="cantd"></label></td>
-            </tr>
-            <tr>
-                <th>Detalle de Días</th>
-                <td><label id="detalled"></label></td>
-            </tr>
-            <tr>
-                <th>Horario</th>
-                <td><label id="hora"></label></td>
-            </tr>
-            <tr>
-                <th>Funciones</th>
-                <td><label id="func"></label></td>
-            </tr>
-            <tr>
-                <th>Sistemas</th>
-                <td><label id="sist"></label></td>
-            </tr>
-            <tr>
-                <th>Razones</th>
-                <td><label id="raz"></label></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Actividades</th>
+                </tr>
+            </thead>
+            <tbody id="tablaDatos">
+            </tbody>
         </table>
-
-        <h3>Actualizar Aval</h3>
-        <div class="form-group">
-            @if ((int)Session["FamiliaPuesto"] == 2)
-            {
-                <label for="AvalInmediata">Aval de Jefatura Superior (Aprobar Solicitud):</label>
-                <input type="checkbox" name="aval" id=" aval" value="1">
-            }
-            @if ((int)Session["FamiliaPuesto"] == 1)
-            {
-                <label for="AvalInmediata">Aval de Jefatura Inmediata (Aprobar Solicitud):</label>
-                <input type="checkbox" name="aval" id="aval" value="1">
-            }
+        <div class="card-body">
+            <div id="registros">
+            </div>
+            <div id="activate">
+            </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label>Comentarios:</label>
-            <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
-        </div>
+    <div class="form-group">
+        <label>Comentarios:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+    </div>
 
 
 
-        <button type="submit" class="btn btn-success">Enviar</button>
-        
+    <button type="button" class="btn btn-success" onclick="aprobar()">Aprobar</button>
+    <button type="button" class="btn btn-danger" onclick="rechazar()">Rechazar</button>
+
 </div>
         <div id="alert"></div>
     }
@@ -285,6 +302,7 @@ else
             success: function (data) {
                 if (data.success) {
                     document.getElementById("cedu").innerText = data.cedula;
+                    document.getElementById("solid").innerText = "Solicitud: " + data.id;
                     document.getElementById("distrito").innerText = data.distrito;
                     document.getElementById("dir").innerText = data.direccion;
                     document.getElementById("distritop").innerText = data.distritop;
@@ -306,6 +324,7 @@ else
                         document.getElementById("aval").checked = true;
                     }
                     document.getElementById("comentarios").value = data.comentarios;
+                    cargaractividades(data.id);
                 }
                 else {
                     alert(data.mensaje);
@@ -317,6 +336,36 @@ else
         });
     }
 
+    function cargaractividades(id) {
+        $.ajax({
+            type: "post",
+            url: "/ModuloJefatura/DescargarActividades", // Ruta al archivo CSV
+            data: { id: id },
+            datatype: "text",
+            traditional: true,
+            success: function (data) {
+                if (data.success) {
+                    const tbody = document.getElementById('tablaDatos');
+                    tbody.innerHTML = "";
+                    
+                    for (var i = 0; i < data.listado.length; i++) {
+                        const nuevaFila = document.createElement("tr") // Crear nueva fila
+                        const nuevaCelda = document.createElement("td");
+                        nuevaCelda.appendChild(document.createTextNode(data.listado[i].DescripcionActividad));
+                        nuevaFila.appendChild(nuevaCelda);
+                        tbody.appendChild(nuevaFila); // Agregar fila al tbody
+                    }
+                }
+                else {
+                    alert(data.mensaje);
+                }
+            },
+            error: function (err) {
+                alert("Error");
+            }
+         });
+    }
+
     function fueExitoso(response) {
         var dvalert = document.getElementById("alert");
         var divsucc = document.createElement("div");
@@ -324,6 +373,88 @@ else
         divsucc.innerText = response.mensaje;
         dvalert.appendChild(divsucc);
         setTimeout(function () { window.location.href = "/ModuloJefatura/"; }, 4000);
+    }
+
+    function aprobar() {
+        var comentario = document.getElementById("comentarios").value
+        if (comentario === "") {
+            var dvalert = document.getElementById("alert");
+            var divsucc = document.createElement("div");
+            divsucc.className = "failure";
+            divsucc.innerText = "Comantarios necesarios para aprobacion";
+            dvalert.appendChild(divsucc);
+            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+        }else {
+            $.ajax({
+                type: "post",
+                url: "/ModuloJefatura/ActualizarAval", // Ruta al archivo CSV
+                data: { aval: "1", comentarios: comentario},
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    if (data.success) {
+                        var dvalert = document.getElementById("alert");
+                        var divsucc = document.createElement("div");
+                        divsucc.className = "success";
+                        divsucc.innerText = data.respuesta;
+                        dvalert.appendChild(divsucc);
+                        setTimeout(function () { window.location.href = "/ModuloJefatura/"; }, 4000);
+                    }
+                    else {
+                        var dvalert = document.getElementById("alert");
+                        var divsucc = document.createElement("div");
+                        divsucc.className = "failure";
+                        divsucc.innerText = data.respuesta;
+                        dvalert.appendChild(divsucc);
+                        setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+                    }
+                },
+                error: function (err) {
+                    alert("Error");
+                }
+            });
+        }
+    }
+
+    function rechazar() {
+        var comentario = document.getElementById("comentarios").value
+        if (comentario === "") {
+            var dvalert = document.getElementById("alert");
+            var divsucc = document.createElement("div");
+            divsucc.className = "failure";
+            divsucc.innerText = "Comantarios necesarios para aprobacion";
+            dvalert.appendChild(divsucc);
+            setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+        } else {
+            $.ajax({
+                type: "post",
+                url: "/ModuloJefatura/ActualizarAval", // Ruta al archivo CSV
+                data: { aval: "0", comentarios: comentario },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    if (data.success) {
+                        var dvalert = document.getElementById("alert");
+                        var divsucc = document.createElement("div");
+                        divsucc.className = "success";
+                        divsucc.innerText = data.respuesta;
+                        dvalert.appendChild(divsucc);
+                        setTimeout(function () { window.location.href = "/ModuloJefatura/"; }, 4000);
+                    }
+                    else {
+                        var dvalert = document.getElementById("alert");
+                        var divsucc = document.createElement("div");
+                        divsucc.className = "failure";
+                        divsucc.innerText = data.respuesta;
+                        dvalert.appendChild(divsucc);
+                        setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
+                    }
+                },
+                error: function (err) {
+                    alert("Error");
+                }
+            });
+        }
     }
 
     function fuefallido(response) {
