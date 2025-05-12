@@ -31,6 +31,8 @@ using System.Text;
 using System.Web.Services.Description;
 using SIRH.Web.AntecedentesPenalesService;
 using System.ServiceModel.Channels;
+using System.Net.Mail;
+using System.Net;
 
 namespace SIRH.Web.Controllers
 {
@@ -390,6 +392,7 @@ namespace SIRH.Web.Controllers
 
                 mensaje = Session["Nombre"].ToString() + " ha eviado una nueva solicitud de trabajo. Solicitud: " + solicitudId;
                 GenerarNotificacion(mensaje, getIDJefatura(Int32.Parse(Session["Identidad"].ToString())));
+                enviarCorreo(mensaje, "dayverfx@gmail.com");
 
 
                 return View();
@@ -506,6 +509,7 @@ namespace SIRH.Web.Controllers
 
                 mensaje = Session["Nombre"].ToString() + " ha actualizado una solicitud de trabajo. Solicitud: " + solicitud.IdEntidad;
                 GenerarNotificacion(mensaje, getIDJefatura(Int32.Parse(Session["Identidad"].ToString())));
+                enviarCorreo(mensaje, "dayverfx@gmail.com");
 
 
                 return View();
@@ -2019,13 +2023,14 @@ namespace SIRH.Web.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
-                                             VALUES (@notificacion, @leido, @fk_funcionario)";
+                    string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario, Fecha)
+                                             VALUES (@notificacion, @leido, @fk_funcionario, @fecha)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@notificacion", mensaje);
                     command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
                     command.Parameters.AddWithValue("@fk_funcionario", idFuncionario);
+                    command.Parameters.AddWithValue("@fecha", DateTime.Now);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -2035,6 +2040,42 @@ namespace SIRH.Web.Controllers
             {
 
                 System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
+            }
+        }
+
+        void enviarCorreo(string mensaje, string destino)
+        {
+            try
+            {
+                var fromAddress = new MailAddress("dayverfx@gmail.com");
+                var toAddress = new MailAddress(destino);
+                const string fromPassword = "sfnz tepf lhxr hdeu";
+                const string subject = "Notificacion";
+
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com", // Cambia esto según tu proveedor
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = mensaje
+                })
+                {
+                    smtp.Send(message);
+                    Console.WriteLine("Correo enviado correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al enviar correo: " + ex.Message);
             }
         }
 

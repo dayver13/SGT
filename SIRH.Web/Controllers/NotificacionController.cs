@@ -25,11 +25,12 @@ namespace SIRH.Web.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = @"SELECT id, notificacion, leido, fk_funcionario
-                                     FROM NotificacionTeletrabajo
+                    string query = @"SELECT id, notificacion, leido, fk_funcionario, Fecha
+                                     FROM NotificacionTeletrabajo WHERE fk_funcionario = @funcionario
                                      ORDER BY id DESC";
 
                     SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@funcionario", Int32.Parse(Session["Identidad"].ToString()));
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -40,7 +41,7 @@ namespace SIRH.Web.Controllers
                             Id = Convert.ToInt32(reader["id"]),
                             Asunto = "Notificación",
                             Contenido = reader["notificacion"].ToString(),
-                            FechaEnvio = DateTime.Now,
+                            FechaEnvio = DateTime.Parse(reader["Fecha"].ToString()),
                             CedulaReferencia = reader["fk_funcionario"].ToString(),
                             Destinatario = reader["fk_funcionario"].ToString(),
                             Leido = Convert.ToBoolean(reader["leido"])

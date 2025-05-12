@@ -11,6 +11,8 @@ using SIRH.Web.AntecedentesPenalesService;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.Net;
+using System.Net.Mail;
 
 namespace SIRH.Web.Controllers
 {
@@ -308,6 +310,7 @@ namespace SIRH.Web.Controllers
                     SET 
                         IndAprobadoJefatura = @AvalJefatura,
                         IndAprobadoSuperior = @AprobadoJefaturaSuperior,
+                        FechaAprobacion = @fecha,
                         ComentarioAval = @ComentarioAval
                     WHERE PK_SolicitudTeletrabajo = @SolicitudId;";
 
@@ -319,12 +322,17 @@ namespace SIRH.Web.Controllers
                         {
                             command.Parameters.AddWithValue("@AvalJefatura", avals);
                             command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", avals);
-                        }
+                            if (aval == "1")
+                            {
+                                command.Parameters.AddWithValue("@fecha", DateTime.Now);
+                            }
+                            }
                         if ((int)Session["FamiliaPuesto"] == 1)
                         {
                             command.Parameters.AddWithValue("@AvalJefatura", avals);
                             command.Parameters.AddWithValue("@AprobadoJefaturaSuperior", false);
                         }
+                        command.Parameters.AddWithValue("@fecha", DBNull.Value);
                         command.Parameters.AddWithValue("@ComentarioAval", comentarios ?? "");
                         command.Parameters.AddWithValue("@SolicitudId", Int32.Parse(Session["SolicitudID"].ToString()));
                         connection.Open();
@@ -340,6 +348,7 @@ namespace SIRH.Web.Controllers
                     {
                         notificacion = "Su superior ha aprobado su solicitud. Comentarios: " + comentarios;
                     }
+                    RegistroMovimiento(comentarios, Int32.Parse(Session["FuncionarioID"].ToString()), "Aprobado", Int32.Parse(Session["SolicitudID"].ToString()));
                 }
                 else
                 {
@@ -351,10 +360,12 @@ namespace SIRH.Web.Controllers
                     {
                         notificacion = "Su superior ha rechazado su solicitud. Comentarios: " + comentarios;
                     }
+                    RegistroMovimiento(comentarios, Int32.Parse(Session["FuncionarioID"].ToString()), "Rechazado", Int32.Parse(Session["SolicitudID"].ToString()));
                 }
 
                 GenerarNotificacion(notificacion, Int32.Parse(Session["FuncionarioID"].ToString()));
-               
+                enviarCorreo(notificacion, "dayverfx@gmail.com");
+
                 var respuesta = "El aval de la solicitud ha sido actualizado exitosamente.";
 
                 return Json(new
@@ -1155,15 +1166,16 @@ namespace SIRH.Web.Controllers
            {
                using (SqlConnection connection = new SqlConnection(connectionString))
                {
-                   string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario)
-                                             VALUES (@notificacion, @leido, @fk_funcionario)";
+                   string query = @"INSERT INTO NotificacionTeletrabajo (notificacion, leido, fk_funcionario, Fecha)
+                                             VALUES (@notificacion, @leido, @fk_funcionario, @fecha)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                    command.Parameters.AddWithValue("@notificacion", mensaje);
                     command.Parameters.AddWithValue("@leido", false); //se debe iniciar en falso para que la notificación no se marque como leída
                     command.Parameters.AddWithValue("@fk_funcionario", idFuncionario);
+                    command.Parameters.AddWithValue("@fecha", DateTime.Now);
 
-                   connection.Open();
+                    connection.Open();
                    command.ExecuteNonQuery();
                }
            }
@@ -1172,6 +1184,70 @@ namespace SIRH.Web.Controllers
 
                 System.Diagnostics.Debug.WriteLine("Error al generar notificación: " + ex.Message);
            }
+        }
+
+        public void RegistroMovimiento(string comantario, int idFuncionario, string estado, int solicitud)
+        {
+            string connectionString = "Server=35.239.79.131,1433;Database=SIRH;User ID=sqlserver;Password=hola1234;TrustServerCertificate=True";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = @"INSERT INTO TransaccionesTeletrabajo (FK_Solicitud, FK_Funcionario, Comentario, Estado, Fecha)
+                                             VALUES (@solicitud, @funcionario, @comentario, @estado, @fecha)";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@comentario", comantario);
+                    command.Parameters.AddWithValue("@solicitud", solicitud); //se debe iniciar en falso para que la notificación no se marque como leída
+                    command.Parameters.AddWithValue("@funcionario", idFuncionario);
+                    command.Parameters.AddWithValue("@estado", estado);
+                    command.Parameters.AddWithValue("@fecha", DateTime.Now);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                System.Diagnostics.Debug.WriteLine("Error al generar registro: " + ex.Message);
+            }
+        }
+
+         void enviarCorreo(string mensaje, string destino)
+        {
+            try
+            {
+                var fromAddress = new MailAddress("dayverfx@gmail.com");
+                var toAddress = new MailAddress(destino);
+                const string fromPassword = "sfnz tepf lhxr hdeu";
+                const string subject = "Notificacion";
+                
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com", // Cambia esto según tu proveedor
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = mensaje
+                })
+                {
+                    smtp.Send(message);
+                    Console.WriteLine("Correo enviado correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al enviar correo: " + ex.Message);
+            }
         }
 
     }
