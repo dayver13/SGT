@@ -65,7 +65,7 @@
                         HttpMethod = "POST",
                         OnSuccess = "fueExitoso",
                         OnFailure = "fuefallido",
-                        OnBegin = ""
+                        OnBegin = "validarFormulario"
                     }))
                     {
             <h2>Registrar Rendimiento Periodo</h2>
@@ -210,4 +210,37 @@
             dvalert.appendChild(divsucc);
             setTimeout(function () { document.getElementById("alert").innerHTML = ""; }, 3000);
         }
+    </script>
+
+    <script>
+        // Validar el formulario antes de enviarlo
+        function validarFormulario() {
+            var personal = document.getElementById("personalseleccionado").value;
+            var mes = document.getElementById("mes").value;
+            var metricas = document.getElementById("metricas").value;
+            var horario = document.getElementById("horario").value;
+            var tardias = document.getElementById("tardias").value;
+            var abandonos = document.getElementById("abandonos").value;
+            var observaciones = document.getElementById("observaciones").value;
+            if (personal == "") {
+                mostrarError("Seleccione un Funcionario");
+                return false; // Evitar el envío del formulario
+            }
+            else if (mes == "" || metricas == "" || horario == "" || tardias == "" || abandonos == "" || observaciones == "") {
+                mostrarError("Por favor, complete todos los campos.");
+                return false;
+            }
+        }
+
+        // Mostrar mensaje de error
+        function mostrarError(mensaje) {
+            const alertDiv = document.getElementById("alert");
+            alertDiv.innerHTML = "";
+            const error = document.createElement("div");
+            error.className = "failure";
+            error.innerText = mensaje;
+            alertDiv.appendChild(error);
+            setTimeout(() => alertDiv.innerHTML = "", 4000);
+        }
+
     </script>

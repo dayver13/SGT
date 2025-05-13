@@ -65,7 +65,7 @@
             HttpMethod = "POST",
             OnSuccess = "fueExitoso",
             OnFailure = "fuefallido",
-            OnBegin = ""
+            OnBegin = "validarFormulario"
         }))
         {
             <h2>Registrar Tiempo Fuera</h2>
@@ -223,6 +223,38 @@
                 // Formatear para el input tipo date (solo fecha, sin hora)
                 const fechaFormateada = fechaFinal.toISOString().split("T")[0];
                 document.getElementById("EndDate").value = fechaFormateada;
+        }
+
+    </script>
+
+    <script>
+        //Validar y verificar que los campos del formulario este completos
+        function validarFormulario() {
+            var personal = document.getElementById("personalseleccionado").value;
+            var fechaInicio = document.getElementById("StartDate").value;
+            var fechaFin = document.getElementById("EndDate").value;
+            var cantidadDias = document.getElementById("cantidadDias").value;
+            var tipoSalida = document.getElementById("tipo").value;
+            if (personal == "") {
+                mostrarError("Seleccione un Funcionario");
+                return false; // Evitar el envío del formulario
+            }
+
+            else if (cantidadDias == "" || tipoSalida == "") {
+                mostrarError("Ingrese la cantidad de días solicitados");
+                return false; // Evitar el envío del formulario
+            }
+        }
+
+        // Mostrar mensaje de error
+        function mostrarError(mensaje) {
+            const alertDiv = document.getElementById("alert");
+            alertDiv.innerHTML = "";
+            const error = document.createElement("div");
+            error.className = "failure";
+            error.innerText = mensaje;
+            alertDiv.appendChild(error);
+            setTimeout(() => alertDiv.innerHTML = "", 4000);
         }
 
     </script>
