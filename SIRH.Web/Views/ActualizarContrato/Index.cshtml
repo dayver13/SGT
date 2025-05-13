@@ -688,4 +688,25 @@
 
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (e) {
+            const radioSi = document.querySelector('input[name="secundario"][value="1"]');
+            const direccionSecundaria = document.querySelector('textarea[name="SolicitudTeletrabajo.DireccionExactaSecundaria"]');
 
+            if (radioSi.checked && (!direccionSecundaria.value || direccionSecundaria.value.trim() === "")) {
+                e.preventDefault(); // Evita el envío
+
+                // Mostrar notificación de error
+                const alertDiv = document.getElementById("alert");
+                alertDiv.innerHTML = ""; // Limpia alertas previas
+                const error = document.createElement("div");
+                error.className = "failure";
+                error.innerText = "Debe completar la dirección exacta si desea agregar una residencia secundaria.";
+                alertDiv.appendChild(error);
+                setTimeout(() => alertDiv.innerHTML = "", 4000);
+            }
+        });
+    });
+</script>
