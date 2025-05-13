@@ -54,7 +54,7 @@
         HttpMethod = "POST",
         OnSuccess = "fueExitoso",
         OnFailure = "fuefallido",
-        OnBegin = ""
+        OnBegin = "validarFormulario"
     }))
     {
         <center><h2>Solicitud de teletrabajo - @Model.SolicitudTeletrabajo.IdEntidad</h2></center>
@@ -1247,6 +1247,43 @@
 
 </script>
 
+<script type="text/javascript">
+    function validarFormulario() {
+        // 1. Validación de tiempo en dependencia vs MOPT
+        var tiempoDependencia = parseInt($("input[name='SolicitudTeletrabajo.TiempoLaborarDependencia']").val());
+        var tiempoMOPT = parseInt($("input[name='SolicitudTeletrabajo.TiempoLaborarMOPT']").val());
 
+        if (tiempoDependencia > tiempoMOPT) {
+            mostrarError("El tiempo laborado en la dependencia no puede ser mayor al tiempo laborado para el MOPT.");
+            return false;
+        }
 
+        // 2. Validación de dirección secundaria si se seleccionó "Sí"
+        const radioSi = document.querySelector('input[name="secundario"][value="1"]');
+        const direccionSecundaria = document.querySelector('textarea[name="SolicitudTeletrabajo.DireccionExactaSecundaria"]');
 
+        if (radioSi && radioSi.checked && (!direccionSecundaria.value || direccionSecundaria.value.trim() === "")) {
+            mostrarError("Debe completar la dirección exacta si desea agregar una residencia secundaria.");
+            return false;
+        }
+
+        // 3. Validación del campo de razones
+        const razones = document.querySelector('textarea[name="SolicitudTeletrabajo.Razones"]');
+        if (!razones || razones.value.trim() === "") {
+            mostrarError("Debe indicar las razones objetivas sobre la pertinencia del teletrabajo para este puesto.");
+            return false;
+        }
+
+        return true; // Si todo está bien, permite enviar
+    }
+
+    function mostrarError(mensaje) {
+        const alertDiv = document.getElementById("alert");
+        alertDiv.innerHTML = "";
+        const error = document.createElement("div");
+        error.className = "failure";
+        error.innerText = mensaje;
+        alertDiv.appendChild(error);
+        setTimeout(() => alertDiv.innerHTML = "", 4000);
+    }
+</script>
