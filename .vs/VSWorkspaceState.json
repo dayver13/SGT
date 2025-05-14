@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\SIRH.Web",
+    "\\SIRH.Web\\Controllers",
     "\\SIRH.Web\\Views",
     "\\SIRH.Web\\Views\\ActualizarContrato",
+    "\\SIRH.Web\\Views\\Home",
     "\\SIRHServicesSetup",
     "\\WindowsApplication1"
   ],
-  "SelectedNode": "\\SIRH.Web\\Views\\ActualizarContrato\\Index.cshtml",
+  "SelectedNode": "\\SIRH.Web\\Controllers\\ActualizarContratoController.cs",
   "PreviewInSolutionExplorer": false
 }

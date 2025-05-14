@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/ModuloJefatura.cshtml";
+}
+
+
+<!-- Importante:    El link que dirige hacia el iframe es efímero, y sera deshabilitado
+                    una ves que concluya la entrega del proyecto. Por ello, se entregará
+                    el dashboard en un archivo .pbix (PowerBi) para su implementación final
+                    por la organización propia (MOPT).-->
+<h2>Dashboard de Teletrabajo</h2>
+<main>
+    <section class="main-content">
+        <div class="dashboard-frame" style="display: flex; justify-content: center; align-items: center; padding: 2rem;">
+            <iframe title="EntregableDashboardTeletrabajo"
+                    width="1000"
+                    height="600"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiOWQ1NGU5OWYtZDA4NC00N2NlLTkzZjctMTQwNjhmMTc2MjllIiwidCI6ImY2ZjdhNzFkLTE1ZDYtNGUwNC04ZjkzLTYwNzgyNmIzYjhmYyIsImMiOjR9"
+                    frameborder="0"
+                    allowfullscreen="true">
+            </iframe>
+        </div>
+    </section>
+</main>
+

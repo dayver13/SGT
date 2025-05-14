@@ -100,3 +100,13 @@ C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CoreCompile
 C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.Up2Date
 C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.dll
 C:\Users\WPC\Source\Repos\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.pdb
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.dll.config
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.dll
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\bin\Debug\SIRH.Datos.pdb
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\bin\Debug\SIRH.DTO.dll
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\bin\Debug\SIRH.DTO.pdb
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.csproj.Up2Date
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.dll
+C:\Users\User\Documents\GitHub\SGT\SIRH.Datos\obj\Debug\SIRH.Datos.pdb

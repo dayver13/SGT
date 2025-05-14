@@ -336,6 +336,7 @@
     <Compile Include="Controllers\ArchivoController.cs" />
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\CaucionController.cs" />
+    <Compile Include="Controllers\DashboardDeTeletrabajoController.cs" />
     <Compile Include="Controllers\DesarraigoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\CalificacionController.cs" />
@@ -3149,6 +3150,7 @@
     <Content Include="Views\ModuloJefatura\Index.cshtml" />
     <Content Include="Views\ModuloJefatura\Desempeno.cshtml" />
     <Content Include="Views\Notificacion\Index.cshtml" />
+    <Content Include="Views\DashboardDeTeletrabajo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

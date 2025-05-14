@@ -424,20 +424,7 @@ namespace SIRH.Web.Controllers
 
         public ActionResult MovimientoTeletrabajo(string periodo = null)
         {
-
-            string cedula = "0876543210";
-
-
-            var vm = new PerfilFuncionarioVM();
-
-
-            var historicoSolicitudes = ObtenerHistoricoTeletrabajo(cedula, periodo);
-
-
-            vm.solicitudes = historicoSolicitudes;
-
-
-            return View(vm);
+            return View();
         }
 
         /// <summary>
